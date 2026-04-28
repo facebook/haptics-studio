@@ -1,0 +1,386 @@
+{
+  "name": "haptics-studio",
+  "version": "2.3.0",
+  "description": "Haptics Studio",
+  "main": "./dist/main.js",
+  "scripts": {
+    "preinstall": "git submodule update --init --recursive",
+    "start:dev": "concurrently \"cross-env BROWSER=none yarn frontend:start:dev\" \"yarn main:build:dev\" \"wait-on http://localhost:8080 && yarn main:start\"",
+    "main:start": "cross-env NODE_ENV=development electron --inspect=5858 ./main/dist/main.js",
+    "main:start:dev": "yarn main:build:dev && yarn main:start",
+    "main:start:prod": "yarn main:build:prod && yarn main:start",
+    "main:lint": "eslint --max-warnings 0 -c ./main/eslint.config.js './main/src/**/*.{ts,tsx}'",
+    "main:typecheck": "tsc --project ./main/tsconfig.json --noEmit --skipLibCheck",
+    "premain:build": "rimraf ./main/dist && mkdirp main/dist",
+    "main:build": "yarn samples:generate_metadata && webpack --config main/webpack.config.electron.js --progress",
+    "main:build:mac": "yarn main:build --env platform=darwin --env arch=x64",
+    "main:build:win": "yarn main:build --env platform=win32 --env arch=x64",
+    "main:build:dev": "cross-env NODE_ENV=development yarn main:build",
+    "main:build:prod": "cross-env NODE_ENV=production yarn main:build",
+    "frontend:start:dev": "webpack serve --config frontend/webpack.config.dev.js",
+    "frontend:start:prod": "webpack serve --config frontend/webpack.config.prod.js",
+    "frontend:start:dist": "serve -s ./frontend/dist -l 8082",
+    "frontend:lint": "eslint --max-warnings 0 -c ./frontend/eslint.config.js './frontend/src/**/*.{ts,tsx}'",
+    "frontend:typecheck": "tsc --project ./frontend/tsconfig.json --noEmit --skipLibCheck",
+    "prefrontend:build": "rimraf ./frontend/dist && mkdirp frontend/dist",
+    "frontend:build": "webpack --config frontend/webpack.config.prod.js --progress",
+    "frontend:build:prod": "cross-env NODE_ENV=production yarn frontend:build",
+    "main:package": "electron-builder",
+    "main:release": "electron-builder --publish always",
+    "build": "yarn main:build && yarn frontend:build",
+    "build:mac": "yarn main:build:mac && yarn frontend:build",
+    "build:win": "yarn main:build:win && yarn frontend:build",
+    "build:prod": "cross-env NODE_ENV=production yarn build",
+    "package:mac": "yarn main:package -m --universal",
+    "package:win": "yarn main:package -w",
+    "release:mac": "yarn main:release -m",
+    "release:win": "yarn main:release -w",
+    "package": "yarn main:package -mw",
+    "release": "yarn main:release -mw",
+    "dirpackage:win": "electron-builder -w --dir --x64",
+    "dirpackage:mac": "electron-builder -m --dir --universal",
+    "postdirpackage:mac": "cross-env node ./scripts/add_app_update.js",
+    "postdirpackage:win": "cross-env node ./scripts/add_app_update.js",
+    "custompackage:mac:x64": "electron-builder -m --x64 --prepackaged ./dist/mac",
+    "custompackage:mac:arm64": "electron-builder -m --arm64 --prepackaged ./dist/mac-arm64",
+    "custompackage:mac:universal": "electron-builder -m --universal --prepackaged ./dist/mac-universal",
+    "custompackage:win:x64": "electron-builder -w --prepackaged ./dist/win-unpacked",
+    "buildAndPackage": "yarn frontend:build && yarn main:build:mac && yarn package:mac && yarn main:build:win && yarn package:win",
+    "buildAndRelease": "yarn frontend:build && yarn main:build:mac && yarn release:mac && yarn main:build:win && yarn release:win",
+    "buildAndPackage:mac": "yarn build:mac && yarn package:mac",
+    "buildAndPackage:win": "yarn build:win && yarn package:win",
+    "postinstall": "electron-builder install-app-deps && yarn generate-license && yarn native:build",
+    "test:main": "cross-env NODE_ENV=test yarn samples:generate_metadata && jest -c ./main/jest.config.js --runInBand --detectOpenHandles --watch",
+    "test:nocov:main": "cross-env NODE_ENV=test yarn samples:generate_metadata && jest -c ./main/jest.config.js --runInBand --detectOpenHandles --watch --collectCoverage=false",
+    "test:frontend": "cross-env NODE_ENV=test jest -c ./frontend/jest.config.js --watchAll",
+    "test:nocov:frontend": "cross-env NODE_ENV=test jest -c ./frontend/jest.config.js --watchAll --collectCoverage=false",
+    "test:e2e:prepare:mac": "cross-env NODE_ENV=test yarn build:mac && yarn dirpackage:mac",
+    "test:e2e:prepare:win": "cross-env NODE_ENV=test yarn build:win && yarn dirpackage:win",
+    "pretest:all": "yarn samples:generate_metadata",
+    "pretest:e2e": "cp ./main/configs/configs.test.json.example ./main/configs/configs.test.json",
+    "test:e2e": "cross-env NODE_ENV=test playwright test",
+    "test:all": "cross-env NODE_ENV=test jest -c ./main/jest.config.js --runInBand --forceExit && jest -c ./frontend/jest.config.js --forceExit",
+    "releasenotes:update": "cross-env node ./scripts/update_release_notes.js",
+    "generate-license": "cross-env node node_modules/electron-license/bin/electron-license.js third-party-notices --markdown > licenses.md && cross-env node ./scripts/generate_license.js",
+    "samples:generate_metadata": "cross-env node ./scripts/generate_samples_metadata.js",
+    "native:update": "node ./scripts/build_native.js --force",
+    "native:build": "node ./scripts/build_native.js"
+  },
+  "napi": {
+    "binaryName": "HapticsSDK",
+    "targets": [
+      "x86_64-apple-darwin",
+      "aarch64-apple-darwin",
+      "universal-apple-darwin",
+      "x86_64-pc-windows-msvc"
+    ]
+  },
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "license": "SEE LICENSE IN LICENSE",
+  "private": true,
+  "author": {
+    "name": "Meta Platforms, Inc.",
+    "url": "https://meta.com"
+  },
+  "build": {
+    "appId": "com.meta.HapticsStudio",
+    "artifactName": "${name}-${os}-${arch}.${ext}",
+    "asar": true,
+    "asarUnpack": "**\\*.node",
+    "productName": "Haptics Studio",
+    "copyright": "Copyright © 2026 ${author}",
+    "generateUpdatesFilesForAllChannels": false,
+    "mac": {
+      "category": "public.app-category.developer-tools",
+      "icon": "./main/assets/icons/AppIcon-mac.icns",
+      "hardenedRuntime": true,
+      "gatekeeperAssess": false,
+      "mergeASARs": true,
+      "x64ArchFiles": "**/Contents/Resources/bin/**",
+      "target": [
+        {
+          "target": "default",
+          "arch": "universal"
+        }
+      ]
+    },
+    "dmg": {
+      "icon": "./main/assets/icons/AppIcon-mac.icns",
+      "iconSize": 80,
+      "iconTextSize": 12,
+      "background": "./build/background.png",
+      "window": {
+        "height": 405,
+        "width": 540,
+        "x": 100,
+        "y": 100
+      },
+      "contents": [
+        {
+          "x": 140,
+          "y": 220
+        },
+        {
+          "x": 400,
+          "y": 220,
+          "type": "link",
+          "path": "/Applications"
+        }
+      ]
+    },
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "./main/assets/icons/AppIcon-win.ico"
+    },
+    "files": [
+      "!**/*",
+      "package.json",
+      {
+        "from": "main/dist",
+        "to": "./dist",
+        "filter": [
+          "**/*"
+        ]
+      },
+      {
+        "from": "frontend/dist",
+        "to": "./public",
+        "filter": [
+          "**/*"
+        ]
+      }
+    ],
+    "extraResources": [
+      {
+        "from": "main/samples",
+        "to": "./samples",
+        "filter": [
+          "**/*"
+        ]
+      },
+      {
+        "from": "main/actuators",
+        "to": "./actuators",
+        "filter": [
+          "**/*"
+        ]
+      },
+      {
+        "from": "main/renderers",
+        "to": "./renderers",
+        "filter": [
+          "**/*"
+        ]
+      },
+      {
+        "from": "bin",
+        "to": "./bin",
+        "filter": [
+          "**/*"
+        ]
+      },
+      {
+        "from": "main/dist/ffmpeg-core",
+        "to": "./ffmpeg-core",
+        "filter": [
+          "**/*"
+        ]
+      }
+    ],
+    "directories": {
+      "buildResources": "assets"
+    },
+    "fileAssociations": [
+      {
+        "ext": [
+          "hasp",
+          "lofelt"
+        ],
+        "name": "Haptics Studio Project File",
+        "role": "Editor",
+        "icon": "./main/assets/icons/ProjectIcon.icns"
+      },
+      {
+        "ext": [
+          "haptic"
+        ],
+        "name": "Haptic File",
+        "role": "Editor",
+        "icon": "./main/assets/icons/HapticIcon.icns"
+      }
+    ],
+    "nsis": {
+      "perMachine": true,
+      "oneClick": false,
+      "uninstallDisplayName": "${productName}",
+      "deleteAppDataOnUninstall": true
+    },
+    "protocols": {
+      "name": "haptic-studio-protocol",
+      "schemes": [
+        "haptic-studio"
+      ]
+    }
+  },
+  "devDependencies": {
+    "@napi-rs/cli": "^3.6.0",
+    "@babel/core": "7.28.4",
+    "@babel/preset-env": "7.28.3",
+    "@babel/preset-react": "7.27.1",
+    "@hot-loader/react-dom": "16.13.0",
+    "@playwright/test": "1.34.3",
+    "@testing-library/jest-dom": "5.15.0",
+    "@testing-library/react": "10.2.1",
+    "@testing-library/react-hooks": "3.3.0",
+    "@testing-library/user-event": "^14.5.2",
+    "@types/adm-zip": "0.5.1",
+    "@types/array-move": "2.0.0",
+    "@types/express": "5.0.6",
+    "@types/faker": "5.5.9",
+    "@types/form-data": "2.5.0",
+    "@types/lodash": "4.14.176",
+    "@types/luxon": "3.3.0",
+    "@types/mime": "3.0.4",
+    "@types/mock-fs": "4.13.1",
+    "@types/node": "24.7.2",
+    "@types/node-polyglot": "0.4.34",
+    "@types/os-name": "3.1.0",
+    "@types/qrcode.react": "1.0.1",
+    "@types/react": "17.0.27",
+    "@types/react-dom": "17.0.9",
+    "@types/react-redux": "7.1.25",
+    "@types/react-select": "4.0.15",
+    "@types/react-slider": "1.0.0",
+    "@types/react-transition-group": "4.4.0",
+    "@types/rimraf": "3.0.2",
+    "@types/semver": "7.3.9",
+    "@types/showdown": "2.0.6",
+    "@types/url-join": "4.0.1",
+    "@types/webpack-env": "1.16.3",
+    "@typescript-eslint/eslint-plugin": "8.46.0",
+    "@typescript-eslint/parser": "8.46.0",
+    "@zeit/webpack-asset-relocator-loader": "0.7.2",
+    "autoprefixer": "10.4.0",
+    "axios-mock-adapter": "1.20.0",
+    "babel-loader": "8.2.3",
+    "babel-preset-minify": "0.5.1",
+    "concurrently": "5.2.0",
+    "copy-webpack-plugin": "9.1.0",
+    "cross-env": "7.0.3",
+    "cross-spawn": "7.0.3",
+    "css-loader": "6.5.1",
+    "dotenv": "10.0.0",
+    "electron": "41.3.0",
+    "electron-builder": "24.4.0",
+    "electron-devtools-installer": "4.0.0",
+    "electron-license": "3.0.0",
+    "electron-mock-ipc": "0.3.11",
+    "electron-playwright-helpers": "1.5.4",
+    "eslint": "8.57.1",
+    "eslint-config-prettier": "9.1.0",
+    "eslint-plugin-import": "2.32.0",
+    "eslint-plugin-react": "7.37.5",
+    "eslint-webpack-plugin": "5.0.2",
+    "express": "5.2.1",
+    "faker": "5.5.3",
+    "fast-sass-loader": "2.0.0",
+    "file-loader": "6.2.0",
+    "from": "0.1.7",
+    "fs-extra": "11.1.1",
+    "html-webpack-plugin": "5.5.0",
+    "import": "0.0.6",
+    "jest": "30.1.3",
+    "jest-canvas-mock": "2.5.0",
+    "jest-environment-jsdom": "30.0.5",
+    "jest-matcher-deep-close-to": "3.0.2",
+    "mini-css-extract-plugin": "2.4.4",
+    "minimist": "1.2.6",
+    "mkdirp": "1.0.4",
+    "mock-fs": "5.2.0",
+    "node-loader": "2.0.0",
+    "postcss": "8.5.12",
+    "postcss-import": "14.0.2",
+    "postcss-loader": "6.2.0",
+    "react-dnd-test-backend": "16.0.1",
+    "react-dnd-test-utils": "16.0.1",
+    "react-hot-loader": "4.12.21",
+    "react-test-renderer": "17.0.2",
+    "rimraf": "3.0.2",
+    "sass": "1.43.4",
+    "serve": "14.2.6",
+    "source-map-loader": "3.0.0",
+    "string-replace-loader": "3.1.0",
+    "style-loader": "3.3.1",
+    "ts-jest": "29.4.9",
+    "ts-loader": "9.5.2",
+    "typescript": "4.9.3",
+    "url-loader": "4.1.1",
+    "wait-on": "5.3.0",
+    "webpack": "5.76.0",
+    "webpack-cli": "5.1.4",
+    "webpack-dev-server": "5.2.3",
+    "yaml": "2.2.1"
+  },
+  "dependencies": {
+    "@electron/remote": "2.1.2",
+    "@ffmpeg/core": "0.11.0",
+    "@ffmpeg/ffmpeg": "0.11.5",
+    "@minoru/react-dnd-treeview": "3.4.4",
+    "@react-spring/web": "^9.7.3",
+    "@reduxjs/toolkit": "^1.9.5",
+    "adm-zip": "0.5.10",
+    "array-move": "3.0.0",
+    "axios": "0.31.0",
+    "datauri": "4.1.0",
+    "dompurify": "^3.2.6",
+    "electron-clipboard-watcher": "1.0.1",
+    "electron-updater": "5.0.3",
+    "electron-window-state": "5.0.3",
+    "form-data": "4.0.5",
+    "json5": "2.2.2",
+    "jss-preset-default": "10.8.2",
+    "konva": "9.3.14",
+    "lodash": "4.18.1",
+    "luxon": "3.3.0",
+    "mime": "3.0.0",
+    "music-metadata": "7.11.4",
+    "node-polyglot": "2.4.0",
+    "os-name": "4.0.0",
+    "react": "17.0.2",
+    "react-circular-progressbar": "^2.1.0",
+    "react-dnd": "16.0.1",
+    "react-dnd-html5-backend": "16.0.1",
+    "react-dom": "17.0.2",
+    "react-dropzone": "14.2.3",
+    "react-jss": "10.8.2",
+    "react-konva": "17.0.2-5",
+    "react-konva-utils": "0.2.0",
+    "react-redux": "8.1.1",
+    "react-select": "4.3.1",
+    "react-slider": "1.0.7",
+    "react-transition-group": "4.4.1",
+    "redux": "4.1.0",
+    "semver": "7.3.5",
+    "showdown": "2.1.0",
+    "socket.io": "4.6.1",
+    "socket.io-client": "4.6.1",
+    "url-join": "4.0.1",
+    "uuid": "14.0.0",
+    "winston": "3.3.3"
+  },
+  "resolutions": {
+    "@types/react": "17.0.2",
+    "@types/react-dom": "17.0.2",
+    "socks": "^2.8.3",
+    "**/electron-builder/app-builder-lib/**/tar": "7.5.3"
+  }
+}

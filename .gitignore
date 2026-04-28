@@ -1,0 +1,49 @@
+# Dependency directory
+# https://www.npmjs.org/doc/misc/npm-faq.html#should-i-check-my-node_modules-folder-into-git
+node_modules
+
+# IDEA/Webstorm project files
+.idea
+*.iml
+
+#VSCode metadata
+.vscode/*
+!.vscode/launch.json
+!.vscode/tasks.json
+!.vscode/extensions.json
+!.vscode/settings.json
+
+# Mac files
+.DS_Store
+
+# Other
+.nvmrc
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# build
+dist
+
+# Apple credentials
+*.env
+.env
+
+assets/release-notes.md
+
+cache
+main/samples/*/*.haptic
+scripts/merged_project/**
+
+e2e/out/**
+test-results/**
+scripts/tmp
+
+licenses.md
+main/assets/licenses.html
+
+main/flags.json
+native/bin
+
+main/src/types/haptics_sdk_types.ts

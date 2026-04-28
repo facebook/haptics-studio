@@ -1,0 +1,355 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`<ConnectedDevices /> when a device is connected via network should render the Quest 3 image 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="deviceView-0-3-1 scrollbar"
+      >
+        <div
+          style="display: flex; flex-direction: column; align-items: center;"
+        >
+          <div
+            class="deviceStatusContainer-0-3-2 multiple"
+          >
+            <img
+              src="devices.svg"
+              style="width: 50px; height: 50px; object-fit: contain; margin-right: 16px; margin-left: 0px;"
+            />
+            <div
+              style="display: flex; flex-direction: column; flex: 1 1 0%;"
+            >
+              <h4
+                style="margin: 0px; display: flex; align-items: center; gap: 8px;"
+              >
+                Quest 3
+              </h4>
+              <span
+                class="success-0-3-3"
+                style="justify-content: flex-start;"
+              >
+                <span
+                  class="active"
+                />
+                 
+                Connected and Active
+              </span>
+            </div>
+            <button
+              class="hsbutton secondary icon"
+              style="flex-shrink: 0; margin: 8px; font-size: 12px;"
+              type="button"
+            >
+              <img
+                src="disconnect.svg"
+                style="height: 20px;"
+              />
+              Disconnect
+            </button>
+          </div>
+        </div>
+        <button
+          class="hsbutton secondary icon"
+          style="align-self: center; width: min-content; white-space: nowrap; margin-top: 8px;"
+          type="button"
+        >
+          <img
+            src="plus-icon.svg"
+            style="height: 24px; width: 24px;"
+          />
+          Add new device
+        </button>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="deviceView-0-3-1 scrollbar"
+    >
+      <div
+        style="display: flex; flex-direction: column; align-items: center;"
+      >
+        <div
+          class="deviceStatusContainer-0-3-2 multiple"
+        >
+          <img
+            src="devices.svg"
+            style="width: 50px; height: 50px; object-fit: contain; margin-right: 16px; margin-left: 0px;"
+          />
+          <div
+            style="display: flex; flex-direction: column; flex: 1 1 0%;"
+          >
+            <h4
+              style="margin: 0px; display: flex; align-items: center; gap: 8px;"
+            >
+              Quest 3
+            </h4>
+            <span
+              class="success-0-3-3"
+              style="justify-content: flex-start;"
+            >
+              <span
+                class="active"
+              />
+               
+              Connected and Active
+            </span>
+          </div>
+          <button
+            class="hsbutton secondary icon"
+            style="flex-shrink: 0; margin: 8px; font-size: 12px;"
+            type="button"
+          >
+            <img
+              src="disconnect.svg"
+              style="height: 20px;"
+            />
+            Disconnect
+          </button>
+        </div>
+      </div>
+      <button
+        class="hsbutton secondary icon"
+        style="align-self: center; width: min-content; white-space: nowrap; margin-top: 8px;"
+        type="button"
+      >
+        <img
+          src="plus-icon.svg"
+          style="height: 24px; width: 24px;"
+        />
+        Add new device
+      </button>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`<ConnectedDevices /> when a device is connected via network should render the Quest 3S image 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="deviceView-0-3-1 scrollbar"
+      >
+        <div
+          style="display: flex; flex-direction: column; align-items: center;"
+        >
+          <div
+            class="deviceStatusContainer-0-3-2 multiple"
+          >
+            <img
+              src="devices.svg"
+              style="width: 50px; height: 50px; object-fit: contain; margin-right: 16px; margin-left: 0px;"
+            />
+            <div
+              style="display: flex; flex-direction: column; flex: 1 1 0%;"
+            >
+              <h4
+                style="margin: 0px; display: flex; align-items: center; gap: 8px;"
+              >
+                Quest 3S
+              </h4>
+              <span
+                class="success-0-3-3"
+                style="justify-content: flex-start;"
+              >
+                <span
+                  class="active"
+                />
+                 
+                Connected and Active
+              </span>
+            </div>
+            <button
+              class="hsbutton secondary icon"
+              style="flex-shrink: 0; margin: 8px; font-size: 12px;"
+              type="button"
+            >
+              <img
+                src="disconnect.svg"
+                style="height: 20px;"
+              />
+              Disconnect
+            </button>
+          </div>
+        </div>
+        <button
+          class="hsbutton secondary icon"
+          style="align-self: center; width: min-content; white-space: nowrap; margin-top: 8px;"
+          type="button"
+        >
+          <img
+            src="plus-icon.svg"
+            style="height: 24px; width: 24px;"
+          />
+          Add new device
+        </button>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="deviceView-0-3-1 scrollbar"
+    >
+      <div
+        style="display: flex; flex-direction: column; align-items: center;"
+      >
+        <div
+          class="deviceStatusContainer-0-3-2 multiple"
+        >
+          <img
+            src="devices.svg"
+            style="width: 50px; height: 50px; object-fit: contain; margin-right: 16px; margin-left: 0px;"
+          />
+          <div
+            style="display: flex; flex-direction: column; flex: 1 1 0%;"
+          >
+            <h4
+              style="margin: 0px; display: flex; align-items: center; gap: 8px;"
+            >
+              Quest 3S
+            </h4>
+            <span
+              class="success-0-3-3"
+              style="justify-content: flex-start;"
+            >
+              <span
+                class="active"
+              />
+               
+              Connected and Active
+            </span>
+          </div>
+          <button
+            class="hsbutton secondary icon"
+            style="flex-shrink: 0; margin: 8px; font-size: 12px;"
+            type="button"
+          >
+            <img
+              src="disconnect.svg"
+              style="height: 20px;"
+            />
+            Disconnect
+          </button>
+        </div>
+      </div>
+      <button
+        class="hsbutton secondary icon"
+        style="align-self: center; width: min-content; white-space: nowrap; margin-top: 8px;"
+        type="button"
+      >
+        <img
+          src="plus-icon.svg"
+          style="height: 24px; width: 24px;"
+        />
+        Add new device
+      </button>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

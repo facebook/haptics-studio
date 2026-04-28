@@ -1,0 +1,3 @@
+[submodule "third-party/haptics-sdk"]
+	path = third-party/haptics-sdk
+	url = https://github.com/facebook/meta-haptics-sdk

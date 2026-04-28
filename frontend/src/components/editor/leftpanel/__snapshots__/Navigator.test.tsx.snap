@@ -1,0 +1,150 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`<Navigator /> renders the main component 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="container-0-3-1"
+      >
+        <div
+          class="navigatorHeader-0-3-2"
+        >
+          <span />
+          <button
+            class="hsbutton icon secondary borderless"
+            type="button"
+          >
+            <img
+              src="icon-add-circle.svg"
+            />
+            
+          </button>
+        </div>
+        <div
+          class="scrollbar clips-0-3-3  drag-over-accept"
+          data-testid="navigator"
+        >
+          <div
+            class="treeRoot-0-3-14"
+            role="list"
+          />
+        </div>
+        <div
+          class="footer-0-3-23"
+        >
+          <button
+            class="hsbutton secondary icon borderless dark"
+            data-testid="header-bugreport-button"
+            type="button"
+          >
+            <img
+              alt="Report a bug"
+              src="bug.svg"
+              style="width: 16px; height: 16px;"
+            />
+            Bug Report
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="container-0-3-1"
+    >
+      <div
+        class="navigatorHeader-0-3-2"
+      >
+        <span />
+        <button
+          class="hsbutton icon secondary borderless"
+          type="button"
+        >
+          <img
+            src="icon-add-circle.svg"
+          />
+          
+        </button>
+      </div>
+      <div
+        class="scrollbar clips-0-3-3  drag-over-accept"
+        data-testid="navigator"
+      >
+        <div
+          class="treeRoot-0-3-14"
+          role="list"
+        />
+      </div>
+      <div
+        class="footer-0-3-23"
+      >
+        <button
+          class="hsbutton secondary icon borderless dark"
+          data-testid="header-bugreport-button"
+          type="button"
+        >
+          <img
+            alt="Report a bug"
+            src="bug.svg"
+            style="width: 16px; height: 16px;"
+          />
+          Bug Report
+        </button>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

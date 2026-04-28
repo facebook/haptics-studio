@@ -1,0 +1,199 @@
+{
+  "global": {
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "next": "Next",
+    "previous": "Previous",
+    "close": "Close",
+    "app-name": "Haptics Studio",
+    "full-app-name": "Haptics Studio",
+    "action-done": "Done",
+    "amplitude": "Amplitude",
+    "frequency": "Frequency",
+    "emphasis": "Emphasis",
+    "intensity": "Intensity",
+    "sharpness": "Sharpness",
+    "multiple": "Multiple",
+    "time": "Time",
+    "terms-and-conditions": {
+      "title": "Terms and Conditions",
+      "content-before-link": "By clicking \"I accept\" below, you agree that your use of this Haptics Studio and any companion VR application is subject to the Meta Platform Technologies ",
+      "content-link": "SDK License",
+      "content-after-link": ".",
+      "action-agree": "I Accept",
+      "action-reject": "Reject"
+    },
+    "disconnect": "Disconnect"
+  },
+  "bugreport": {
+    "title": "Report a Bug",
+    "subtitle": "For support or feedback, please reach out using the <a href='https://github.com/facebook/haptics-studio/issues'>GitHub issues pages</a>. Feel free to attach logs and screenshot, but please only include information you are comfortable sharing with us.",
+    "template-subtitle": "To help us better understand your situation, please use this template to describe your request.",
+    "template-body": "Version:\nHaptics Studio v%{version} (%{platform})\n\nCurrent situation:\nDescribe the problem you're facing.\n\nExpected behavior:\nInsert a description of what you would expect.",
+    "copied": "Copied!"
+  },
+  "updater": {
+    "title": "New Version Available!",
+    "release-notes-title": "Release Notes",
+    "update-available": "Haptics Studio v%{version} includes improvements and bug fixes.",
+    "action-learn-more": "Learn more",
+    "update-progress": "Downloading · %{progress}%",
+    "update-downloaded": "Download completed!",
+    "action-download": "Download",
+    "action-install": "Restart",
+    "generic-error": "Error during update..."
+  },
+  "home": {
+    "getting-started-title": "Get Started",
+    "start-banner-tag": "LEARN",
+    "start-banner-title": "New to Haptics? Start here",
+    "start-banner-subtitle": "Explore our Learning Section for interactive tutorials, design guidelines, and developer documentation to get started with designing Haptics",
+    "start-new-project-title": "New project",
+    "open-project-title": "Open Recent",
+    "clips-count": "%{smart_count} clip |||| %{smart_count} clips",
+    "project-edited": "Edited %{relative}",
+    "project-edited-less-than-one-minute-ago": "less than a minute ago",
+    "tutorials-section-title": "In-App Tutorials",
+    "resources-section-title": "Learning Resources",
+    "samples-section-title": "Sample Projects",
+    "sample-new": "New",
+    "sections": {
+      "projects": "Projects",
+      "learning": "Learning",
+      "samples": "Sample Projects"
+    },
+    "bug-report": "Bug Report",
+    "no-recent-projects": "Nothing here yet"
+  },
+  "projects": {
+    "action-add-clip": "Add clip",
+    "empty-navigator-title": "Add a new clip",
+    "empty-navigator-subtitle": "Drag and drop a single audio file or a folder of assets to start",
+    "cta-select-clip": "Select a clip or add a new file"
+  },
+  "editor": {
+    "guidance": {
+      "title": "What would you like to do?",
+      "audio-title": "Design From Audio",
+      "audio-text": "For complex designs where audio defines intricate haptic feedback. Start by adding Audio files.",
+      "pen-title": "Design Freeform Haptics",
+      "pen-text": "For less complex designs such as UI interactions or if there is no audio. Start drawing your haptics."
+    },
+    "visibility-toggle-audio": "Source Audio",
+    "visibility-toggle-amplitude": "Amplitude",
+    "visibility-toggle-frequency": "Frequency",
+    "batch-analyzer-title": "Performing Batch Analysis",
+    "analysis-confirm": "Run analysis",
+    "analysis-confirm-body": "This will overwrite your current changes.<br/>Do you want to proceed?",
+    "analysis-confirm-button": "Overwrite",
+    "analysis-multiple": "Batch analysis",
+    "analysis-multiple-body": "This will overwrite your current changes in all the selected clips.<br/>Do you want to proceed?",
+    "analysis-multiple-button": "Overwrite All",
+    "remove-clip": "Remove clip",
+    "remove-clips": "Remove clips",
+    "remove-clip-body": "Do you want to remove this clip from the project?",
+    "remove-clips-body": "Do you want to remove these clips from the project?",
+    "missing-file-button": "Relocate Missing File",
+    "group": "Group",
+    "ungroup": "Ungroup",
+    "delete": "Remove",
+    "remove-confirm-button": "Confirm",
+    "duplicate": "Duplicate",
+    "tool-tabs": {
+      "analysis": "Analysis",
+      "design": "Design",
+      "markers": "Markers",
+      "tutorial-editor": "Tutorial"
+    },
+    "new-clip-audio": "New Clip: Audio",
+    "new-clip-draw": "New Clip: Draw",
+    "extension-guidance": "Default envelope to match clip duration",
+    "tool-tooltip": {
+      "envelope": "Switch Envelope",
+      "cursor": "Selection",
+      "pen": "Pen",
+      "emphasis": "Emphasis",
+      "trim": "Trim",
+      "markers": "Markers"
+    },
+    "clip-duration": "Clip duration",
+    "audio-file": "Audio file",
+    "no-audio-file": "No audio file",
+    "locate-file": "Locate File",
+    "add-audio": "Add Audio",
+    "position": "Position",
+    "breakpoints": "Breakpoint |||| Breakpoints",
+    "new-duration": "New Clip Duration",
+    "revert": "Revert",
+    "new-trim": "Trim Clip",
+    "play-audio": "Play Audio",
+    "stop-audio": "Stop Audio",
+    "play-audio-shortcut": "Space",
+    "play-audio-aiff": "AIFF preview not supported",
+    "paste-emphasis-skipped": "Emphasis points with amplitude values below the destination envelope were omitted"
+  },
+  "export": {
+    "title": "Export",
+    "format-selection": "Select the right format to integrate in your project.",
+    "package-hint": "Your project will be packaged including only the selected clips and the chosen formats above, ready to be shared.",
+    "export-and-package": "Export and Package",
+    "success": "Export completed",
+    "view-file": "View file |||| View files",
+    "save-clips": "Export %{smart_count} Clip |||| Export %{smart_count} Clips",
+    "format-title-haptic": "For Game Engine & Audio Middleware Integration",
+    "format-title-ahap": "For iOS Integration",
+    "format-title-wav": "For PCM & .wav Playback Integration",
+    "format-title-android": "For Android Integration",
+    "format-hint-haptic": "<p>Export your haptic clips as a .haptic file for seamless integration with Haptics SDK (<a href='https://developers.meta.com/horizon/documentation/unity/unity-haptics-sdk/'>Unity</a> | <a href='https://developers.meta.com/horizon/documentation/unreal/unreal-haptics-sdk'>Unreal</a>) or <a href='https://fmod.com/docs/2.03/studio/instrument-reference.html#haptics-instrument'>FMOD</a> (<a href='https://fmod.com/docs/2.03/unity/plugins.html#fmod-haptics-setup'>Unity</a> | <a href='https://fmod.com/docs/2.03/unreal/plugins.html#fmod-haptics-setup'>Unreal</a>).</p>",
+    "format-hint-ahap": "<p>Export your haptic clips as .ahap files, for native integration on Apple devices using Core Haptics.<br />To ensure that your haptic files are optimized for playback on Apple devices, your clip will be exported as two files:<br /><span class='category'>TRANSIENTS.AHAP</span> and <span class='category'>CONTINUOUS.AHAP</span>.</p><p>For more information on how to <a href='https://developer.apple.com/documentation/corehaptics/chhapticengine/playpattern(from:)-6m9m5'>play</a> these files on Apple devices, please refer to the <a href='https://developer.apple.com/documentation/corehaptics'>Apple Developer Documentation</a>.</p>",
+    "format-hint-wav": "Export your haptic clip as a .wav file for platforms that support direct PCM or .wav playback APIs.",
+    "format-hint-android": "Export your haptic clip as a JSON file for manual integration, or copy a code snippet with the <a href='https://developer.android.com/develop/ui/views/haptics/haptics-apis'>Vibrator API implementation</a>.",
+    "copy-to-clipboard": "Copy to Clipboard",
+    "options-more": "More Options",
+    "options-flat": "Export flat (no folders)",
+    "options-package": "Package",
+    "options-package-project": "Package Project"
+  },
+  "tutorial": {
+    "title": "Tutorial",
+    "action-previous": "Back",
+    "action-next": "Next",
+    "action-complete": "Complete",
+    "settings": "Tutorial Settings",
+    "categories": {
+      "beginner": "Beginner",
+      "intermediate": "Intermediate",
+      "advanced": "Advanced"
+    }
+  },
+  "telemetry": {
+    "title": "Data preferences",
+    "essentials-only": "Only share essential data",
+    "additional-data": "Share additional data"
+  },
+  "markers": {
+    "empty-title": "Add your first marker",
+    "instructions": "Select the Marker tool ",
+    "instructions-hint": "from the Tool Bar to create a new marker."
+  },
+  "error": {
+    "dataValidationFailed": "Something went wrong, the haptic pattern seems corrupted, please try again."
+  },
+  "devices": {
+    "title": "Devices",
+    "onboarding-title": "Add new device",
+    "add-new-device": "Add new device",
+    "status": {
+      "disconnected": "Not Connected"
+    },
+    "unknown-device": "Unknown Device",
+    "devices-count": "%{smart_count} Device |||| %{smart_count} Devices",
+    "wired-device": "Wired Device |||| Wired Devices",
+    "device-connected": "Connected and Active",
+    "action-open-store": "Install App",
+    "action-connect-new-device": "Connect a new device",
+    "cta-pair-new-device": "Install the Haptics Studio VR Application or a compatible companion app on your device to connect.",
+    "headset-empty-name": "Headset Found",
+    "auth-code-requested": "To establish a connection between Desktop and VR App please input the following code when prompted:"
+  }
+}

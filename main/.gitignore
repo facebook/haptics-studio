@@ -1,0 +1,23 @@
+# dist folder
+dist
+
+# logs folder
+logs
+
+# tmp contents
+tmp/*
+
+# test tmp contents
+test/tmp/*
+!test/tmp/.index
+
+# configs
+configs/configs.*.json
+configs/window-state*.json
+
+# coverage files
+test/coverage/*
+!test/coverage/.index
+
+# samples metadata
+samples/metadata.json
