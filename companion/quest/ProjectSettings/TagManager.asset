@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 3
+  tags:
+  - QDSUITextInputField
+  - QDSUITextSecondaryColor
+  - QDSUISection
+  - QDSUIIcon
+  - QDSUIPrimaryButton
+  - QDSUISecondaryButton
+  - QDSUISharedThemeColor
+  - QDSUIBorderlessButton
+  - QDSUIAccentColor
+  - QDSUIToggleSwitch
+  - QDSUITooltip
+  - QDSUIDestructiveButton
+  - QDSUIToggleBorderlessButton
+  - QDSUIToggleButton
+  - QDSUIToggleCheckboxRadio
+  - QDSUITextInvertedColor
+  - QDSUIBackplateGradient
+  - QDSUITextSecondaryInvertedColor
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - Overlay UI
+  - Water
+  - UI
+  - Drag UI
+  - Controllers
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - OVROverlayCanvas Rendering
+  - OVROverlayCanvas Rendering
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  m_RenderingLayers:
+  - Default

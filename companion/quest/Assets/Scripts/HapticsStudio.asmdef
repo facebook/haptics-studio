@@ -1,0 +1,21 @@
+{
+    "name": "HapticsStudio",
+    "rootNamespace": "",
+    "references": [
+        "Unity.TextMeshPro",
+        "Oculus.Haptics",
+        "Oculus.VR",
+        "Oculus.Interaction.Samples",
+        "Oculus.Interaction",
+        "SocketIOUnityAssembly"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
