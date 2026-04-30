@@ -1,0 +1,300 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`<TutorialSettings /> renders the main component 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="background-0-3-1"
+      >
+        <div
+          class="dialog-0-3-2"
+        >
+          <div
+            class="header-0-3-3"
+          >
+            <h5
+              class="title-0-3-4"
+            >
+              Tutorial Settings
+            </h5>
+            <button
+              aria-label="Close Settings"
+              class="button-0-3-9"
+              data-testid="close-button"
+              type="button"
+            >
+              <img
+                alt=""
+                src="icon-close.svg"
+              />
+            </button>
+          </div>
+          <div
+            class="body-0-3-5"
+          >
+            <div
+              class="info-0-3-8"
+            >
+              <span
+                class="label-0-3-7"
+              >
+                Description:
+              </span>
+              <input
+                data-testid="description-input"
+                type="text"
+                value="tutorial description"
+              />
+            </div>
+            <div
+              class="info-0-3-8"
+            >
+              <span
+                class="label-0-3-7"
+              >
+                Category:
+              </span>
+              <select
+                data-testid="react-select-mock"
+              >
+                <option
+                  value="beginner"
+                >
+                  Beginner
+                </option>
+                <option
+                  value="intermediate"
+                >
+                  Intermediate
+                </option>
+                <option
+                  value="advanced"
+                >
+                  Advanced
+                </option>
+              </select>
+            </div>
+            <div
+              class="info-0-3-8"
+            >
+              <span
+                class="label-0-3-7"
+              >
+                Slug:
+              </span>
+              <input
+                data-testid="slug-input"
+                type="text"
+                value="test-project"
+              />
+            </div>
+            <div
+              class="info-0-3-8"
+            >
+              <span
+                class="label-0-3-7"
+              >
+                Version:
+              </span>
+              <input
+                data-testid="version-input"
+                type="text"
+                value="1.0"
+              />
+            </div>
+          </div>
+          <div
+            class="actions-0-3-6"
+          >
+            <button
+              class="hsbutton borderless"
+              type="button"
+            >
+              Cancel
+            </button>
+            <button
+              class="hsbutton"
+              type="button"
+            >
+              Save
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="background-0-3-1"
+    >
+      <div
+        class="dialog-0-3-2"
+      >
+        <div
+          class="header-0-3-3"
+        >
+          <h5
+            class="title-0-3-4"
+          >
+            Tutorial Settings
+          </h5>
+          <button
+            aria-label="Close Settings"
+            class="button-0-3-9"
+            data-testid="close-button"
+            type="button"
+          >
+            <img
+              alt=""
+              src="icon-close.svg"
+            />
+          </button>
+        </div>
+        <div
+          class="body-0-3-5"
+        >
+          <div
+            class="info-0-3-8"
+          >
+            <span
+              class="label-0-3-7"
+            >
+              Description:
+            </span>
+            <input
+              data-testid="description-input"
+              type="text"
+              value="tutorial description"
+            />
+          </div>
+          <div
+            class="info-0-3-8"
+          >
+            <span
+              class="label-0-3-7"
+            >
+              Category:
+            </span>
+            <select
+              data-testid="react-select-mock"
+            >
+              <option
+                value="beginner"
+              >
+                Beginner
+              </option>
+              <option
+                value="intermediate"
+              >
+                Intermediate
+              </option>
+              <option
+                value="advanced"
+              >
+                Advanced
+              </option>
+            </select>
+          </div>
+          <div
+            class="info-0-3-8"
+          >
+            <span
+              class="label-0-3-7"
+            >
+              Slug:
+            </span>
+            <input
+              data-testid="slug-input"
+              type="text"
+              value="test-project"
+            />
+          </div>
+          <div
+            class="info-0-3-8"
+          >
+            <span
+              class="label-0-3-7"
+            >
+              Version:
+            </span>
+            <input
+              data-testid="version-input"
+              type="text"
+              value="1.0"
+            />
+          </div>
+        </div>
+        <div
+          class="actions-0-3-6"
+        >
+          <button
+            class="hsbutton borderless"
+            type="button"
+          >
+            Cancel
+          </button>
+          <button
+            class="hsbutton"
+            type="button"
+          >
+            Save
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

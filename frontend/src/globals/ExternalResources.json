@@ -1,0 +1,37 @@
+[
+  {
+    "category": "RESOURCE",
+    "title": "Documentation",
+    "description": "Browse the developer documentation for usage guidance, sample code, example projects and troubleshooting.",
+    "image": "documentation-image.png",
+    "url": "https://developers.meta.com/horizon/resources/haptics-studio/"
+  },
+  {
+    "category": "RESOURCE",
+    "title": "Haptic Design Guidelines",
+    "description": "Guidance, best practices and structured processes that can help you design delightful haptic experiences.",
+    "image": "haptic-guidelines-image.png",
+    "url": "https://developers.meta.com/horizon/resources/haptics-design-guidelines/"
+  },
+  {
+    "category": "VIDEO TUTORIAL",
+    "title": "Haptics Studio: The Basics",
+    "description": "Learn about the Haptic Design Process from Set up to Exporting your first haptics in our Video tutorial.",
+    "image": "video-tutorial-the-basics.png",
+    "url": "https://www.youtube.com/watch?v=wsJRVtlWFOc"
+  },
+  {
+    "category": "VIDEO TUTORIAL",
+    "title": "Haptics Studio: Workflow and Design",
+    "description": "Unlock the full potential of haptic design with expert insights and practical techniques.",
+    "image": "video-tutorial-workflow.png",
+    "url": "https://www.youtube.com/watch?v=TQLU9TRv3fI"
+  },
+  {
+    "category": "GITHUB",
+    "title": "Learning Resources and Example Projects",
+    "description": "Deep dive into our example projects and learning resources in our GitHub repository.",
+    "image": "learning-github.png",
+    "url": "https://github.com/oculus-samples/haptics-studio-examples/"
+  }
+]

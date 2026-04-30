@@ -1,0 +1,278 @@
+{
+  "groups": [
+    {
+      "type": "amplitude",
+      "title": "Amplitude",
+      "color": "#6178FD",
+      "debugOnly": false,
+      "items": ["gain_db", "amplitude_breakpoints_per_second"]
+    },
+    {
+      "type": "amplitude",
+      "title": "Emphasis",
+      "color": "#A8BEFF",
+      "debugOnly": false,
+      "items": ["sensitivity_percent", "ducking_percent"]
+    },
+    {
+      "type": "frequency",
+      "title": "Frequency",
+      "color": "#FF66BF",
+      "debugOnly": false,
+      "items": ["frequency", "output"]
+    }
+  ],
+  "parameters": {
+    "gain_db": {
+      "debugOnly": false,
+      "title": "Gain",
+      "type": "float",
+      "min": -16,
+      "max": 16,
+      "step": 0.1,
+      "default": 0,
+      "measure": "dB"
+    },
+    "normalize_audio": {
+      "debugOnly": true,
+      "title": "Normalize",
+      "type": "boolean",
+      "default": 0
+    },
+    "normalize_level_db": {
+      "debugOnly": true,
+      "title": "Headroom",
+      "type": "float",
+      "min": -12,
+      "max": 0,
+      "step": 0.1,
+      "default": -0.3,
+      "measure": "dB",
+      "dependsOn": "normalize_audio"
+    },
+    "envelope_attack_time": {
+      "debugOnly": true,
+      "title": "Attack",
+      "type": "float",
+      "min": 0.1,
+      "max": 20.0,
+      "step": 0.1,
+      "default": 0.1,
+      "measure": "ms"
+    },
+    "envelope_hold_time": {
+      "debugOnly": true,
+      "title": "Hold",
+      "type": "float",
+      "min": 0.1,
+      "max": 200.0,
+      "step": 0.1,
+      "default": 1.5,
+      "measure": "ms"
+    },
+    "envelope_release_time": {
+      "debugOnly": true,
+      "title": "Release",
+      "type": "float",
+      "min": 0.1,
+      "max": 1000.0,
+      "step": 0.1,
+      "default": 100,
+      "measure": "ms"
+    },
+    "amplitude_breakpoints_per_second": {
+      "debugOnly": false,
+      "title": "Resolution",
+      "type": "integer",
+      "min": 5,
+      "max": 60,
+      "step": 5,
+      "default": 40,
+      "measure": "bp/s"
+    },
+    "frequency_max": {
+      "debugOnly": false,
+      "title": "Upper Frequency",
+      "type": "integer",
+      "min": 100,
+      "max": 2000,
+      "step": 10,
+      "default": 600,
+      "measure": "Hz"
+    },
+    "frequency_min": {
+      "debugOnly": false,
+      "title": "Lower Frequency",
+      "type": "integer",
+      "min": 10,
+      "max": 2000,
+      "step": 10,
+      "default": 30,
+      "measure": "Hz"
+    },
+    "frequency": {
+      "debugOnly": false,
+      "title": "Audio Filter",
+      "type": "range",
+      "measure": "Hz",
+      "minRef": "frequency_min",
+      "maxRef": "frequency_max"
+    },
+    "output_min": {
+      "debugOnly": false,
+      "title": "Out (min)",
+      "type": "float",
+      "min": 0.0,
+      "max": 1.0,
+      "step": 0.05,
+      "default": 0.0,
+      "overrideLabel": "Low"
+    },
+    "output_max": {
+      "debugOnly": false,
+      "title": "Out (max)",
+      "type": "float",
+      "min": 0.0,
+      "max": 1.0,
+      "step": 0.05,
+      "default": 1.0,
+      "overrideLabel": "High"
+    },
+    "output": {
+      "debugOnly": false,
+      "title": "Haptic Output",
+      "type": "range",
+      "minRef": "output_min",
+      "maxRef": "output_max"
+    },
+    "frequency_breakpoints_per_second": {
+      "debugOnly": true,
+      "title": "Resolution",
+      "type": "integer",
+      "min": 10,
+      "max": 60,
+      "step": 10,
+      "default": 30,
+      "measure": "bp/s"
+    },
+    "emphasis_enabled": {
+      "debugOnly": true,
+      "title": "Enabled",
+      "type": "boolean",
+      "default": 1
+    },
+    "sensitivity_percent": {
+      "debugOnly": false,
+      "title": "Sensitivity",
+      "type": "integer",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50,
+      "measure": "%"
+    },
+    "peak_window_ms": {
+      "debugOnly": true,
+      "title": "Peak Window",
+      "type": "integer",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 20,
+      "measure": "ms"
+    },
+    "minimum_rise": {
+      "debugOnly": true,
+      "title": "Minimum Rise",
+      "type": "float",
+      "min": 0.0,
+      "max": 0.5,
+      "step": 0.01,
+      "default": 0.05
+    },
+    "plateau_factor_percent": {
+      "debugOnly": true,
+      "title": "Plateau Factor",
+      "type": "integer",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 25,
+      "measure": "%"
+    },
+    "ducking_percent":{
+      "debugOnly": false,
+      "title": "Envelope Reduction",
+      "type": "integer",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50,
+      "measure": "%"
+    },
+    "sharpness_min":{
+      "debugOnly": false,
+      "title": "Minimum Emphasis",
+      "type": "integer",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 0,
+      "measure": "%"
+    },
+    "sharpness_max":{
+      "debugOnly": false,
+      "title": "Maximum Emphasis",
+      "type": "integer",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 100,
+      "measure": "%"
+    },
+    "sharpness": {
+      "debugOnly": false,
+      "title": "Frequency",
+      "type": "range",
+      "minRef": "sharpness_min",
+      "maxRef": "sharpness_max",
+      "measure": "%"
+    },
+    "minimum_breakpoint_score": {
+      "debugOnly": true,
+      "title": "",
+      "type": "integer",
+      "default": 1e-8
+    },
+    "centroid_lowpass_hz": {
+      "debugOnly": true,
+      "title": "",
+      "type": "integer",
+      "default": 1000
+    },
+    "fft_size": {
+      "debugOnly": true,
+      "title": "",
+      "type": "integer",
+      "default": 1024
+    },
+    "overlap_factor": {
+      "debugOnly": true,
+      "title": "",
+      "type": "integer",
+      "default": 8
+    },
+    "time_between_updates": {
+      "debugOnly": true,
+      "title": "",
+      "type": "integer",
+      "default": 0.001
+    },
+    "rms_windowing_time": {
+      "debugOnly": true,
+      "title": "",
+      "type": "integer",
+      "default": 0.0001
+    }
+  }
+}

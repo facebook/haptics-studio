@@ -1,0 +1,2780 @@
+{
+  "version": {
+    "major": 2,
+    "minor": 1,
+    "patch": 0
+  },
+  "metadata": {
+    "name": "Freeform Haptics"
+  },
+  "state": {
+    "sessionId": "6fe15b32-a5c6-452d-a444-2b6cd000ba46",
+    "clipId": "0aa6dded-ae53-44c3-966d-03c677c5eb88"
+  },
+  "clips": [
+    {
+      "clipId": "1c6f4fdc-6786-48c1-819d-d0ccbd9638b5",
+      "name": "System Error",
+      "audioAsset": {
+        "channels": 1
+      },
+      "haptic": {
+        "version": {
+          "major": 1,
+          "minor": 0,
+          "patch": 0
+        },
+        "metadata": {
+          "editor": "Meta Haptics Studio 2.0.0",
+          "source": "",
+          "project": "Freeform Haptics",
+          "tags": [],
+          "description": ""
+        },
+        "signals": {
+          "continuous": {
+            "envelopes": {
+              "amplitude": [
+                {
+                  "time": 0,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.024702780611110167,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.024707780611110168,
+                  "amplitude": 0,
+                  "emphasis": {
+                    "amplitude": 1,
+                    "frequency": 1
+                  }
+                },
+                {
+                  "time": 0.02471278061111017,
+                  "amplitude": 0.9013398294762486
+                },
+                {
+                  "time": 0.036049056957193515,
+                  "amplitude": 0.8733252131546896
+                },
+                {
+                  "time": 0.04455501421675604,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.04456001421675604,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.12530244011667888,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.12531244011667889,
+                  "amplitude": 0.6974571851318985,
+                  "emphasis": {
+                    "amplitude": 0.800544433454046,
+                    "frequency": 0.65
+                  }
+                },
+                {
+                  "time": 0.1405178717786874,
+                  "amplitude": 0.6753418762478691
+                },
+                {
+                  "time": 0.14147619451002463,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.24971463688482914,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.24971963688482912,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.2497346368848291,
+                  "amplitude": 0.5936240793270608,
+                  "emphasis": {
+                    "amplitude": 0.6967113276492085,
+                    "frequency": 0.5
+                  }
+                },
+                {
+                  "time": 0.25950520629446755,
+                  "amplitude": 0.5715087704430316
+                },
+                {
+                  "time": 0.2658983912781751,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.26590339127817514,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.26590839127817506,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.3748719374482381,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.3748769374482381,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.37489693744823804,
+                  "amplitude": 0.7961203969210598,
+                  "emphasis": {
+                    "amplitude": 0.8992076452432074,
+                    "frequency": 0.1
+                  }
+                },
+                {
+                  "time": 0.3976325351937077,
+                  "amplitude": 0.7740050880370305
+                },
+                {
+                  "time": 0.4040257201774153,
+                  "amplitude": 0
+                }
+              ],
+              "frequency": [
+                {
+                  "time": 0,
+                  "frequency": 0
+                },
+                {
+                  "time": 0.000005,
+                  "frequency": 1
+                },
+                {
+                  "time": 0.05063069797358639,
+                  "frequency": 1
+                },
+                {
+                  "time": 0.4066761308006035,
+                  "frequency": 0.39946564966751347
+                },
+                {
+                  "time": 0.4066811308006035,
+                  "frequency": 0
+                }
+              ]
+            }
+          }
+        }
+      },
+      "lastUpdate": 1763473178272
+    },
+    {
+      "clipId": "eb2cb1fa-685e-47ac-bb33-eb1d4d440acb",
+      "name": "System Success",
+      "audioAsset": {
+        "channels": 1
+      },
+      "haptic": {
+        "version": {
+          "major": 1,
+          "minor": 0,
+          "patch": 0
+        },
+        "metadata": {
+          "editor": "Meta Haptics Studio 2.0.0",
+          "source": "",
+          "project": "Freeform Haptics",
+          "tags": [],
+          "description": ""
+        },
+        "signals": {
+          "continuous": {
+            "envelopes": {
+              "amplitude": [
+                {
+                  "time": 0,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.024835295266249464,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.024840295266249462,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.02484529526624946,
+                  "amplitude": 0.20098962776432022,
+                  "emphasis": {
+                    "amplitude": 0.5984700332637893,
+                    "frequency": 0.5
+                  }
+                },
+                {
+                  "time": 0.047555514970202106,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.04756051497020211,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.14992057917705703,
+                  "amplitude": 0,
+                  "emphasis": {
+                    "amplitude": 1,
+                    "frequency": 0.85
+                  }
+                },
+                {
+                  "time": 0.14992557917705704,
+                  "amplitude": 0.9030986536302862
+                },
+                {
+                  "time": 0.199972291120221,
+                  "amplitude": 0
+                }
+              ],
+              "frequency": [
+                {
+                  "time": 0,
+                  "frequency": 0
+                },
+                {
+                  "time": 0.000005000000000000013,
+                  "frequency": 0.6029962546816483
+                },
+                {
+                  "time": 0.14997420755353877,
+                  "frequency": 1
+                }
+              ]
+            }
+          }
+        }
+      },
+      "lastUpdate": 1763473172734
+    },
+    {
+      "clipId": "cbdbb129-3387-493a-a3b6-e251442818f6",
+      "name": "System Warning",
+      "audioAsset": {
+        "channels": 1
+      },
+      "haptic": {
+        "version": {
+          "major": 1,
+          "minor": 0,
+          "patch": 0
+        },
+        "metadata": {
+          "editor": "Meta Haptics Studio 2.0.0",
+          "source": "",
+          "project": "Freeform Haptics",
+          "tags": [],
+          "description": ""
+        },
+        "signals": {
+          "continuous": {
+            "envelopes": {
+              "amplitude": [
+                {
+                  "time": 0,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.025459833323157592,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.025464833323157597,
+                  "amplitude": 0.0013422818791946308
+                },
+                {
+                  "time": 0.025479833323157598,
+                  "amplitude": 0.8989037758830695,
+                  "emphasis": {
+                    "amplitude": 1,
+                    "frequency": 0.7
+                  }
+                },
+                {
+                  "time": 0.025484833323157603,
+                  "amplitude": 0.9026217228464422
+                },
+                {
+                  "time": 0.07575853380935041,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.07576353380935041,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.14973255192064588,
+                  "amplitude": 0,
+                  "emphasis": {
+                    "amplitude": 0.6000224449964302,
+                    "frequency": 0.25
+                  }
+                },
+                {
+                  "time": 0.1497375519206459,
+                  "amplitude": 0.20345609401159617
+                },
+                {
+                  "time": 0.1750306034159085,
+                  "amplitude": 0
+                }
+              ],
+              "frequency": [
+                {
+                  "time": 0,
+                  "frequency": 0
+                },
+                {
+                  "time": 0.000005000000000000013,
+                  "frequency": 1
+                },
+                {
+                  "time": 0.07495714871684594,
+                  "frequency": 1
+                },
+                {
+                  "time": 0.19983550931622568,
+                  "frequency": 0.3989416812813027
+                }
+              ]
+            }
+          }
+        }
+      },
+      "lastUpdate": 1763473176078
+    },
+    {
+      "clipId": "7b567fa3-4274-49b5-b22f-5e40082c4b23",
+      "name": "Toggle Select",
+      "audioAsset": {
+        "exists": false,
+        "channels": 1
+      },
+      "haptic": {
+        "version": {
+          "major": 1,
+          "minor": 0,
+          "patch": 0
+        },
+        "metadata": {
+          "editor": "Meta Haptics Studio 2.0.0",
+          "source": "",
+          "project": "Freeform Haptics",
+          "tags": [],
+          "description": ""
+        },
+        "signals": {
+          "continuous": {
+            "envelopes": {
+              "amplitude": [
+                {
+                  "time": 0,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.00001,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.025134511913912402,
+                  "amplitude": 0,
+                  "emphasis": {
+                    "amplitude": 0.5956151035322776,
+                    "frequency": 0.85
+                  }
+                },
+                {
+                  "time": 0.05,
+                  "amplitude": 0
+                }
+              ],
+              "frequency": [
+                {
+                  "time": 0,
+                  "frequency": 0
+                }
+              ]
+            }
+          }
+        }
+      },
+      "lastUpdate": 1763472629672
+    },
+    {
+      "clipId": "a3a277f9-d507-4e01-9b82-64921de2f940",
+      "name": "Toggle DeSelect",
+      "audioAsset": {
+        "exists": false,
+        "channels": 1
+      },
+      "haptic": {
+        "version": {
+          "major": 1,
+          "minor": 0,
+          "patch": 0
+        },
+        "metadata": {
+          "editor": "Meta Haptics Studio 2.0.0",
+          "source": "",
+          "project": "Freeform Haptics",
+          "tags": [],
+          "description": ""
+        },
+        "signals": {
+          "continuous": {
+            "envelopes": {
+              "amplitude": [
+                {
+                  "time": 0,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.00001,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.000015000000000000012,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.024624917754622336,
+                  "amplitude": 0,
+                  "emphasis": {
+                    "amplitude": 0.3982947624847747,
+                    "frequency": 0.15
+                  }
+                },
+                {
+                  "time": 0.05,
+                  "amplitude": 0
+                }
+              ],
+              "frequency": [
+                {
+                  "time": 0,
+                  "frequency": 0
+                }
+              ]
+            }
+          }
+        }
+      },
+      "lastUpdate": 1763472636875
+    },
+    {
+      "clipId": "6803b8ec-0b00-4292-bdc2-d09eaf7e5982",
+      "name": "Object Release",
+      "audioAsset": {
+        "channels": 1
+      },
+      "haptic": {
+        "version": {
+          "major": 1,
+          "minor": 0,
+          "patch": 0
+        },
+        "metadata": {
+          "editor": "Meta Haptics Studio 2.0.0",
+          "source": "",
+          "project": "Freeform Haptics",
+          "tags": [],
+          "description": ""
+        },
+        "signals": {
+          "continuous": {
+            "envelopes": {
+              "amplitude": [
+                {
+                  "time": 0,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.000005000000000000013,
+                  "amplitude": 0.6017052375152253
+                },
+                {
+                  "time": 0.05219280224935972,
+                  "amplitude": 0.6004872107186359
+                },
+                {
+                  "time": 0.20048413252496625,
+                  "amplitude": 0
+                }
+              ],
+              "frequency": [
+                {
+                  "time": 0,
+                  "frequency": 0
+                },
+                {
+                  "time": 0.000005,
+                  "frequency": 0.7978075517661396
+                },
+                {
+                  "time": 0.04961779741646011,
+                  "frequency": 0.7978075517661389
+                },
+                {
+                  "time": 0.24982387510385423,
+                  "frequency": 0
+                }
+              ]
+            }
+          }
+        }
+      },
+      "lastUpdate": 1763473148072
+    },
+    {
+      "clipId": "0aa6dded-ae53-44c3-966d-03c677c5eb88",
+      "name": "Sawtooth",
+      "audioAsset": {
+        "channels": 1
+      },
+      "haptic": {
+        "version": {
+          "major": 1,
+          "minor": 0,
+          "patch": 0
+        },
+        "metadata": {
+          "editor": "Meta Haptics Studio 2.1.0",
+          "source": "",
+          "project": "Freeform Haptics",
+          "tags": [],
+          "description": ""
+        },
+        "signals": {
+          "continuous": {
+            "envelopes": {
+              "amplitude": [
+                {
+                  "time": 0,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.000005,
+                  "amplitude": 0.8002436053593179
+                },
+                {
+                  "time": 0.20007487220447281,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.20007987220447282,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.20008487220447282,
+                  "amplitude": 0.8002436053593179
+                },
+                {
+                  "time": 0.3997553833865819,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.3997603833865819,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.39976538338658185,
+                  "amplitude": 0.8002436053593179
+                },
+                {
+                  "time": 0.600234616613419,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.6002396166134191,
+                  "amplitude": 0
+                }
+              ],
+              "frequency": [
+                {
+                  "time": 0,
+                  "frequency": 0.8002436053593179
+                },
+                {
+                  "time": 0.19975664139315738,
+                  "frequency": 0
+                },
+                {
+                  "time": 0.2002414876101309,
+                  "frequency": 0.8002436053593179
+                },
+                {
+                  "time": 0.3999981290032882,
+                  "frequency": 0
+                },
+                {
+                  "time": 0.4004829752202618,
+                  "frequency": 0.8002436053593179
+                },
+                {
+                  "time": 0.5997547703964453,
+                  "frequency": 0
+                }
+              ]
+            }
+          }
+        }
+      },
+      "lastUpdate": 1763473824225
+    },
+    {
+      "clipId": "044ff264-1c72-41bd-90e9-d0cbae34763c",
+      "name": "Squaretooth",
+      "audioAsset": {
+        "channels": 1
+      },
+      "haptic": {
+        "version": {
+          "major": 1,
+          "minor": 0,
+          "patch": 0
+        },
+        "metadata": {
+          "editor": "Meta Haptics Studio 2.1.0",
+          "source": "",
+          "project": "Freeform Haptics",
+          "tags": [],
+          "description": ""
+        },
+        "signals": {
+          "continuous": {
+            "envelopes": {
+              "amplitude": [
+                {
+                  "time": 0,
+                  "amplitude": 0.6017052375152253
+                },
+                {
+                  "time": 0.10063897763578275,
+                  "amplitude": 0.6017052375152253
+                },
+                {
+                  "time": 0.10064397763578276,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.20047423322683705,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.20047923322683706,
+                  "amplitude": 0.6017052375152253
+                },
+                {
+                  "time": 0.2995207667731629,
+                  "amplitude": 0.6017052375152253
+                },
+                {
+                  "time": 0.2995257667731629,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.4001547444089457,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.4001597444089457,
+                  "amplitude": 0.6017052375152253
+                },
+                {
+                  "time": 0.4992012779552716,
+                  "amplitude": 0.6017052375152253
+                },
+                {
+                  "time": 0.49920627795527156,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.6006389776357828,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.6006439776357828,
+                  "amplitude": 0.6017052375152254
+                },
+                {
+                  "time": 0.700479233226837,
+                  "amplitude": 0.6017052375152254
+                },
+                {
+                  "time": 0.7004842332268371,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.8003194888178914,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.8003244888178914,
+                  "amplitude": 0.6017052375152255
+                },
+                {
+                  "time": 0.8985623003194888,
+                  "amplitude": 0.6017052375152254
+                },
+                {
+                  "time": 0.8985673003194888,
+                  "amplitude": 0
+                }
+              ],
+              "frequency": [
+                {
+                  "time": 0,
+                  "frequency": 0.19975639464068207
+                },
+                {
+                  "time": 0.14620737272181256,
+                  "frequency": 0.19975639464068207
+                },
+                {
+                  "time": 0.14621237272181256,
+                  "frequency": 0.4007308160779537
+                },
+                {
+                  "time": 0.3548793998102247,
+                  "frequency": 0.4007308160779537
+                },
+                {
+                  "time": 0.3548843998102247,
+                  "frequency": 0.5980511571254568
+                },
+                {
+                  "time": 0.5571635077020527,
+                  "frequency": 0.5980511571254568
+                },
+                {
+                  "time": 0.5571685077020527,
+                  "frequency": 0.7990255785627284
+                },
+                {
+                  "time": 0.7530596963972966,
+                  "frequency": 0.800243605359318
+                },
+                {
+                  "time": 0.7530646963972967,
+                  "frequency": 1
+                },
+                {
+                  "time": 0.9021391762607041,
+                  "frequency": 1
+                },
+                {
+                  "time": 0.902803487562721,
+                  "frequency": 0
+                }
+              ]
+            }
+          }
+        }
+      },
+      "lastUpdate": 1764077184714
+    },
+    {
+      "clipId": "6db5c017-f581-435c-ac7a-d9a555087ff6",
+      "name": "Triangle",
+      "audioAsset": {
+        "channels": 1
+      },
+      "haptic": {
+        "version": {
+          "major": 1,
+          "minor": 0,
+          "patch": 0
+        },
+        "metadata": {
+          "editor": "Meta Haptics Studio 2.1.0",
+          "source": "",
+          "project": "Freeform Haptics",
+          "tags": [],
+          "description": ""
+        },
+        "signals": {
+          "continuous": {
+            "envelopes": {
+              "amplitude": [
+                {
+                  "time": 0,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.19968051118210864,
+                  "amplitude": 0.6991473812423874
+                },
+                {
+                  "time": 0.4001597444089457,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.5998402555910544,
+                  "amplitude": 0.6991473812423874
+                },
+                {
+                  "time": 0.8003194888178914,
+                  "amplitude": 0
+                },
+                {
+                  "time": 1.0000858691103012,
+                  "amplitude": 0.6991473812423874
+                },
+                {
+                  "time": 1.2005651023371384,
+                  "amplitude": 0
+                }
+              ],
+              "frequency": [
+                {
+                  "time": 0,
+                  "frequency": 0
+                },
+                {
+                  "time": 0.000005,
+                  "frequency": 0.19732034104750318
+                },
+                {
+                  "time": 0.3849954326557704,
+                  "frequency": 0.19853836784409268
+                },
+                {
+                  "time": 0.3859651944508731,
+                  "frequency": 0.6029232643118146
+                },
+                {
+                  "time": 0.7845322922380815,
+                  "frequency": 0.6029232643118143
+                },
+                {
+                  "time": 0.7845372922380816,
+                  "frequency": 1
+                },
+                {
+                  "time": 1.2005601023371384,
+                  "frequency": 1
+                }
+              ]
+            }
+          }
+        }
+      },
+      "lastUpdate": 1764077651714
+    },
+    {
+      "clipId": "72b96708-de8d-4ec5-ba46-707e4cb7d9f6",
+      "name": "Squaretooth Step",
+      "audioAsset": {
+        "channels": 1
+      },
+      "haptic": {
+        "version": {
+          "major": 1,
+          "minor": 0,
+          "patch": 0
+        },
+        "metadata": {
+          "editor": "Meta Haptics Studio 2.1.0",
+          "source": "",
+          "project": "Squaretooth Step",
+          "tags": [],
+          "description": ""
+        },
+        "signals": {
+          "continuous": {
+            "envelopes": {
+              "amplitude": [
+                {
+                  "time": 0,
+                  "amplitude": 1
+                },
+                {
+                  "time": 0.19968233821412917,
+                  "amplitude": 1
+                },
+                {
+                  "time": 0.19968733821412918,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.19969233821412918,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.39967436685329044,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.3996793668532904,
+                  "amplitude": 0.6017052375152253
+                },
+                {
+                  "time": 0.5993617050674195,
+                  "amplitude": 0.6017052375152253
+                },
+                {
+                  "time": 0.5993667050674195,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.5993717050674195,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.8001540422352988,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.8001590422352989,
+                  "amplitude": 0.2009744214372717
+                },
+                {
+                  "time": 0.999841380449428,
+                  "amplitude": 0.2009744214372717
+                },
+                {
+                  "time": 0.9998463804494281,
+                  "amplitude": 0
+                }
+              ],
+              "frequency": [
+                {
+                  "time": 0,
+                  "frequency": 0.9976857490864801
+                },
+                {
+                  "time": 0.20029232823219556,
+                  "frequency": 1
+                },
+                {
+                  "time": 0.20029732823219557,
+                  "frequency": 0
+                },
+                {
+                  "time": 0.3997642916976281,
+                  "frequency": 0
+                },
+                {
+                  "time": 0.3997692916976281,
+                  "frequency": 0.6006090133982953
+                },
+                {
+                  "time": 0.5986489995559823,
+                  "frequency": 0.6006090133982953
+                },
+                {
+                  "time": 0.5986539995559823,
+                  "frequency": 0
+                },
+                {
+                  "time": 0.8001540422352988,
+                  "frequency": 0
+                },
+                {
+                  "time": 0.8001590422352989,
+                  "frequency": 0.19987819732034093
+                },
+                {
+                  "time": 0.9998463804494281,
+                  "frequency": 0.19987819732034093
+                }
+              ]
+            }
+          }
+        }
+      },
+      "lastUpdate": 1764170097148
+    },
+    {
+      "clipId": "0e8b53fc-8799-4c45-8473-bc5ae06052ec",
+      "name": "Sawtooth Reverse",
+      "audioAsset": {
+        "channels": 1
+      },
+      "haptic": {
+        "version": {
+          "major": 1,
+          "minor": 0,
+          "patch": 0
+        },
+        "metadata": {
+          "editor": "Meta Haptics Studio 2.1.0",
+          "source": "",
+          "project": "Freeform Haptics",
+          "tags": [],
+          "description": ""
+        },
+        "signals": {
+          "continuous": {
+            "envelopes": {
+              "amplitude": [
+                {
+                  "time": 0,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.20008487220447282,
+                  "amplitude": 0.8002436053593179
+                },
+                {
+                  "time": 0.20008987220447283,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.4000965866753773,
+                  "amplitude": 0.8002436053593179
+                },
+                {
+                  "time": 0.40010158667537726,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.5998147373148653,
+                  "amplitude": 0.8002436053593179
+                },
+                {
+                  "time": 0.5998197373148654,
+                  "amplitude": 0
+                }
+              ],
+              "frequency": [
+                {
+                  "time": 0,
+                  "frequency": 0
+                },
+                {
+                  "time": 0.19961690773321852,
+                  "frequency": 0.7990255785627284
+                },
+                {
+                  "time": 0.19962190773321853,
+                  "frequency": 0
+                },
+                {
+                  "time": 0.4002028295816468,
+                  "frequency": 0.7990255785627284
+                },
+                {
+                  "time": 0.4002078295816468,
+                  "frequency": 0
+                },
+                {
+                  "time": 0.5994408945686907,
+                  "frequency": 0.8015834348355663
+                },
+                {
+                  "time": 0.5994458945686907,
+                  "frequency": 0
+                }
+              ]
+            }
+          }
+        }
+      },
+      "lastUpdate": 1764155494912
+    },
+    {
+      "clipId": "d5a12169-c412-44d8-bf54-013cf5833457",
+      "name": "Battery ChargerConnected",
+      "audioAsset": {
+        "exists": false,
+        "channels": 1
+      },
+      "haptic": {
+        "version": {
+          "major": 1,
+          "minor": 0,
+          "patch": 0
+        },
+        "metadata": {
+          "editor": "Meta Haptics Studio 2.1.0",
+          "source": "",
+          "project": "Freeform Haptics",
+          "tags": [],
+          "description": ""
+        },
+        "signals": {
+          "continuous": {
+            "envelopes": {
+              "amplitude": [
+                {
+                  "time": 0,
+                  "amplitude": 0.4028591674967954,
+                  "emphasis": {
+                    "amplitude": 0.5977434549511191,
+                    "frequency": 0.25
+                  }
+                },
+                {
+                  "time": 0.10037040554279576,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.19987893122495448,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.1998889312249545,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.1998939312249545,
+                  "amplitude": 0.7008662023985403,
+                  "emphasis": {
+                    "amplitude": 0.7983083461257028,
+                    "frequency": 0.5
+                  }
+                },
+                {
+                  "time": 0.29964951169329834,
+                  "amplitude": 0
+                }
+              ],
+              "frequency": [
+                {
+                  "time": 0,
+                  "frequency": 0.39735396079166213
+                },
+                {
+                  "time": 0.10066288960917205,
+                  "frequency": 0.3995127892813641
+                },
+                {
+                  "time": 0.15883860294636604,
+                  "frequency": 0.801556468443162
+                }
+              ]
+            }
+          }
+        }
+      },
+      "lastUpdate": 1763473646275
+    },
+    {
+      "clipId": "08965426-eb2f-492a-b1f9-d6386bd1ce2d",
+      "name": "Battery Low",
+      "audioAsset": {
+        "exists": false,
+        "channels": 1
+      },
+      "haptic": {
+        "version": {
+          "major": 1,
+          "minor": 0,
+          "patch": 0
+        },
+        "metadata": {
+          "editor": "Meta Haptics Studio 2.1.0",
+          "source": "",
+          "project": "Freeform Haptics",
+          "tags": [],
+          "description": ""
+        },
+        "signals": {
+          "continuous": {
+            "envelopes": {
+              "amplitude": [
+                {
+                  "time": 0,
+                  "amplitude": 1,
+                  "emphasis": {
+                    "amplitude": 1,
+                    "frequency": 1
+                  }
+                },
+                {
+                  "time": 0.2018259504197794,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.20183095041980215,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.2018359504198019,
+                  "amplitude": 0.8552014765330018,
+                  "emphasis": {
+                    "amplitude": 0.8552014765330018,
+                    "frequency": 0.7
+                  }
+                },
+                {
+                  "time": 0.4008741765965572,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.4008791765965572,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.4023569152137649,
+                  "amplitude": 0.701144363805442,
+                  "emphasis": {
+                    "amplitude": 0.701144363805442,
+                    "frequency": 0.5
+                  }
+                },
+                {
+                  "time": 0.6008299166393989,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.6008349166394011,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.6008399166394012,
+                  "amplitude": 0.39556209046343577,
+                  "emphasis": {
+                    "amplitude": 0.39921617085320427,
+                    "frequency": 0.3
+                  }
+                },
+                {
+                  "time": 1.0008544848298093,
+                  "amplitude": 0
+                }
+              ],
+              "frequency": [
+                {
+                  "time": 0,
+                  "frequency": 1
+                },
+                {
+                  "time": 0.19642509286983062,
+                  "frequency": 1
+                },
+                {
+                  "time": 0.19643009286983062,
+                  "frequency": 0.8038976857490866
+                },
+                {
+                  "time": 0.39721518780343534,
+                  "frequency": 0.7990255785627284
+                },
+                {
+                  "time": 0.3972201878034353,
+                  "frequency": 0.6017052375152253
+                },
+                {
+                  "time": 0.5994602834249646,
+                  "frequency": 0.5992691839220463
+                },
+                {
+                  "time": 0.6023702848008139,
+                  "frequency": 0.40194884287454324
+                },
+                {
+                  "time": 1.0024954739801,
+                  "frequency": 0.19746194145743046
+                }
+              ]
+            }
+          }
+        }
+      },
+      "lastUpdate": 1763466268884
+    },
+    {
+      "clipId": "a46884ee-9a5a-4d58-b39b-b751f32363fa",
+      "name": "BT Connected",
+      "audioAsset": {
+        "exists": false,
+        "channels": 1
+      },
+      "haptic": {
+        "version": {
+          "major": 1,
+          "minor": 0,
+          "patch": 0
+        },
+        "metadata": {
+          "editor": "Meta Haptics Studio 2.1.0",
+          "source": "",
+          "project": "Freeform Haptics",
+          "tags": [],
+          "description": ""
+        },
+        "signals": {
+          "continuous": {
+            "envelopes": {
+              "amplitude": [
+                {
+                  "time": 0,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.000005,
+                  "amplitude": 0.4028591674967954,
+                  "emphasis": {
+                    "amplitude": 0.5977434549511191,
+                    "frequency": 0.25
+                  }
+                },
+                {
+                  "time": 0.10037040554279576,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.19987893122495448,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.1998839312249545,
+                  "amplitude": 0.19975639464068187
+                },
+                {
+                  "time": 0.1998889312249545,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.1998939312249545,
+                  "amplitude": 0.7008662023985403,
+                  "emphasis": {
+                    "amplitude": 0.7983083461257028,
+                    "frequency": 0.5
+                  }
+                },
+                {
+                  "time": 0.29964951169329834,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.2996545116932983,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.40044843257627744,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.4004534325762774,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.4004584325762774,
+                  "amplitude": 0.19975639464068187
+                },
+                {
+                  "time": 0.4004634325762774,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.40046843257627746,
+                  "amplitude": 0.8981865434460433,
+                  "emphasis": {
+                    "amplitude": 1,
+                    "frequency": 0.8
+                  }
+                },
+                {
+                  "time": 0.6002992847802743,
+                  "amplitude": 0
+                }
+              ],
+              "frequency": [
+                {
+                  "time": 0,
+                  "frequency": 0
+                },
+                {
+                  "time": 0,
+                  "frequency": 0.39735396079166213
+                },
+                {
+                  "time": 0.10066288960917205,
+                  "frequency": 0.3995127892813641
+                },
+                {
+                  "time": 0.15883860294636604,
+                  "frequency": 0.60180007380248
+                },
+                {
+                  "time": 0.29964951169329834,
+                  "frequency": 0.60180007380248
+                },
+                {
+                  "time": 0.2996545116932983,
+                  "frequency": 0.8014258078383598
+                },
+                {
+                  "time": 0.599558101202006,
+                  "frequency": 0.8014616321559074
+                },
+                {
+                  "time": 0.5995631012020061,
+                  "frequency": 0
+                }
+              ]
+            }
+          }
+        }
+      },
+      "lastUpdate": 1763464399600
+    },
+    {
+      "clipId": "b431e46e-ce56-46bb-9739-247d8d4a2947",
+      "name": "BT Disconnected",
+      "audioAsset": {
+        "exists": false,
+        "channels": 1
+      },
+      "haptic": {
+        "version": {
+          "major": 1,
+          "minor": 0,
+          "patch": 0
+        },
+        "metadata": {
+          "editor": "Meta Haptics Studio 2.1.0",
+          "source": "",
+          "project": "Freeform Haptics",
+          "tags": [],
+          "description": ""
+        },
+        "signals": {
+          "continuous": {
+            "envelopes": {
+              "amplitude": [
+                {
+                  "time": 0,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.000005,
+                  "amplitude": 0.8998141005053214,
+                  "emphasis": {
+                    "amplitude": 1,
+                    "frequency": 0.25
+                  }
+                },
+                {
+                  "time": 0.10037040554279576,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.19987893122495448,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.1998839312249545,
+                  "amplitude": 0.19975639464068187
+                },
+                {
+                  "time": 0.1998889312249545,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.1998939312249545,
+                  "amplitude": 0.7008662023985403,
+                  "emphasis": {
+                    "amplitude": 0.7983083461257028,
+                    "frequency": 0.5
+                  }
+                },
+                {
+                  "time": 0.29964951169329834,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.2996545116932983,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.40044843257627744,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.4004534325762774,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.4004584325762774,
+                  "amplitude": 0.19975639464068187
+                },
+                {
+                  "time": 0.4004634325762774,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.40046843257627746,
+                  "amplitude": 0.40123161043751715,
+                  "emphasis": {
+                    "amplitude": 0.5956151035322776,
+                    "frequency": 0.8
+                  }
+                },
+                {
+                  "time": 0.6002992847802743,
+                  "amplitude": 0
+                }
+              ],
+              "frequency": [
+                {
+                  "time": 0,
+                  "frequency": 0
+                },
+                {
+                  "time": 0,
+                  "frequency": 0
+                },
+                {
+                  "time": 0.000005,
+                  "frequency": 0.7968667500730263
+                },
+                {
+                  "time": 0.10066288960917205,
+                  "frequency": 0.7990255785627279
+                },
+                {
+                  "time": 0.15883860294636604,
+                  "frequency": 0.60180007380248
+                },
+                {
+                  "time": 0.29964951169329834,
+                  "frequency": 0.60180007380248
+                },
+                {
+                  "time": 0.2996545116932983,
+                  "frequency": 0.39947696496381674
+                },
+                {
+                  "time": 0.599558101202006,
+                  "frequency": 0.3982947624847753
+                },
+                {
+                  "time": 0.5995631012020061,
+                  "frequency": 0
+                }
+              ]
+            }
+          }
+        }
+      },
+      "lastUpdate": 1763465471059
+    },
+    {
+      "clipId": "f793284e-bf4a-4802-9dfd-4c452741d930",
+      "name": "BT Pairing",
+      "audioAsset": {
+        "exists": false,
+        "channels": 1
+      },
+      "haptic": {
+        "version": {
+          "major": 1,
+          "minor": 0,
+          "patch": 0
+        },
+        "metadata": {
+          "editor": "Meta Haptics Studio 2.1.0",
+          "source": "",
+          "project": "Freeform Haptics",
+          "tags": [],
+          "description": ""
+        },
+        "signals": {
+          "continuous": {
+            "envelopes": {
+              "amplitude": [
+                {
+                  "time": 0,
+                  "amplitude": 0.5980511571254569,
+                  "emphasis": {
+                    "amplitude": 0.5992691839220464,
+                    "frequency": 0.3
+                  }
+                },
+                {
+                  "time": 0.2004643847174462,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.20046938471744624,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.20047438471744625,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.20047938471744636,
+                  "amplitude": 5.204170427930421e-18
+                },
+                {
+                  "time": 0.20048938471745043,
+                  "amplitude": 5.204170427930421e-18
+                },
+                {
+                  "time": 0.2004943847174504,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.20049938471745038,
+                  "amplitude": 0.803897685749083,
+                  "emphasis": {
+                    "amplitude": 0.803897685749083,
+                    "frequency": 0.5
+                  }
+                },
+                {
+                  "time": 0.4004360402275624,
+                  "amplitude": 5.204170427930421e-18
+                },
+                {
+                  "time": 0.40044104022756244,
+                  "amplitude": 5.204170427930421e-18
+                },
+                {
+                  "time": 0.40044604022756247,
+                  "amplitude": 5.204170427930421e-18
+                },
+                {
+                  "time": 0.4004510402275625,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.6995123000453224,
+                  "amplitude": 1,
+                  "emphasis": {
+                    "amplitude": 1,
+                    "frequency": 0.8
+                  }
+                },
+                {
+                  "time": 0.6995173000453224,
+                  "amplitude": 0
+                }
+              ],
+              "frequency": [
+                {
+                  "time": 0,
+                  "frequency": 0.3982589381672269
+                },
+                {
+                  "time": 0.1871027063957924,
+                  "frequency": 0.39951278928136424
+                },
+                {
+                  "time": 0.19074756431259351,
+                  "frequency": 0.5980511571254568
+                },
+                {
+                  "time": 0.3997194182091929,
+                  "frequency": 0.5980511571254566
+                },
+                {
+                  "time": 0.39972441820919286,
+                  "frequency": 0.19610231425091368
+                },
+                {
+                  "time": 0.6035360415695549,
+                  "frequency": 0.8014616321559077
+                },
+                {
+                  "time": 0.8431771314199996,
+                  "frequency": 0.8002436053593178
+                }
+              ]
+            }
+          }
+        }
+      },
+      "lastUpdate": 1763473307949
+    },
+    {
+      "clipId": "4e91700c-4dae-4551-bbb6-80b5f0f00855",
+      "name": "Device PowerOn",
+      "audioAsset": {
+        "exists": false,
+        "channels": 1
+      },
+      "haptic": {
+        "version": {
+          "major": 1,
+          "minor": 0,
+          "patch": 0
+        },
+        "metadata": {
+          "editor": "Meta Haptics Studio 2.1.0",
+          "source": "",
+          "project": "Freeform Haptics",
+          "tags": [],
+          "description": ""
+        },
+        "signals": {
+          "continuous": {
+            "envelopes": {
+              "amplitude": [
+                {
+                  "time": 0,
+                  "amplitude": 0.19985141158989606
+                },
+                {
+                  "time": 0.19992266945552767,
+                  "amplitude": 0.8002436053593173
+                },
+                {
+                  "time": 0.19992766945552767,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.34971464856136164,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.3497196485613617,
+                  "amplitude": 1,
+                  "emphasis": {
+                    "amplitude": 1,
+                    "frequency": 0.5
+                  }
+                },
+                {
+                  "time": 0.4503392568659128,
+                  "amplitude": 1
+                },
+                {
+                  "time": 0.5545623149096307,
+                  "amplitude": 0
+                }
+              ],
+              "frequency": [
+                {
+                  "time": 0,
+                  "frequency": 0.1992339107478454
+                },
+                {
+                  "time": 0.19915009174954548,
+                  "frequency": 0.8005020565824629
+                },
+                {
+                  "time": 0.5997610416769151,
+                  "frequency": 0.8029105986449809
+                }
+              ]
+            }
+          }
+        }
+      },
+      "lastUpdate": 1763466757453
+    },
+    {
+      "clipId": "e06cd449-6b61-4dec-a052-2509b270adb4",
+      "name": "Device PowerOff",
+      "audioAsset": {
+        "exists": false,
+        "channels": 1
+      },
+      "haptic": {
+        "version": {
+          "major": 1,
+          "minor": 0,
+          "patch": 0
+        },
+        "metadata": {
+          "editor": "Meta Haptics Studio 2.1.0",
+          "source": "",
+          "project": "Freeform Haptics",
+          "tags": [],
+          "description": ""
+        },
+        "signals": {
+          "continuous": {
+            "envelopes": {
+              "amplitude": [
+                {
+                  "time": 0,
+                  "amplitude": 1,
+                  "emphasis": {
+                    "amplitude": 1,
+                    "frequency": 0.5
+                  }
+                },
+                {
+                  "time": 0.10034733441033927,
+                  "amplitude": 0.9982290650513179
+                },
+                {
+                  "time": 0.15013682717838747,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.30016139371555367,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.30016639371555365,
+                  "amplitude": 0.8026796589524974
+                },
+                {
+                  "time": 0.500074063171083,
+                  "amplitude": 0.19963856006008154
+                },
+                {
+                  "time": 0.5000790631710831,
+                  "amplitude": 0
+                }
+              ],
+              "frequency": [
+                {
+                  "time": 0,
+                  "frequency": 0.7972850678733027
+                },
+                {
+                  "time": 0.3003132581469606,
+                  "frequency": 0.799284029785873
+                },
+                {
+                  "time": 0.5002345392536542,
+                  "frequency": 0.19999869831885492
+                },
+                {
+                  "time": 0.5002395392536543,
+                  "frequency": 0
+                }
+              ]
+            }
+          }
+        }
+      },
+      "lastUpdate": 1763466796396
+    },
+    {
+      "clipId": "a086cbc5-7671-4899-96d6-c71789d06ec9",
+      "name": "Device Wake",
+      "audioAsset": {
+        "exists": false,
+        "channels": 1
+      },
+      "haptic": {
+        "version": {
+          "major": 1,
+          "minor": 0,
+          "patch": 0
+        },
+        "metadata": {
+          "editor": "Meta Haptics Studio 2.1.0",
+          "source": "",
+          "project": "Freeform Haptics",
+          "tags": [],
+          "description": ""
+        },
+        "signals": {
+          "continuous": {
+            "envelopes": {
+              "amplitude": [
+                {
+                  "time": 0,
+                  "amplitude": 0.19836552748885586
+                },
+                {
+                  "time": 0.25005109207650683,
+                  "amplitude": 1
+                },
+                {
+                  "time": 0.29972476789992203,
+                  "amplitude": 0,
+                  "emphasis": {
+                    "amplitude": 1,
+                    "frequency": 0.5
+                  }
+                }
+              ],
+              "frequency": [
+                {
+                  "time": 0,
+                  "frequency": 0.4002083321851178
+                },
+                {
+                  "time": 0.24963206300397858,
+                  "frequency": 1
+                },
+                {
+                  "time": 0.30156947470925155,
+                  "frequency": 0
+                }
+              ]
+            }
+          }
+        }
+      },
+      "lastUpdate": 1763467007485
+    },
+    {
+      "clipId": "ec8d1221-873b-40c4-96f7-c11a7e710497",
+      "name": "Device Sleep",
+      "audioAsset": {
+        "exists": false,
+        "channels": 1
+      },
+      "haptic": {
+        "version": {
+          "major": 1,
+          "minor": 0,
+          "patch": 0
+        },
+        "metadata": {
+          "editor": "Meta Haptics Studio 2.1.0",
+          "source": "",
+          "project": "Freeform Haptics",
+          "tags": [],
+          "description": ""
+        },
+        "signals": {
+          "continuous": {
+            "envelopes": {
+              "amplitude": [
+                {
+                  "time": 0,
+                  "amplitude": 1,
+                  "emphasis": {
+                    "amplitude": 1,
+                    "frequency": 0.5
+                  }
+                },
+                {
+                  "time": 0.10039093267509012,
+                  "amplitude": 1
+                },
+                {
+                  "time": 0.4001149930364759,
+                  "amplitude": 0.19975639464068207
+                },
+                {
+                  "time": 0.4001199930364759,
+                  "amplitude": 0
+                }
+              ],
+              "frequency": [
+                {
+                  "time": 0,
+                  "frequency": 1
+                },
+                {
+                  "time": 0.10144558605315745,
+                  "frequency": 1
+                },
+                {
+                  "time": 0.3995482579188605,
+                  "frequency": 0.198538367844092
+                },
+                {
+                  "time": 0.3995532579188605,
+                  "frequency": 0
+                }
+              ]
+            }
+          }
+        }
+      },
+      "lastUpdate": 1763467035849
+    },
+    {
+      "clipId": "6abf75f4-a99c-4772-a6f5-b6f9a03b98bb",
+      "name": "Tile Hover",
+      "audioAsset": {
+        "channels": 1
+      },
+      "haptic": {
+        "version": {
+          "major": 1,
+          "minor": 0,
+          "patch": 0
+        },
+        "metadata": {
+          "editor": "Meta Haptics Studio 2.1.0",
+          "source": "",
+          "project": "Freeform Haptics",
+          "tags": [],
+          "description": ""
+        },
+        "signals": {
+          "continuous": {
+            "envelopes": {
+              "amplitude": [
+                {
+                  "time": 0,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.000005000000000000013,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.000010000000000005014,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.000020000000000015014,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.024760192159876772,
+                  "amplitude": 0,
+                  "emphasis": {
+                    "amplitude": 0.1961023142509135,
+                    "frequency": 1
+                  }
+                },
+                {
+                  "time": 0.05012214285714234,
+                  "amplitude": 0
+                }
+              ],
+              "frequency": [
+                {
+                  "time": 0,
+                  "frequency": 0
+                },
+                {
+                  "time": 0.05003465698918944,
+                  "frequency": 0
+                }
+              ]
+            }
+          }
+        }
+      },
+      "lastUpdate": 1763473867146
+    },
+    {
+      "clipId": "1546cb9d-54a8-402f-932e-c4851dc77317",
+      "name": "Button Press",
+      "audioAsset": {
+        "channels": 1
+      },
+      "haptic": {
+        "version": {
+          "major": 1,
+          "minor": 0,
+          "patch": 0
+        },
+        "metadata": {
+          "editor": "Meta Haptics Studio 2.1.0",
+          "source": "",
+          "project": "Freeform Haptics",
+          "tags": [],
+          "description": ""
+        },
+        "signals": {
+          "continuous": {
+            "envelopes": {
+              "amplitude": [
+                {
+                  "time": 0,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.000005000000000194085,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.000010000000000199086,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.025236932928564555,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.025241932928564532,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.025251932928564542,
+                  "amplitude": 0.5963193501713828,
+                  "emphasis": {
+                    "amplitude": 0.5975373769679724,
+                    "frequency": 0.85
+                  }
+                },
+                {
+                  "time": 0.025256932928564547,
+                  "amplitude": 0.39989560201509494
+                },
+                {
+                  "time": 0.03022401773875493,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.039958697355832615,
+                  "amplitude": 0
+                }
+              ],
+              "frequency": [
+                {
+                  "time": 0,
+                  "frequency": 0
+                },
+                {
+                  "time": 0.000005000000000017253,
+                  "frequency": 0
+                },
+                {
+                  "time": 0.000010000000000015313,
+                  "frequency": 0
+                },
+                {
+                  "time": 0.02378702611668485,
+                  "frequency": 0
+                },
+                {
+                  "time": 0.023792026116684854,
+                  "frequency": 0.7985810035976527
+                },
+                {
+                  "time": 0.0304904867272669,
+                  "frequency": 0.7637388929373823
+                },
+                {
+                  "time": 0.03460939942091068,
+                  "frequency": 0
+                },
+                {
+                  "time": 0.03995869735583239,
+                  "frequency": 0
+                }
+              ]
+            }
+          }
+        }
+      },
+      "lastUpdate": 1763473193111,
+      "trimAt": 0.039958697355832615
+    },
+    {
+      "clipId": "bdbfe3cf-e44e-4a98-b775-b8e37fe7ff56",
+      "name": "Button Press Long",
+      "audioAsset": {
+        "channels": 1
+      },
+      "haptic": {
+        "version": {
+          "major": 1,
+          "minor": 0,
+          "patch": 0
+        },
+        "metadata": {
+          "editor": "Meta Haptics Studio 2.1.0",
+          "source": "",
+          "project": "Freeform Haptics",
+          "tags": [],
+          "description": ""
+        },
+        "signals": {
+          "continuous": {
+            "envelopes": {
+              "amplitude": [
+                {
+                  "time": 0,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.000005000000000052055,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.025236932928564385,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.025241932928564376,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.025251932928565052,
+                  "amplitude": 0.5963193501713826,
+                  "emphasis": {
+                    "amplitude": 0.5975373769679722,
+                    "frequency": 0.25
+                  }
+                },
+                {
+                  "time": 0.025256932928565044,
+                  "amplitude": 0.3998956020150951
+                },
+                {
+                  "time": 0.02526193292856505,
+                  "amplitude": 0.5018270401948838
+                },
+                {
+                  "time": 0.034895579144541305,
+                  "amplitude": 0.40073081607795363
+                },
+                {
+                  "time": 0.03749344142126246,
+                  "amplitude": 0.19975639464068207
+                },
+                {
+                  "time": 0.04997902328032837,
+                  "amplitude": 0
+                }
+              ],
+              "frequency": [
+                {
+                  "time": 0,
+                  "frequency": 0
+                },
+                {
+                  "time": 0.00000500000000001553,
+                  "frequency": 0
+                },
+                {
+                  "time": 0.00001000000000001359,
+                  "frequency": 0
+                },
+                {
+                  "time": 0.023787026116684838,
+                  "frequency": 0
+                },
+                {
+                  "time": 0.023792026116684843,
+                  "frequency": 0.6012606625501488
+                },
+                {
+                  "time": 0.04685146443973886,
+                  "frequency": 0.5128253728399402
+                },
+                {
+                  "time": 0.04997902328032818,
+                  "frequency": 0.22496906295015873
+                },
+                {
+                  "time": 0.04998402328032818,
+                  "frequency": 0
+                }
+              ]
+            }
+          }
+        }
+      },
+      "lastUpdate": 1763473200046
+    },
+    {
+      "clipId": "338ff00e-8ac1-43fe-9edf-cc2b718efaf0",
+      "name": "Object Grab",
+      "audioAsset": {
+        "channels": 1
+      },
+      "haptic": {
+        "version": {
+          "major": 1,
+          "minor": 0,
+          "patch": 0
+        },
+        "metadata": {
+          "editor": "Meta Haptics Studio 2.1.0",
+          "source": "",
+          "project": "Freeform Haptics",
+          "tags": [],
+          "description": ""
+        },
+        "signals": {
+          "continuous": {
+            "envelopes": {
+              "amplitude": [
+                {
+                  "time": 0,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.000005000000000027769,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.0000100000000000293,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.024822166239394233,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.02482716623939423,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.02483216623939423,
+                  "amplitude": 0.6997379122491016,
+                  "emphasis": {
+                    "amplitude": 0.6997379122491016,
+                    "frequency": 0.8
+                  }
+                },
+                {
+                  "time": 0.024837166239394234,
+                  "amplitude": 0.600499375780275
+                },
+                {
+                  "time": 0.033219948804614305,
+                  "amplitude": 0.5995565835032648
+                },
+                {
+                  "time": 0.04460098133939151,
+                  "amplitude": 0
+                }
+              ],
+              "frequency": [
+                {
+                  "time": 0,
+                  "frequency": 0
+                },
+                {
+                  "time": 0.0000050000000000171435,
+                  "frequency": 0
+                },
+                {
+                  "time": 0.000010000000000018675,
+                  "frequency": 0
+                },
+                {
+                  "time": 0.024207254632937634,
+                  "frequency": 0
+                },
+                {
+                  "time": 0.024212254632937632,
+                  "frequency": 1
+                },
+                {
+                  "time": 0.0446009813393915,
+                  "frequency": 1
+                }
+              ]
+            }
+          }
+        }
+      },
+      "lastUpdate": 1763473850129
+    },
+    {
+      "clipId": "e165a25c-cc56-45f0-bfec-c03953a8e27c",
+      "name": "Mixed Signal Transients",
+      "audioAsset": {
+        "channels": 1
+      },
+      "haptic": {
+        "version": {
+          "major": 1,
+          "minor": 0,
+          "patch": 0
+        },
+        "metadata": {
+          "editor": "Meta Haptics Studio 2.1.0",
+          "source": "",
+          "project": "Freeform Haptics",
+          "tags": [],
+          "description": ""
+        },
+        "signals": {
+          "continuous": {
+            "envelopes": {
+              "amplitude": [
+                {
+                  "time": 0,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.10031595576619273,
+                  "amplitude": 0,
+                  "emphasis": {
+                    "amplitude": 0.20097442143727162,
+                    "frequency": 0.05
+                  }
+                },
+                {
+                  "time": 0.10032095576619274,
+                  "amplitude": 0.10109622411693055
+                },
+                {
+                  "time": 0.2004674915145457,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.3001629778830966,
+                  "amplitude": 0,
+                  "emphasis": {
+                    "amplitude": 0.39951278928136424,
+                    "frequency": 0.3
+                  }
+                },
+                {
+                  "time": 0.30016797788309657,
+                  "amplitude": 0.29963459196102255
+                },
+                {
+                  "time": 0.4000942399768822,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.5000000000000016,
+                  "amplitude": 0,
+                  "emphasis": {
+                    "amplitude": 0.6004872107186359,
+                    "frequency": 0.5
+                  }
+                },
+                {
+                  "time": 0.5000050000000016,
+                  "amplitude": 0.5018270401948842
+                },
+                {
+                  "time": 0.5997091293315612,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.6998420221169062,
+                  "amplitude": 0,
+                  "emphasis": {
+                    "amplitude": 0.7990255785627284,
+                    "frequency": 0.7
+                  }
+                },
+                {
+                  "time": 0.6998470221169062,
+                  "amplitude": 0.7015834348355665
+                },
+                {
+                  "time": 0.8000376276466309,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.8996840442338113,
+                  "amplitude": 0,
+                  "emphasis": {
+                    "amplitude": 1,
+                    "frequency": 1
+                  }
+                },
+                {
+                  "time": 0.8996890442338114,
+                  "amplitude": 0.9001218026796595
+                },
+                {
+                  "time": 1.0501850880260886,
+                  "amplitude": 0
+                }
+              ],
+              "frequency": [
+                {
+                  "time": 0,
+                  "frequency": 0
+                },
+                {
+                  "time": 0.000005,
+                  "frequency": 0.295774647887324
+                },
+                {
+                  "time": 1.0501800880260885,
+                  "frequency": 0.30000000000000027
+                }
+              ]
+            }
+          }
+        }
+      },
+      "lastUpdate": 1764083148621
+    },
+    {
+      "clipId": "b34ea2e0-26f4-4457-a10b-6849c24d402f",
+      "name": "Transient Ramp",
+      "audioAsset": {
+        "channels": 1
+      },
+      "haptic": {
+        "version": {
+          "major": 1,
+          "minor": 0,
+          "patch": 0
+        },
+        "metadata": {
+          "editor": "Meta Haptics Studio 2.1.0",
+          "source": "",
+          "project": "Freeform Haptics",
+          "tags": [],
+          "description": ""
+        },
+        "signals": {
+          "continuous": {
+            "envelopes": {
+              "amplitude": [
+                {
+                  "time": 0,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.09992101105845172,
+                  "amplitude": 0,
+                  "emphasis": {
+                    "amplitude": 0.20097442143727162,
+                    "frequency": 0.05
+                  }
+                },
+                {
+                  "time": 0.1994520774091625,
+                  "amplitude": 0,
+                  "emphasis": {
+                    "amplitude": 0.39951278928136424,
+                    "frequency": 0.3
+                  }
+                },
+                {
+                  "time": 0.29976303317535524,
+                  "amplitude": 0,
+                  "emphasis": {
+                    "amplitude": 0.6004872107186359,
+                    "frequency": 0.5
+                  }
+                },
+                {
+                  "time": 0.4000789889415479,
+                  "amplitude": 0,
+                  "emphasis": {
+                    "amplitude": 0.7990255785627284,
+                    "frequency": 0.7
+                  }
+                },
+                {
+                  "time": 0.49960505529225874,
+                  "amplitude": 0,
+                  "emphasis": {
+                    "amplitude": 1,
+                    "frequency": 1
+                  }
+                }
+              ],
+              "frequency": [
+                {
+                  "time": 0,
+                  "frequency": 0
+                }
+              ]
+            }
+          }
+        }
+      },
+      "lastUpdate": 1764077703409
+    },
+    {
+      "clipId": "46ee9f80-ce64-4fad-afb4-29e394e2d42e",
+      "name": "Sawtooth Positive",
+      "audioAsset": {
+        "channels": 1
+      },
+      "haptic": {
+        "version": {
+          "major": 1,
+          "minor": 0,
+          "patch": 0
+        },
+        "metadata": {
+          "editor": "Meta Haptics Studio 2.1.0",
+          "source": "",
+          "project": "Sawtooth Positive",
+          "tags": [],
+          "description": ""
+        },
+        "signals": {
+          "continuous": {
+            "envelopes": {
+              "amplitude": [
+                {
+                  "time": 0,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.000005,
+                  "amplitude": 0.400730816077954
+                },
+                {
+                  "time": 0.20007487220447281,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.20007987220447282,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.20008487220447282,
+                  "amplitude": 0.8002436053593179
+                },
+                {
+                  "time": 0.3997553833865819,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.3997603833865819,
+                  "amplitude": 0
+                }
+              ],
+              "frequency": [
+                {
+                  "time": 0,
+                  "frequency": 0.40073081607795374
+                },
+                {
+                  "time": 0.19975664139315738,
+                  "frequency": 0
+                },
+                {
+                  "time": 0.2002414876101309,
+                  "frequency": 0.8002436053593179
+                },
+                {
+                  "time": 0.3999981290032882,
+                  "frequency": 0
+                }
+              ]
+            }
+          }
+        }
+      },
+      "lastUpdate": 1764171340920
+    },
+    {
+      "clipId": "ca03d1af-b080-4a21-8514-e6c3e463358b",
+      "name": "Sawtooth Negative",
+      "audioAsset": {
+        "channels": 1
+      },
+      "haptic": {
+        "version": {
+          "major": 1,
+          "minor": 0,
+          "patch": 0
+        },
+        "metadata": {
+          "editor": "Meta Haptics Studio 2.1.0",
+          "source": "",
+          "project": "Sawtooth Negative",
+          "tags": [],
+          "description": ""
+        },
+        "signals": {
+          "continuous": {
+            "envelopes": {
+              "amplitude": [
+                {
+                  "time": 0,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.000005,
+                  "amplitude": 0.8014616321559078
+                },
+                {
+                  "time": 0.20007487220447281,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.20007987220447282,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.20008487220447282,
+                  "amplitude": 0.403166869671133
+                },
+                {
+                  "time": 0.3997553833865819,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.3997603833865819,
+                  "amplitude": 0
+                }
+              ],
+              "frequency": [
+                {
+                  "time": 0,
+                  "frequency": 0.800243605359318
+                },
+                {
+                  "time": 0.19975664139315738,
+                  "frequency": 0
+                },
+                {
+                  "time": 0.2002414876101309,
+                  "frequency": 0.4019488428745434
+                },
+                {
+                  "time": 0.3999981290032882,
+                  "frequency": 0
+                }
+              ]
+            }
+          }
+        }
+      },
+      "lastUpdate": 1764171332468
+    }
+  ],
+  "groups": [
+    {
+      "id": "afd85992-2add-4dfe-a568-1f68e42a91fb",
+      "isFolder": true,
+      "name": "Freeform Wave Shapes",
+      "clips": [
+        "0aa6dded-ae53-44c3-966d-03c677c5eb88",
+        "46ee9f80-ce64-4fad-afb4-29e394e2d42e",
+        "ca03d1af-b080-4a21-8514-e6c3e463358b",
+        "0e8b53fc-8799-4c45-8473-bc5ae06052ec",
+        "044ff264-1c72-41bd-90e9-d0cbae34763c",
+        "72b96708-de8d-4ec5-ba46-707e4cb7d9f6",
+        "6db5c017-f581-435c-ac7a-d9a555087ff6",
+        "b34ea2e0-26f4-4457-a10b-6849c24d402f",
+        "e165a25c-cc56-45f0-bfec-c03953a8e27c"
+      ]
+    },
+    {
+      "id": "c133dbdd-ac57-471c-a542-5ef55bcda466",
+      "isFolder": true,
+      "name": "OS Interactions",
+      "clips": [
+        "6abf75f4-a99c-4772-a6f5-b6f9a03b98bb",
+        "1546cb9d-54a8-402f-932e-c4851dc77317",
+        "bdbfe3cf-e44e-4a98-b775-b8e37fe7ff56",
+        "7b567fa3-4274-49b5-b22f-5e40082c4b23",
+        "a3a277f9-d507-4e01-9b82-64921de2f940",
+        "338ff00e-8ac1-43fe-9edf-cc2b718efaf0",
+        "6803b8ec-0b00-4292-bdc2-d09eaf7e5982",
+        "eb2cb1fa-685e-47ac-bb33-eb1d4d440acb",
+        "cbdbb129-3387-493a-a3b6-e251442818f6",
+        "1c6f4fdc-6786-48c1-819d-d0ccbd9638b5"
+      ]
+    },
+    {
+      "id": "53a2f615-b3c5-4b12-88fd-beee3d3f2daf",
+      "isFolder": true,
+      "name": "Device States",
+      "clips": [
+        "d5a12169-c412-44d8-bf54-013cf5833457",
+        "08965426-eb2f-492a-b1f9-d6386bd1ce2d",
+        "f793284e-bf4a-4802-9dfd-4c452741d930",
+        "a46884ee-9a5a-4d58-b39b-b751f32363fa",
+        "b431e46e-ce56-46bb-9739-247d8d4a2947",
+        "4e91700c-4dae-4551-bbb6-80b5f0f00855",
+        "e06cd449-6b61-4dec-a052-2509b270adb4",
+        "a086cbc5-7671-4899-96d6-c71789d06ec9",
+        "ec8d1221-873b-40c4-96f7-c11a7e710497"
+      ]
+    }
+  ],
+  "updatedAt": 308381392144458
+}

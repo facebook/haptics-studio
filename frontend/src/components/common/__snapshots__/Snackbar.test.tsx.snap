@@ -1,0 +1,546 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`<Snackbar /> renders the correct error style 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="container-0-3-1"
+        data-testid="snackbar"
+      >
+        <div
+          class="content-0-3-2"
+        >
+          <img
+            alt="error"
+            src="toast-error.svg"
+          />
+          <span>
+            error
+          </span>
+        </div>
+        <div
+          class="actions-0-3-4"
+        >
+          <button
+            class="hsbutton borderless square invert"
+            data-testid="copy-button"
+            type="button"
+          >
+            <img
+              alt="Copy"
+              src="copy.svg"
+            />
+          </button>
+          <button
+            class="hsbutton borderless square invert"
+            type="button"
+          >
+            <svg
+              class="CircularProgressbar "
+              data-test-id="CircularProgressbar"
+              style="width: 20px; height: 20px;"
+              viewBox="0 0 100 100"
+            >
+              <path
+                class="CircularProgressbar-trail"
+                d="
+      M 50,50
+      m 0,-44
+      a 44,44 0 1 1 0,88
+      a 44,44 0 1 1 0,-88
+    "
+                fill-opacity="0"
+                stroke-width="12"
+                style="stroke: #272727; stroke-linecap: round; stroke-dasharray: 276.46015351590177px 276.46015351590177px; stroke-dashoffset: 0px;"
+              />
+              <path
+                class="CircularProgressbar-path"
+                d="
+      M 50,50
+      m 0,-44
+      a 44,44 0 1 1 0,88
+      a 44,44 0 1 1 0,-88
+    "
+                fill-opacity="0"
+                stroke-width="12"
+                style="stroke: white; stroke-linecap: round; transition: stroke-dashoffset 0.5s ease 0s; stroke-dasharray: 276.46015351590177px 276.46015351590177px; stroke-dashoffset: 276.46015351590177px;"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="container-0-3-1"
+      data-testid="snackbar"
+    >
+      <div
+        class="content-0-3-2"
+      >
+        <img
+          alt="error"
+          src="toast-error.svg"
+        />
+        <span>
+          error
+        </span>
+      </div>
+      <div
+        class="actions-0-3-4"
+      >
+        <button
+          class="hsbutton borderless square invert"
+          data-testid="copy-button"
+          type="button"
+        >
+          <img
+            alt="Copy"
+            src="copy.svg"
+          />
+        </button>
+        <button
+          class="hsbutton borderless square invert"
+          type="button"
+        >
+          <svg
+            class="CircularProgressbar "
+            data-test-id="CircularProgressbar"
+            style="width: 20px; height: 20px;"
+            viewBox="0 0 100 100"
+          >
+            <path
+              class="CircularProgressbar-trail"
+              d="
+      M 50,50
+      m 0,-44
+      a 44,44 0 1 1 0,88
+      a 44,44 0 1 1 0,-88
+    "
+              fill-opacity="0"
+              stroke-width="12"
+              style="stroke: #272727; stroke-linecap: round; stroke-dasharray: 276.46015351590177px 276.46015351590177px; stroke-dashoffset: 0px;"
+            />
+            <path
+              class="CircularProgressbar-path"
+              d="
+      M 50,50
+      m 0,-44
+      a 44,44 0 1 1 0,88
+      a 44,44 0 1 1 0,-88
+    "
+              fill-opacity="0"
+              stroke-width="12"
+              style="stroke: white; stroke-linecap: round; transition: stroke-dashoffset 0.5s ease 0s; stroke-dasharray: 276.46015351590177px 276.46015351590177px; stroke-dashoffset: 276.46015351590177px;"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`<Snackbar /> renders the correct important style 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="container-0-3-1"
+        data-testid="snackbar"
+      >
+        <div
+          class="content-0-3-2"
+        >
+          <img
+            alt="important"
+            src="toast-info.svg"
+          />
+          <span>
+            error
+          </span>
+        </div>
+        <div
+          class="actions-0-3-4"
+        >
+          <button
+            class="hsbutton borderless square invert"
+            type="button"
+          >
+            <svg
+              class="CircularProgressbar "
+              data-test-id="CircularProgressbar"
+              style="width: 20px; height: 20px;"
+              viewBox="0 0 100 100"
+            >
+              <path
+                class="CircularProgressbar-trail"
+                d="
+      M 50,50
+      m 0,-44
+      a 44,44 0 1 1 0,88
+      a 44,44 0 1 1 0,-88
+    "
+                fill-opacity="0"
+                stroke-width="12"
+                style="stroke: #272727; stroke-linecap: round; stroke-dasharray: 276.46015351590177px 276.46015351590177px; stroke-dashoffset: 0px;"
+              />
+              <path
+                class="CircularProgressbar-path"
+                d="
+      M 50,50
+      m 0,-44
+      a 44,44 0 1 1 0,88
+      a 44,44 0 1 1 0,-88
+    "
+                fill-opacity="0"
+                stroke-width="12"
+                style="stroke: white; stroke-linecap: round; transition: stroke-dashoffset 0.5s ease 0s; stroke-dasharray: 276.46015351590177px 276.46015351590177px; stroke-dashoffset: 276.46015351590177px;"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="container-0-3-1"
+      data-testid="snackbar"
+    >
+      <div
+        class="content-0-3-2"
+      >
+        <img
+          alt="important"
+          src="toast-info.svg"
+        />
+        <span>
+          error
+        </span>
+      </div>
+      <div
+        class="actions-0-3-4"
+      >
+        <button
+          class="hsbutton borderless square invert"
+          type="button"
+        >
+          <svg
+            class="CircularProgressbar "
+            data-test-id="CircularProgressbar"
+            style="width: 20px; height: 20px;"
+            viewBox="0 0 100 100"
+          >
+            <path
+              class="CircularProgressbar-trail"
+              d="
+      M 50,50
+      m 0,-44
+      a 44,44 0 1 1 0,88
+      a 44,44 0 1 1 0,-88
+    "
+              fill-opacity="0"
+              stroke-width="12"
+              style="stroke: #272727; stroke-linecap: round; stroke-dasharray: 276.46015351590177px 276.46015351590177px; stroke-dashoffset: 0px;"
+            />
+            <path
+              class="CircularProgressbar-path"
+              d="
+      M 50,50
+      m 0,-44
+      a 44,44 0 1 1 0,88
+      a 44,44 0 1 1 0,-88
+    "
+              fill-opacity="0"
+              stroke-width="12"
+              style="stroke: white; stroke-linecap: round; transition: stroke-dashoffset 0.5s ease 0s; stroke-dasharray: 276.46015351590177px 276.46015351590177px; stroke-dashoffset: 276.46015351590177px;"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`<Snackbar /> renders the correct success style 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="container-0-3-1"
+        data-testid="snackbar"
+      >
+        <div
+          class="content-0-3-2"
+        >
+          <img
+            alt="success"
+            src="toast-success.svg"
+          />
+          <span>
+            error
+          </span>
+        </div>
+        <div
+          class="actions-0-3-4"
+        >
+          <button
+            class="hsbutton borderless square invert"
+            type="button"
+          >
+            <svg
+              class="CircularProgressbar "
+              data-test-id="CircularProgressbar"
+              style="width: 20px; height: 20px;"
+              viewBox="0 0 100 100"
+            >
+              <path
+                class="CircularProgressbar-trail"
+                d="
+      M 50,50
+      m 0,-44
+      a 44,44 0 1 1 0,88
+      a 44,44 0 1 1 0,-88
+    "
+                fill-opacity="0"
+                stroke-width="12"
+                style="stroke: #272727; stroke-linecap: round; stroke-dasharray: 276.46015351590177px 276.46015351590177px; stroke-dashoffset: 0px;"
+              />
+              <path
+                class="CircularProgressbar-path"
+                d="
+      M 50,50
+      m 0,-44
+      a 44,44 0 1 1 0,88
+      a 44,44 0 1 1 0,-88
+    "
+                fill-opacity="0"
+                stroke-width="12"
+                style="stroke: white; stroke-linecap: round; transition: stroke-dashoffset 0.5s ease 0s; stroke-dasharray: 276.46015351590177px 276.46015351590177px; stroke-dashoffset: 276.46015351590177px;"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="container-0-3-1"
+      data-testid="snackbar"
+    >
+      <div
+        class="content-0-3-2"
+      >
+        <img
+          alt="success"
+          src="toast-success.svg"
+        />
+        <span>
+          error
+        </span>
+      </div>
+      <div
+        class="actions-0-3-4"
+      >
+        <button
+          class="hsbutton borderless square invert"
+          type="button"
+        >
+          <svg
+            class="CircularProgressbar "
+            data-test-id="CircularProgressbar"
+            style="width: 20px; height: 20px;"
+            viewBox="0 0 100 100"
+          >
+            <path
+              class="CircularProgressbar-trail"
+              d="
+      M 50,50
+      m 0,-44
+      a 44,44 0 1 1 0,88
+      a 44,44 0 1 1 0,-88
+    "
+              fill-opacity="0"
+              stroke-width="12"
+              style="stroke: #272727; stroke-linecap: round; stroke-dasharray: 276.46015351590177px 276.46015351590177px; stroke-dashoffset: 0px;"
+            />
+            <path
+              class="CircularProgressbar-path"
+              d="
+      M 50,50
+      m 0,-44
+      a 44,44 0 1 1 0,88
+      a 44,44 0 1 1 0,-88
+    "
+              fill-opacity="0"
+              stroke-width="12"
+              style="stroke: white; stroke-linecap: round; transition: stroke-dashoffset 0.5s ease 0s; stroke-dasharray: 276.46015351590177px 276.46015351590177px; stroke-dashoffset: 276.46015351590177px;"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

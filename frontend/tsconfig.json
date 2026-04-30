@@ -1,0 +1,21 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "es6"
+    ],
+    "noEmit": true,
+    "jsx": "preserve",
+    "module": "esnext",
+    "outDir": "./dist"
+  },
+  "include": [
+    ".",
+    "../main/src/types/"
+  ],
+  "exclude": [
+    "dist"
+  ]
+}

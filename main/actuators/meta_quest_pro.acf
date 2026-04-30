@@ -1,0 +1,28 @@
+{
+  metadata: {
+    version: '2.0.0',
+    device: 'Meta Touch Pro',
+    date: '19.01.2023',
+    author: 'Amir, Max',
+  },
+  continuous: {
+    gain: 1.0,
+    emphasis_ducking: 0.5,
+    frequency_min: 55,
+    frequency_max: 200,
+  },
+  emphasis: {
+    gain: 1,
+    fade_out_percent: 0,
+    frequency_min: {
+      output_frequency: 55,
+      duration_ms: 36.4,
+      shape: 'sine',
+    },
+    frequency_max: {
+      output_frequency: 165,
+      duration_ms: 12.1,
+      shape: 'square',
+    },
+  },
+}

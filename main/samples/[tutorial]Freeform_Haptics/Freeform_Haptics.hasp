@@ -1,0 +1,436 @@
+{
+  "version": {
+    "major": 2,
+    "minor": 0,
+    "patch": 0
+  },
+  "metadata": {
+    "name": "Freeform Haptics",
+    "category": "intermediate",
+    "description": "Explore the Pen tool and learn to draw simple haptic effects.",
+    "slug": "freeform-haptics",
+    "version": "2.0.0"
+  },
+  "state": {
+    "sessionId": "c8cfff4b-41e4-4c54-af24-65186fd781e8",
+    "clipId": "f84eea0b-83b8-4bed-8e7b-1776584c4900"
+  },
+  "clips": [
+    {
+      "clipId": "255e7ee9-1a74-49d8-9777-bd10207ff1c6",
+      "name": "Intro",
+      "audioAsset": {
+        "channels": 1
+      },
+      "haptic": {
+        "version": {
+          "major": 1,
+          "minor": 0,
+          "patch": 0
+        },
+        "metadata": {
+          "editor": "Meta Haptics Studio 2.0.0-beta.9",
+          "source": "",
+          "project": "Intro",
+          "tags": [],
+          "description": ""
+        },
+        "signals": {
+          "continuous": {
+            "envelopes": {
+              "amplitude": [
+                {
+                  "time": 0,
+                  "amplitude": 0
+                }
+              ],
+              "frequency": [
+                {
+                  "time": 0,
+                  "frequency": 0.1
+                }
+              ]
+            }
+          }
+        }
+      },
+      "lastUpdate": 1750158164566,
+      "notes": "<p align=\"center\">\n<img width=\"100%\" src=\"media://assets/start.png\" />\n\nIn this tutorial, you'll learn how to create <b>freeform haptics</b> using the Pen tool.\n\nThis workflow is ideal for intuitively designing short, simple effects, such as UI interactions.\n\nThe Pen tool allows for quick prototyping without the need for an audio track. You can also use it in your audio flow to quickly edit envelopes. \n\nLet’s get started!\n"
+    },
+    {
+      "clipId": "08632602-5a8a-4c3d-8058-035336efbbc8",
+      "name": "Getting Started",
+      "audioAsset": {
+        "channels": 1
+      },
+      "haptic": {
+        "version": {
+          "major": 1,
+          "minor": 0,
+          "patch": 0
+        },
+        "metadata": {
+          "editor": "Meta Haptics Studio 2.0.0-beta.10",
+          "source": "",
+          "project": "Getting Started",
+          "tags": [],
+          "description": ""
+        },
+        "signals": {
+          "continuous": {
+            "envelopes": {
+              "amplitude": [
+                {
+                  "time": 0,
+                  "amplitude": 0
+                }
+              ],
+              "frequency": [
+                {
+                  "time": 0,
+                  "frequency": 0.1
+                }
+              ]
+            }
+          }
+        }
+      },
+      "lastUpdate": 1750201531172,
+      "notes": "Start by creating a new project from the Home Screen. Select \"Design Freeform Haptics\" to begin.\n\n<p align=\"center\"> <img width=\"100%\" src=\"media://assets/newproject.png\"/>\n\n\nYou can also combine freeform and audio clips within the same project.\nTo add a new freeform clip to an existing project, click the plus icon (+) in the Clip Navigator.\n\n<p align=\"center\"> <img width=\"100%\" src=\"media://assets/addclip.png\"/>"
+    },
+    {
+      "clipId": "da9f2546-48de-4b5c-bc9b-9b3d1cfd348a",
+      "name": "The Pen tool",
+      "audioAsset": {
+        "channels": 1
+      },
+      "haptic": {
+        "version": {
+          "major": 1,
+          "minor": 0,
+          "patch": 0
+        },
+        "metadata": {
+          "editor": "Meta Haptics Studio 2.0.0-beta.9",
+          "source": "",
+          "project": "The Pen tool",
+          "tags": [],
+          "description": ""
+        },
+        "signals": {
+          "continuous": {
+            "envelopes": {
+              "amplitude": [
+                {
+                  "time": 0,
+                  "amplitude": 0
+                }
+              ],
+              "frequency": [
+                {
+                  "time": 0,
+                  "frequency": 0.1
+                }
+              ]
+            }
+          }
+        }
+      },
+      "lastUpdate": 1750687319294,
+      "notes": "The Pen tool is crafted much like a vector drawing tool, allowing you to plot and shape your envelope with precision.\n\nWhen creating a new freeform clip, the Pen tool is automatically selected. In this tutorial navigate to the Tool bar and select the Pen icon.\n\n<p align=\"center\"> <img width=\"100%\" src=\"media://assets/pentoolbar.png\"/>\n\n/newpage\n\nTo switch between tools, use the Tool bar or keyboard shortcuts. Press Enter or Escape to exit the Pen tool.\n\n<p align=\"center\"> <img width=\"100%\" src=\"media://assets/shortcuts.png\"/>\n\n/newpage\nLet's start drawing!\n\nThe Pen tool starts at the origin (0.0). To change the initial value, move your cursor upward along the vertical axis.\n\nSet your first point at (0/0.4). Now move along the canvas and click to place breakpoints, this begins filling the envelope.\n\nTry to create a shape similar to the one shown below.\n\n<p align=\"center\"> <img width=\"100%\" src=\"media://assets/shape.png\"/>\n\n\n/newpage\n\n<b>Adding Points</b>\nMove across the canvas and click to add additional points.\n\n<b>Guidance</b>\nWhite guiding lines will appear to help you align new points in reference to previously placed ones.\n\n<b>Complete Envelope</b>\nPress Enter when you're done to complete the envelope.\n\n<b>Edit and Extend</b>\nYou can always return to your envelope to refine it by selecting the Pen tool again.\n\nAdd new points or adjust existing breakpoints as needed. To remove a point, select it and press Delete on your keyboard.\n\n"
+    },
+    {
+      "clipId": "469687de-0d22-420c-96e2-69656290e868",
+      "name": "Infinite Canvas ",
+      "audioAsset": {
+        "channels": 1
+      },
+      "haptic": {
+        "version": {
+          "major": 1,
+          "minor": 0,
+          "patch": 0
+        },
+        "metadata": {
+          "editor": "Meta Haptics Studio 2.0.0-beta.10",
+          "source": "",
+          "project": "Infinite Canvas ",
+          "tags": [],
+          "description": ""
+        },
+        "signals": {
+          "continuous": {
+            "envelopes": {
+              "amplitude": [
+                {
+                  "time": 0,
+                  "amplitude": 0.7013201320132013
+                },
+                {
+                  "time": 14.995999999999999,
+                  "amplitude": 0.6965430619495068
+                }
+              ],
+              "frequency": [
+                {
+                  "time": 0,
+                  "frequency": 0.1
+                }
+              ]
+            }
+          }
+        }
+      },
+      "lastUpdate": 1750687387549,
+      "notes": "The editor provides an infinite canvas, allowing you to draw freely. The length of your clip is defined by the position of the last set breakpoint. \n\n<p align=\"center\"> <img width=\"100%\" src=\"media://assets/adjust.png\"/>\n\n<b>Tip:</b> \nFor more precise control over the clip length, you can specify the exact duration of your haptic clip by entering a value for the last breakpoint into the time input field in the Design tab. You can adjust the value by typing directly or using the arrow controls.\n\nNow, click on the last breakpoint and extend the envelope to 20.0.\n\n/newpage\n\nUse the <b>Clip Navigator</b> to move around your canvas. You can adjust what you see by dragging the handles to zoom in or out.\n\n<p align=\"center\">\n<video width=\"100%\" src=\"media://assets/navigator.mp4\" autoplay loop/>\n\nIf you've navigated far out on the canvas, you can quickly return to your envelope by clicking in a specific area in the Clip Navigator. The editor view will automatically jump back to that section."
+    },
+    {
+      "clipId": "609adc09-2b07-4813-96e3-6c2dd0e99d84",
+      "name": "Drawing Envelopes",
+      "audioAsset": {
+        "channels": 1
+      },
+      "haptic": {
+        "version": {
+          "major": 1,
+          "minor": 0,
+          "patch": 0
+        },
+        "metadata": {
+          "editor": "Meta Haptics Studio 2.0.0-beta.10",
+          "source": "",
+          "project": "Drawing Envelopes",
+          "tags": [],
+          "description": ""
+        },
+        "signals": {
+          "continuous": {
+            "envelopes": {
+              "amplitude": [
+                {
+                  "time": 0,
+                  "amplitude": 0.4013666793344438
+                },
+                {
+                  "time": 0.14842447799996136,
+                  "amplitude": 0.9026402640264024
+                },
+                {
+                  "time": 0.14842947799996137,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.3007504931574269,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.4501201703367029,
+                  "amplitude": 0.9999999999999997
+                },
+                {
+                  "time": 0.5983087212262052,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.7499656575533333,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.7499706575533334,
+                  "amplitude": 0.5000000000000001
+                },
+                {
+                  "time": 1.1985655490169067,
+                  "amplitude": 0.5000000000000002
+                }
+              ],
+              "frequency": [
+                {
+                  "time": 0,
+                  "frequency": 0.40264026402640263
+                }
+              ]
+            }
+          }
+        }
+      },
+      "lastUpdate": 1750687536196,
+      "notes": "A haptic clip consists of two envelopes: <b>Amplitude</b>  and <b>Frequency</b>. You can start your freeform haptics by drawing either one first. \n\nTo learn more about envelopes, see the tutorial: **The Basics of Haptic Design**.\n\n<p align=\"center\"> <img width=\"100%\" src=\"media://assets/toggleB.gif\"/>\n\nOnce you've finished drawing the first envelope, use the toggle to switch to the second.\n\n/newpage\nTo ensure both amplitude and frequency envelopes have the same duration, the shorter envelope is automatically extended to match the duration of the longer one. This is essential for seamless integration into your product.\n\nYou have two options when working on the second envelope:\n\n/newpage\n<b> Keep the default value: </b> \nTo adjust it, simply move the first point up or down along the vertical axis.\n\n<p align=\"center\"> <img width=\"100%\" src=\"media://assets/adjustvalue.png\"/>\n\n\n<b>Draw custom envelope: </b> \nSelect the Pen tool and begin placing points on the canvas as you did with the first envelope.\n\n<p align=\"center\"> <img width=\"100%\" src=\"media://assets/secondenvelope.png\"/>\n\n/newpage\n\nNow, let’s draw the second envelope with a slightly different shape. \n\nTry creating a shape similar to the one below:\n\n<p align=\"center\"> <img width=\"100%\" src=\"media://assets/secondshape.png\"/>\n"
+    },
+    {
+      "clipId": "f84eea0b-83b8-4bed-8e7b-1776584c4900",
+      "name": "Testing and Exporting ",
+      "audioAsset": {
+        "channels": 1
+      },
+      "haptic": {
+        "version": {
+          "major": 1,
+          "minor": 0,
+          "patch": 0
+        },
+        "metadata": {
+          "editor": "Meta Haptics Studio 2.0.0-beta.10",
+          "source": "",
+          "project": "Testing and Exporting ",
+          "tags": [],
+          "description": ""
+        },
+        "signals": {
+          "continuous": {
+            "envelopes": {
+              "amplitude": [
+                {
+                  "time": 0,
+                  "amplitude": 0.8036303630363036
+                },
+                {
+                  "time": 0.000005,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.0017556946331752444,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.0017606946331752444,
+                  "amplitude": 0.4013666793344438
+                },
+                {
+                  "time": 0.1501851726331366,
+                  "amplitude": 0.9026402640264024
+                },
+                {
+                  "time": 0.1501901726331366,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.30251118779060215,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.4518808649698781,
+                  "amplitude": 0.9999999999999997
+                },
+                {
+                  "time": 0.6000694158593805,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.7517263521865086,
+                  "amplitude": 0
+                },
+                {
+                  "time": 0.7517313521865087,
+                  "amplitude": 0.5000000000000001
+                },
+                {
+                  "time": 1.200326243650082,
+                  "amplitude": 0.5000000000000002
+                }
+              ],
+              "frequency": [
+                {
+                  "time": 0,
+                  "frequency": 0.1
+                },
+                {
+                  "time": 0.000005,
+                  "frequency": 0
+                },
+                {
+                  "time": 0.0017556946331752444,
+                  "frequency": 0
+                },
+                {
+                  "time": 0.0017606946331752444,
+                  "frequency": 0.40264026402640263
+                },
+                {
+                  "time": 0.15049027318965968,
+                  "frequency": 0
+                },
+                {
+                  "time": 0.30098054637931937,
+                  "frequency": 0
+                },
+                {
+                  "time": 0.30098554637931935,
+                  "frequency": 0.7643312101910837
+                },
+                {
+                  "time": 0.6010384691416285,
+                  "frequency": 0.7627388535031855
+                },
+                {
+                  "time": 0.6010434691416285,
+                  "frequency": 0.0015923566878981443
+                },
+                {
+                  "time": 0.7517870064495831,
+                  "frequency": 0
+                },
+                {
+                  "time": 1.1994086200330718,
+                  "frequency": 0.4949969519244918
+                }
+              ]
+            }
+          }
+        }
+      },
+      "lastUpdate": 1750201493361,
+      "notes": "<p align=\"center\"> <img width=\"100%\" src=\"media://assets/testing.png\"/>\n\nNow that you've created your haptic design, it's time to try it out!\n\nIf you haven’t already, connect your headset using the Connection Panel, then open the VR Companion App to test your designs.\n\nOnce you're satisfied with the result, you can export your design in the format of your choice for use in your project.\n\n\n\n/newpage\n\n<b>Congratulations!</b>\n\nYou've completed the  tutorial for freeform haptics using the Pen tool.\n\nFrom here, feel free to explore and experiment with the advanced features and capabilities of Haptics Studio. Happy creating!\n"
+    }
+  ],
+  "groups": [
+    {
+      "id": "c3ec605b-c9f7-40cb-abbd-8c4aa1f40ad7",
+      "name": "New Group",
+      "isFolder": false,
+      "clips": [
+        "255e7ee9-1a74-49d8-9777-bd10207ff1c6"
+      ]
+    },
+    {
+      "id": "d3e58319-9e96-4d28-923f-3ec288bc4d0c",
+      "name": "New Group",
+      "isFolder": false,
+      "clips": [
+        "08632602-5a8a-4c3d-8058-035336efbbc8"
+      ]
+    },
+    {
+      "id": "88620a4b-d1a7-47ea-ba7f-954afcc53413",
+      "name": "New Group",
+      "isFolder": false,
+      "clips": [
+        "da9f2546-48de-4b5c-bc9b-9b3d1cfd348a"
+      ]
+    },
+    {
+      "id": "3b6b8e82-a21c-46d4-8ccd-fd21a77b377c",
+      "name": "New Group",
+      "isFolder": false,
+      "clips": [
+        "469687de-0d22-420c-96e2-69656290e868"
+      ]
+    },
+    {
+      "id": "c698e1e4-e0bf-4116-a8d8-8dc5b35da388",
+      "name": "New Group",
+      "isFolder": false,
+      "clips": [
+        "609adc09-2b07-4813-96e3-6c2dd0e99d84"
+      ]
+    },
+    {
+      "id": "3dcf1fd3-dbf1-4b72-aed8-d1eabccbd0ea",
+      "isFolder": false,
+      "name": "untitled",
+      "clips": [
+        "f84eea0b-83b8-4bed-8e7b-1776584c4900"
+      ]
+    }
+  ]
+}

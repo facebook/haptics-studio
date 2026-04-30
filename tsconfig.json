@@ -1,0 +1,37 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "jsx": "react",
+
+    "importHelpers": true,
+    "alwaysStrict": true,
+    "noUnusedParameters": false,
+    "noFallthroughCasesInSwitch": true,
+    "baseUrl": ".",
+    "emitDecoratorMetadata": true,
+
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+
+    "outDir": "./dist/",
+    "sourceMap": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "noUnusedLocals": true,
+    "experimentalDecorators": true
+  },
+  "exclude": [
+    ".vscode",
+    "node_modules"
+  ]
+}

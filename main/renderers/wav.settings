@@ -1,0 +1,12 @@
+// Example haptic renderer settings.
+{
+  // The sample rate at which the renderer should run.
+  sample_rate: 8000,
+  // The sample format that should be written out by the renderer.
+  // Can be any of ['unsigned8', 'signed16', 'signed24', 'signed32', 'float32'].
+  sample_format: "unsigned8",
+  // The rendering mode to use.
+  // Can be any of ['amp_curve', 'synthesis'].
+  render_mode: "synthesis",
+  output_format: "wav"
+}

@@ -1,0 +1,9 @@
+#dist folder
+dist
+
+# configs
+configs/configs.*.js
+
+# coverage files
+/coverage/*
+!/coverage/.index
