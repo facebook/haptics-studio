@@ -12,17 +12,16 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.runtime.Composable
 
-private val DarkColors =
-    darkColorScheme(
-        primary = Accent,
-        onPrimary = TextColor,
-        background = Background,
-        onBackground = TextColor,
-        surface = LightBackground,
-        onSurface = TextColor,
-        surfaceVariant = LightBackground,
-        onSurfaceVariant = TextColor,
-    )
+private val DarkColors = darkColorScheme(
+    primary = Accent,
+    onPrimary = TextColor,
+    background = Background,
+    onBackground = TextColor,
+    surface = LightBackground,
+    onSurface = TextColor,
+    surfaceVariant = LightBackground,
+    onSurfaceVariant = TextColor,
+)
 
 @Composable
 fun HapticsStudioTheme(
