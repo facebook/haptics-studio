@@ -1,20 +1,12 @@
-## Haptics Studio 2.3.0
+## Haptics Studio 2.4.0
 
-### Haptics Studio is now Open Source
-Meta is open sourcing Haptics Studio alongside the Haptics SDK to empower game developers to build best-in-class haptics regardless of platform. Haptics Studio makes it easy for creators and developers to design haptic feedback without deep technical expertise, now fully open for the community to build on.
-
-### Why open source?
-- Remove the tooling barrier: Give designers and developers free, production-ready tooling to create haptic experiences that work across platforms.
-- Empower a shared community: Provide a common foundation that the design and developer community can build on, extend, and improve together.
-- Advance the industry: Accelerate the ecosystem toward a future where high-quality haptics are standard, not exceptional.
-
-### What's New
-
-- Updated UI: The UI has been overhauled for the open-source release. Icons have been replaced with open-source alternatives and typography now uses an open-source font, ensuring the full experience is freely distributable.
-- Paste Emphasis in Place: Paste only the emphasis data from your clipboard onto the current clip's amplitude, giving you more precise control over layering haptic emphasis.
-- Android-Compatible Export: Added a new export format compatible with Android devices.
-- Improved Audio Playback: You can now stop audio playback using the Spacebar or the stop button.
+This release improves editing reliability: folder drops now consistently create groups, analysis cancel restores previous values, and envelope editing fixes address cut-paste, point selection when scrolled, and group duplication.
 
 ### Bug Fixes
-- Fixed issues with group duplication.
-- Fixed hotkeys not working properly on Windows.
+
+- Dropping a single folder now correctly creates a folder group instead of loose root clips.
+- Saving a sample project under a new name now keeps it as a custom project: sample audio assets are copied next to the project.
+- Restored analysis parameter sliders to previous values when cancelling the re-analysis confirmation dialog, preventing UI mismatch with the actual clip state.
+- Fixed an issue when pasting the envelope content after Select All + Cut.
+- Fixed repeated group duplication creating extra duplicate clips when selection contained both the group and its clips.
+- Fixed envelope point hover affordance when timeline is scrolled.
