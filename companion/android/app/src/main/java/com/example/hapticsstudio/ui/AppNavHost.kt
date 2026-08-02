@@ -26,7 +26,7 @@ fun AppNavHost() {
           onConnect = { endpoint ->
             val host = URLEncode(endpoint.hostname)
             navController.navigate("clips/${endpoint.ip}/${endpoint.port}/$host")
-          }
+          },
       )
     }
     composable(

@@ -153,7 +153,7 @@ private fun AuthCodeEntry(onSubmit: (String) -> Unit) {
         placeholder = { Text("----") },
         keyboardOptions =
             androidx.compose.foundation.text.KeyboardOptions(
-                keyboardType = KeyboardType.NumberPassword
+                keyboardType = KeyboardType.NumberPassword,
             ),
         modifier = Modifier.fillMaxWidth(),
     )

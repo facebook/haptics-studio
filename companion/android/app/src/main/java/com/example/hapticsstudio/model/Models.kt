@@ -59,7 +59,7 @@ data class Project(
                   name = obj.optString("name"),
                   mime = obj.optString("mime"),
                   lastUpdate = obj.optLong("lastUpdate"),
-              )
+              ),
           )
         }
       }
@@ -82,7 +82,7 @@ data class Project(
                   name = if (obj.isNull("name")) null else obj.optString("name"),
                   isFolder = obj.optBoolean("isFolder"),
                   clips = clipIds,
-              )
+              ),
           )
         }
       }
