@@ -45,6 +45,30 @@ export default class SecondaryWindowManager {
     this.callbacks = callbacks;
   }
 
+  private focusMainWindow = (): void => {
+    const mainWindow = this.callbacks.getMainWindow();
+    if (!mainWindow) {
+      return;
+    }
+    if (mainWindow.isMinimized()) {
+      mainWindow.restore();
+    }
+    mainWindow.focus();
+  };
+
+  private restoreFocusAfterClose = (
+    fallbackWindow: BrowserWindow | undefined,
+  ): void => {
+    // On Windows, closing a child BrowserWindow can cause the main window to
+    // drop behind other applications. Explicitly restore focus
+    // to the remaining secondary window or to the main window.
+    if (fallbackWindow) {
+      fallbackWindow.focus();
+    } else {
+      this.focusMainWindow();
+    }
+  };
+
   /**
    * Creates a secondary window with shared configuration and event handling.
    */
@@ -113,6 +137,7 @@ export default class SecondaryWindowManager {
 
     if (this.aboutWindow) {
       this.aboutWindow.show();
+      this.aboutWindow.focus();
       return;
     }
 
@@ -149,6 +174,7 @@ export default class SecondaryWindowManager {
       onClosed: () => {
         this.callbacks.setDefaultControls(previousDefaultControls);
         this.aboutWindow = undefined;
+        this.restoreFocusAfterClose(this.licensesWindow);
       },
     });
   };
@@ -159,6 +185,7 @@ export default class SecondaryWindowManager {
   public showLicensesWindow = () => {
     if (this.licensesWindow) {
       this.licensesWindow.show();
+      this.licensesWindow.focus();
       return;
     }
 
@@ -169,8 +196,11 @@ export default class SecondaryWindowManager {
       title: 'Acknowledgements',
       width: 800,
       height: 600,
+      parent: this.callbacks.getMainWindow(),
+      center: this.callbacks.getMainWindowCenter(),
       onClosed: () => {
         this.licensesWindow = undefined;
+        this.restoreFocusAfterClose(this.aboutWindow);
       },
     });
   };
