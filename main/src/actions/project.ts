@@ -155,6 +155,32 @@ async function copySampleAssetsToProject(
 }
 
 /**
+ * Asks the user to confirm replacing an existing project file.
+ * The native save panel only warns about overwriting the exact name typed by the
+ * user, so when the project extension is appended afterwards the destination can
+ * be replaced without any prompt. This confirmation covers that case.
+ * @param projectFile - The destination project file
+ * @returns True when the user confirms the overwrite
+ */
+function confirmProjectFileOverwrite(projectFile: string): boolean {
+  const window = MainApplication.instance.getMainWindow();
+  if (!window) {
+    return false;
+  }
+  const projectName = path.basename(projectFile, path.extname(projectFile));
+  // res: 0 == 'Yes', 1 == 'No'
+  const res = dialog.showMessageBoxSync(window, {
+    type: 'question',
+    title: '',
+    message: `A project with name ${projectName} already exists in the folder ${path.dirname(projectFile)}. Do you want to replace it?`,
+    buttons: ['Yes', 'No'],
+    defaultId: 1,
+    cancelId: 1,
+  });
+  return res === 0;
+}
+
+/**
  * Save current project assets to destination
  * @param action - The action name
  * @param forceDestination - Flag to force save destination dialog
@@ -201,7 +227,7 @@ export async function saveProject(
             `${projectName}${projectFileExt}`,
           ),
           title: 'Save project',
-          properties: ['createDirectory'],
+          properties: ['createDirectory', 'showOverwriteConfirmation'],
           buttonLabel: 'Save',
         });
 
@@ -223,17 +249,33 @@ export async function saveProject(
 
     // Update the project name based on the project file name
     projectName = path.basename(projectFile, path.extname(projectFile));
-    Project.instance.updateName(projectName);
 
     // Ensure that the project file has the right extension
-    // and get the project name from the file name
-    if (path.extname(projectFile) !== projectFileExt) {
-      Configs.instance.removeRecentProject({projectFile, name: projectName});
-      projectFile = path.join(
-        path.dirname(projectFile),
-        `${projectName}${projectFileExt}`,
-      );
+    const normalizedProjectFile =
+      path.extname(projectFile) === projectFileExt
+        ? projectFile
+        : path.join(
+            path.dirname(projectFile),
+            `${projectName}${projectFileExt}`,
+          );
+
+    // The extension is appended after the save panel is dismissed, so the native
+    // overwrite confirmation never applies to the resulting file. Ask for
+    // confirmation before replacing an existing project.
+    if (
+      normalizedProjectFile !== projectFile &&
+      fs.existsSync(normalizedProjectFile) &&
+      !confirmProjectFileOverwrite(normalizedProjectFile)
+    ) {
+      return {action, status: 'canceled'};
     }
+
+    if (normalizedProjectFile !== projectFile) {
+      Configs.instance.removeRecentProject({projectFile, name: projectName});
+      projectFile = normalizedProjectFile;
+    }
+
+    Project.instance.updateName(projectName);
 
     const isTutorial = isBuiltInTutorial(projectFile);
     const isAuthoringTutorial = isCustomTutorial(projectFile);
@@ -633,7 +675,7 @@ export async function cloneProject(action: string): Promise<IPCMessage> {
       projectFile = dialog.showSaveDialogSync(window, {
         defaultPath: path.join(defaultPath, `${projectName}${projectFileExt}`),
         title: 'Save project',
-        properties: ['createDirectory'],
+        properties: ['createDirectory', 'showOverwriteConfirmation'],
         buttonLabel: 'Save',
       });
     }
@@ -645,10 +687,22 @@ export async function cloneProject(action: string): Promise<IPCMessage> {
 
     // Ensure that the project file has the right extension
     // and get the project name from the file name
+    const selectedProjectFile = projectFile;
     projectFile = projectFile.endsWith(projectFileExt)
       ? projectFile
       : `${projectFile}${projectFileExt}`;
     projectName = path.basename(projectFile, path.extname(projectFile));
+
+    // The extension is appended after the save panel is dismissed, so the native
+    // overwrite confirmation never applies to the resulting file. Ask for
+    // confirmation before replacing an existing project.
+    if (
+      projectFile !== selectedProjectFile &&
+      fs.existsSync(projectFile) &&
+      !confirmProjectFileOverwrite(projectFile)
+    ) {
+      return {action, status: 'canceled'};
+    }
 
     const clonedContent = Project.instance.getExportableContent();
     clonedContent.metadata = {...clonedContent.metadata, name: projectName};

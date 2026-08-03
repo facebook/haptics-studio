@@ -381,6 +381,113 @@ describe('actions', () => {
       });
     });
 
+    describe('when the selected name collides with an existing project', () => {
+      const existingProjectFile = path.join(
+        projectMock.projectDir,
+        `collision${Constants.PROJECT.EXTENSION}`,
+      );
+      // The user types the name without the project extension
+      const selectedFile = path.join(projectMock.projectDir, 'collision');
+
+      beforeEach(() => {
+        jest
+          .spyOn(Project.instance, 'getName')
+          .mockReturnValue(projectMock.name);
+        jest.spyOn(Project.instance, 'updateName').mockImplementation();
+        jest.spyOn(Project.instance, 'save').mockImplementation();
+        jest.spyOn(Configs.instance, 'setCurrentProject').mockImplementation();
+        jest.spyOn(Configs.instance, 'addRecentProject').mockImplementation();
+        jest
+          .spyOn(Configs.instance, 'removeRecentProject')
+          .mockImplementation();
+        jest.spyOn(Configs.instance, 'getCurrentProject').mockReturnValue({
+          tmpProjectFile: projectMock.tmpProjectFile,
+          projectFile: projectMock.projectFile,
+          name: projectMock.name,
+          dirty: true,
+        });
+        jest.spyOn(dialog, 'showSaveDialogSync').mockReturnValue(selectedFile);
+        jest
+          .spyOn(MainApplication.instance, 'getMainWindow')
+          .mockReturnValue({} as unknown as BrowserWindow);
+        fs.writeFileSync(existingProjectFile, '{}');
+      });
+
+      describe('and the overwrite is confirmed', () => {
+        beforeEach(async () => {
+          jest.spyOn(dialog, 'showMessageBoxSync').mockReturnValue(0);
+          response = await Actions.saveProject(testAction, true);
+        });
+
+        it('should ask for confirmation', () => {
+          expect(dialog.showMessageBoxSync).toHaveBeenCalledTimes(1);
+        });
+
+        it('should save the project', () => {
+          expect(response.status).toEqual('ok');
+          expect(Project.instance.save).toHaveBeenCalledWith(
+            existingProjectFile,
+          );
+        });
+      });
+
+      describe('and the overwrite is rejected', () => {
+        beforeEach(async () => {
+          jest.spyOn(dialog, 'showMessageBoxSync').mockReturnValue(1);
+          response = await Actions.saveProject(testAction, true);
+        });
+
+        it('should ask for confirmation', () => {
+          expect(dialog.showMessageBoxSync).toHaveBeenCalledTimes(1);
+        });
+
+        it('should return canceled status message', () => {
+          expect(response.status).toEqual('canceled');
+          expect(response.action).toEqual(testAction);
+        });
+
+        it('should not overwrite the existing project', () => {
+          expect(Project.instance.save).not.toHaveBeenCalled();
+          expect(fs.readFileSync(existingProjectFile, 'utf8')).toEqual('{}');
+        });
+
+        it('should not rename the current project', () => {
+          expect(Project.instance.updateName).not.toHaveBeenCalled();
+        });
+      });
+    });
+
+    describe('when the selected name already has the project extension', () => {
+      beforeEach(async () => {
+        jest
+          .spyOn(Project.instance, 'getName')
+          .mockReturnValue(projectMock.name);
+        jest.spyOn(Project.instance, 'updateName').mockImplementation();
+        jest.spyOn(Project.instance, 'save').mockImplementation();
+        jest.spyOn(Configs.instance, 'setCurrentProject').mockImplementation();
+        jest.spyOn(Configs.instance, 'addRecentProject').mockImplementation();
+        jest.spyOn(Configs.instance, 'getCurrentProject').mockReturnValue({
+          tmpProjectFile: projectMock.tmpProjectFile,
+          projectFile: projectMock.projectFile,
+          name: projectMock.name,
+          dirty: true,
+        });
+        jest
+          .spyOn(dialog, 'showSaveDialogSync')
+          .mockReturnValue(projectMock.projectFile);
+        jest
+          .spyOn(MainApplication.instance, 'getMainWindow')
+          .mockReturnValue({} as unknown as BrowserWindow);
+        fs.writeFileSync(projectMock.projectFile, '{}');
+        response = await Actions.saveProject(testAction, true);
+      });
+
+      it('should rely on the native overwrite confirmation', () => {
+        expect(dialog.showMessageBoxSync).not.toHaveBeenCalled();
+        expect(response.status).toEqual('ok');
+      });
+    });
+
     describe('with destination file without write permissions', () => {
       beforeEach(async () => {
         Project.instance.create(projectMock.name);
@@ -597,6 +704,130 @@ describe('actions', () => {
 
       it('should create the new project file', () => {
         expect(fs.existsSync(clonedProjectFile)).toBeTruthy();
+      });
+    });
+
+    describe('when the selected name collides with an existing project', () => {
+      const existingProjectFile = path.join(
+        projectMock.projectDir,
+        `collision${Constants.PROJECT.EXTENSION}`,
+      );
+      // The user types the name without the project extension
+      const selectedFile = path.join(projectMock.projectDir, 'collision');
+      const existingContent = JSON.stringify({existing: true});
+
+      beforeEach(() => {
+        jest
+          .spyOn(Project.instance, 'getName')
+          .mockReturnValue(projectMock.name);
+        jest.spyOn(Project.instance, 'getState').mockReturnValue({
+          clipId: projectMock.clipId,
+          sessionId: projectMock.sessionId,
+        });
+        jest
+          .spyOn(Project.instance, 'getCurrentClip')
+          .mockReturnValue(projectMock.clip);
+        jest.spyOn(Project, 'setRelativeAssetsPath').mockReturnValue(true);
+        jest.spyOn(Project.instance, 'updateState').mockImplementation();
+        jest
+          .spyOn(Configs.instance, 'getCurrentProject')
+          .mockReturnValue({} as CurrentProject);
+        jest
+          .spyOn(Configs.instance, 'clearCurrentProject')
+          .mockImplementation();
+        jest.spyOn(dialog, 'showSaveDialogSync').mockReturnValue(selectedFile);
+        jest
+          .spyOn(MainApplication.instance, 'getMainWindow')
+          .mockReturnValue({} as unknown as BrowserWindow);
+        fs.writeFileSync(
+          projectMock.projectFile,
+          JSON.stringify(projectMock.defautProjectContent),
+        );
+        fs.writeFileSync(existingProjectFile, existingContent);
+      });
+
+      describe('and the overwrite is rejected', () => {
+        beforeEach(async () => {
+          jest.spyOn(dialog, 'showMessageBoxSync').mockReturnValue(1);
+          response = await Actions.cloneProject(testAction);
+        });
+
+        it('should ask for confirmation', () => {
+          expect(dialog.showMessageBoxSync).toHaveBeenCalledTimes(1);
+        });
+
+        it('should return canceled status message', () => {
+          expect(response.status).toEqual('canceled');
+          expect(response.action).toEqual(testAction);
+        });
+
+        it('should leave the existing project untouched', () => {
+          expect(fs.readFileSync(existingProjectFile, 'utf8')).toEqual(
+            existingContent,
+          );
+        });
+      });
+
+      describe('and the overwrite is confirmed', () => {
+        beforeEach(async () => {
+          jest.spyOn(dialog, 'showMessageBoxSync').mockReturnValue(0);
+          response = await Actions.cloneProject(testAction);
+        });
+
+        it('should ask for confirmation', () => {
+          expect(dialog.showMessageBoxSync).toHaveBeenCalledTimes(1);
+        });
+
+        it('should replace the existing project', () => {
+          expect(fs.readFileSync(existingProjectFile, 'utf8')).not.toEqual(
+            existingContent,
+          );
+        });
+      });
+    });
+
+    describe('when the selected name already has the project extension', () => {
+      const clonedProjectFile = path.join(
+        projectMock.projectDir,
+        `existing${Constants.PROJECT.EXTENSION}`,
+      );
+
+      beforeEach(async () => {
+        jest
+          .spyOn(Project.instance, 'getName')
+          .mockReturnValue(projectMock.name);
+        jest.spyOn(Project.instance, 'getState').mockReturnValue({
+          clipId: projectMock.clipId,
+          sessionId: projectMock.sessionId,
+        });
+        jest
+          .spyOn(Project.instance, 'getCurrentClip')
+          .mockReturnValue(projectMock.clip);
+        jest.spyOn(Project, 'setRelativeAssetsPath').mockReturnValue(true);
+        jest.spyOn(Project.instance, 'updateState').mockImplementation();
+        jest
+          .spyOn(Configs.instance, 'getCurrentProject')
+          .mockReturnValue({} as CurrentProject);
+        jest
+          .spyOn(Configs.instance, 'clearCurrentProject')
+          .mockImplementation();
+        jest
+          .spyOn(dialog, 'showSaveDialogSync')
+          .mockReturnValue(clonedProjectFile);
+        jest
+          .spyOn(MainApplication.instance, 'getMainWindow')
+          .mockReturnValue({} as unknown as BrowserWindow);
+        fs.writeFileSync(
+          projectMock.projectFile,
+          JSON.stringify(projectMock.defautProjectContent),
+        );
+        fs.writeFileSync(clonedProjectFile, '{}');
+        response = await Actions.cloneProject(testAction);
+      });
+
+      it('should rely on the native overwrite confirmation', () => {
+        expect(dialog.showMessageBoxSync).not.toHaveBeenCalled();
+        expect(response.status).toEqual('ok');
       });
     });
   });
