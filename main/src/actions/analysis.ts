@@ -24,6 +24,16 @@ import {
 } from '../hapticsSdk';
 import MainApplication from '../application';
 import Analytics, {ErrorType} from '../analytics';
+import {beginAnalysis, endAnalysis} from '../common/analysisState';
+
+/**
+ * The analysis loop mutates the project singleton across await points, so the project it
+ * started on must still be the current one before writing to it, otherwise clips leak into
+ * whichever project the user opened in the meantime.
+ */
+const isProjectSessionActive = (sessionId: string): boolean =>
+  Project.instance.hasContent() &&
+  Project.instance.getState().sessionId === sessionId;
 
 const handleAnalysisError = (
   sender: WebContents,
@@ -58,124 +68,141 @@ const handleAnalysisError = (
  * @param {webContents} sender - The window to respond to
  * @param {string} action - The action name
  * @param {AudioAnalysisFile[]} files - The list of files to analyze
- * @returns {Promise<void>}
+ * @returns {Promise<boolean>} false if the analysis was interrupted before completing
  */
 export async function analyzeFiles(
   sender: WebContents,
   action: string,
   files: AudioAnalysisFile[],
   silent: boolean,
-): Promise<void> {
+): Promise<boolean> {
   const {sessionId} = Project.instance.getState();
 
-  // Start iterating files
-  for (let index = 0; index < files.length; index += 1) {
-    // Break the loop if the user has closed the project while some files are still being analyzed
-    if (!Project.instance.hasContent()) {
-      Logger.warn('File analysis interrupted');
-      break;
-    }
-    const message = files[index];
-    const {path: audioPath, clipId, settings} = message;
-    let payload: ClipInfo;
-    let reason;
-    const response: IPCMessage<ClipInfo> = {action, status: 'ok', payload: {}};
+  beginAnalysis();
+  try {
+    // Start iterating files
+    for (let index = 0; index < files.length; index += 1) {
+      // Break the loop if the user has closed or replaced the project while some files are still being analyzed
+      if (!isProjectSessionActive(sessionId)) {
+        Logger.warn('File analysis interrupted');
+        break;
+      }
+      const message = files[index];
+      const {path: audioPath, clipId, settings} = message;
+      let payload: ClipInfo;
+      let reason;
+      const response: IPCMessage<ClipInfo> = {
+        action,
+        status: 'ok',
+        payload: {},
+      };
 
-    try {
-      // Get Audio file path from the UI
-      const {projectFile} = Configs.instance.getCurrentProject();
-      const clip: Clip | undefined = Project.instance.getClipById(clipId);
-      let currentClipAudioFilePath =
-        clip && clip.audioAsset ? clip.audioAsset.path : undefined;
-      if (
-        projectFile &&
-        currentClipAudioFilePath &&
-        !path.isAbsolute(currentClipAudioFilePath)
-      ) {
-        currentClipAudioFilePath = path.resolve(
-          path.dirname(projectFile),
-          currentClipAudioFilePath,
+      try {
+        // Get Audio file path from the UI
+        const {projectFile} = Configs.instance.getCurrentProject();
+        const clip: Clip | undefined = Project.instance.getClipById(clipId);
+        let currentClipAudioFilePath =
+          clip && clip.audioAsset ? clip.audioAsset.path : undefined;
+        if (
+          projectFile &&
+          currentClipAudioFilePath &&
+          !path.isAbsolute(currentClipAudioFilePath)
+        ) {
+          currentClipAudioFilePath = path.resolve(
+            path.dirname(projectFile),
+            currentClipAudioFilePath,
+          );
+        }
+        const audioFilePath = currentClipAudioFilePath || audioPath;
+
+        if (!fs.existsSync(audioFilePath)) {
+          sender.send('missing_audio_file', {action, clipId, audioFilePath});
+          reason = 'missing_audio_file';
+          throw new Error(`Missing Audio File ${audioFilePath}`);
+        }
+
+        // Check if the audio file is valid and retrieve the number of channels
+        const {channels} = await verifyAudioFile(audioFilePath);
+
+        // The project may have been replaced while awaiting, never write into a different project
+        if (!isProjectSessionActive(sessionId)) {
+          Logger.warn('File analysis interrupted');
+          break;
+        }
+
+        // When the analysis is silent wait for 1 second before sending the result to the UI
+        const analysisTimeout = setTimeout(
+          () => {
+            // Send the clip that is going to be analyzed before running the dsp
+            sender.send('current_analysis', {
+              action: 'current_analysis',
+              status: 'ok',
+              payload: {clipId},
+            });
+          },
+          silent ? 1000 : 0,
         );
+
+        // Call the DSP
+        const {waveform, result} = executeOath(audioFilePath, settings);
+
+        const name =
+          message.name ??
+          path.basename(audioFilePath, path.extname(audioFilePath));
+
+        sanitizeEnvelopesDuration(result.signals.continuous.envelopes);
+
+        // Clear analysis timeout
+        if (analysisTimeout) {
+          clearTimeout(analysisTimeout);
+        }
+
+        payload = {
+          clipId,
+          sessionId,
+          name,
+          audio: {path: audioFilePath, exists: true, channels},
+          svg: waveform,
+          haptic: result,
+          settings,
+        };
+
+        if (clip) {
+          clip.haptic = result;
+        }
+
+        const clipInfo: ClipInfo = {
+          clipId,
+          sessionId,
+          ...payload,
+        };
+
+        // Add clip to project file
+        Project.instance.addOrUpdateClip(clipInfo);
+
+        // Update project state
+        if (isEmpty(Project.instance.getState()) && index === 0) {
+          Project.instance.updateState(clipId, sessionId);
+        }
+
+        if (index === 0) {
+          // Reload menu items only when at least the first analysis is completed
+          // this enables the save buttons
+          MainApplication.instance.reloadMenuItems();
+        }
+
+        response.payload = payload;
+
+        sender.send(action, response);
+      } catch (error) {
+        handleAnalysisError(sender, action, clipId, error as Error, reason);
       }
-      const audioFilePath = currentClipAudioFilePath || audioPath;
-
-      if (!fs.existsSync(audioFilePath)) {
-        sender.send('missing_audio_file', {action, clipId, audioFilePath});
-        reason = 'missing_audio_file';
-        throw new Error(`Missing Audio File ${audioFilePath}`);
-      }
-
-      // Check if the audio file is valid and retrieve the number of channels
-      const {channels} = await verifyAudioFile(audioFilePath);
-
-      // When the analysis is silent wait for 1 second before sending the result to the UI
-      const analysisTimeout = setTimeout(
-        () => {
-          // Send the clip that is going to be analyzed before running the dsp
-          sender.send('current_analysis', {
-            action: 'current_analysis',
-            status: 'ok',
-            payload: {clipId},
-          });
-        },
-        silent ? 1000 : 0,
-      );
-
-      // Call the DSP
-      const {waveform, result} = executeOath(audioFilePath, settings);
-
-      const name =
-        message.name ??
-        path.basename(audioFilePath, path.extname(audioFilePath));
-
-      sanitizeEnvelopesDuration(result.signals.continuous.envelopes);
-
-      // Clear analysis timeout
-      if (analysisTimeout) {
-        clearTimeout(analysisTimeout);
-      }
-
-      payload = {
-        clipId,
-        sessionId,
-        name,
-        audio: {path: audioFilePath, exists: true, channels},
-        svg: waveform,
-        haptic: result,
-        settings,
-      };
-
-      if (clip) {
-        clip.haptic = result;
-      }
-
-      const clipInfo: ClipInfo = {
-        clipId,
-        sessionId,
-        ...payload,
-      };
-
-      // Add clip to project file
-      Project.instance.addOrUpdateClip(clipInfo);
-
-      // Update project state
-      if (isEmpty(Project.instance.getState()) && index === 0) {
-        Project.instance.updateState(clipId, sessionId);
-      }
-
-      if (index === 0) {
-        // Reload menu items only when at least the first analysis is completed
-        // this enables the save buttons
-        MainApplication.instance.reloadMenuItems();
-      }
-
-      response.payload = payload;
-
-      sender.send(action, response);
-    } catch (error) {
-      handleAnalysisError(sender, action, clipId, error as Error, reason);
     }
+  } finally {
+    endAnalysis();
   }
+
+  return isProjectSessionActive(sessionId);
 }
 
 /**

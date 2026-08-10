@@ -55,7 +55,18 @@ export function audioAnalysis(): void {
       }
 
       try {
-        await analyzeFiles(event.sender, 'audio_analysis', files, silent);
+        const completed = await analyzeFiles(
+          event.sender,
+          'audio_analysis',
+          files,
+          silent,
+        );
+
+        // The project was closed or replaced mid-import, leave the current project untouched
+        if (!completed) {
+          Logger.warn('Audio analysis interrupted, skipping project update');
+          return;
+        }
 
         // set current project dir
         Configs.instance.setCurrentProject({
@@ -111,7 +122,19 @@ export function retryAudioAnalysis(): void {
       ];
 
       try {
-        await analyzeFiles(event.sender, 'audio_analysis', files, true);
+        const completed = await analyzeFiles(
+          event.sender,
+          'audio_analysis',
+          files,
+          true,
+        );
+
+        // The project was closed or replaced mid-import, leave the current project untouched
+        if (!completed) {
+          Logger.warn('Audio analysis interrupted, skipping project update');
+          return;
+        }
+
         // Send Current project
         WSServer.instance.sendCurrentProject();
       } catch (e) {

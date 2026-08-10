@@ -145,9 +145,11 @@ export const projectReducers = {
    * @param action.error the error message
    */
   openProjectFailure(
-    _state: ProjectState,
+    state: ProjectState,
     _action: PayloadAction<{error: string}>,
-  ) {},
+  ) {
+    state.loading = false;
+  },
 
   /**
    * Load the current project, if any was open when the user closed the app

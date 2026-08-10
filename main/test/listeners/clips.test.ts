@@ -55,7 +55,7 @@ describe('clips listeners', () => {
     jest.spyOn(WSServer.instance, 'sendClipUpdate').mockReturnValue();
     jest
       .spyOn(AnalysisActions, 'analyzeFiles')
-      .mockReturnValue(Promise.resolve());
+      .mockReturnValue(Promise.resolve(true));
     jest
       .spyOn(AnalysisActions, 'updateAnalysis')
       .mockReturnValue(Promise.resolve());

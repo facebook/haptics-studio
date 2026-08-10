@@ -35,6 +35,7 @@ import {
 } from '../common/utils';
 import Constants from '../common/constants';
 import WSServer from '../wsServer';
+import {isAnalysisInProgress} from '../common/analysisState';
 // @oss-disable
 
 export interface LoadPayload {
@@ -336,6 +337,26 @@ export async function saveProject(
 }
 
 /**
+ * Refuses to switch project while clips are still being imported, otherwise the in-flight
+ * import writes its remaining clips into the project the user is opening
+ * @param {string} action - The action name
+ * @returns {IPCMessage | undefined} - The error to send back to the UI, undefined when no import is running
+ */
+function rejectDuringImport(action: string): IPCMessage | undefined {
+  if (!isAnalysisInProgress()) {
+    return undefined;
+  }
+  const message = 'Please wait for the clips import to complete.';
+  Logger.warn(`Action ${action} rejected: ${message}`);
+  MainApplication.instance.sendToUI('error', {
+    action,
+    status: 'error',
+    message,
+  });
+  return {action, status: 'error', message};
+}
+
+/**
  * If the current project file is missing or moved, asks for save forcing the selection of the destination
  * @param {string} action - The action name
  * @param {string} projectFile - The project file
@@ -438,6 +459,11 @@ export async function loadProject(
   loadFromDisk = true,
 ): Promise<IPCMessage> {
   try {
+    const importRejection = rejectDuringImport(action);
+    if (importRejection) {
+      return importRejection;
+    }
+
     if (!projectFile) {
       return {
         action,
@@ -791,6 +817,11 @@ export function setCurrentClip(clipId: string): void {
  * @param action the 'new' action
  */
 export async function newProject(action: string): Promise<IPCMessage> {
+  const importRejection = rejectDuringImport(action);
+  if (importRejection) {
+    return importRejection;
+  }
+
   // Close the current project
   const closeMessage = await closeProject(action);
   if (closeMessage.status !== 'ok') {
