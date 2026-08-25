@@ -176,6 +176,14 @@ namespace HapticStudio
                 CurrentPanelState = PanelState.StudioDisconnected;
             }
 
+            if (LocalProjects.Instance.LiveProject != null &&
+                LocalProjects.Instance.LiveProject.IsValid &&
+                !LocalProjects.Instance.LiveProject.isSample)
+            {
+                currentProjectName.text = LocalProjects.Instance.LiveProject.name;
+                UpdateLastUpdated();
+            }
+
             LoadCurrentProject();
             UpdateCurrentPanel();
         }
