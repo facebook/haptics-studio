@@ -7,19 +7,24 @@
 
 import {app} from 'electron';
 import {IpcInvokeChannel, IpcSendChannel} from '../../../shared';
+import type {RendererFatalErrorRequest} from '../../../shared';
 import {createIPCHandler, createIPCListener} from './ipcHandlerUtils';
 import MainApplication from '../application';
 import Configs from '../common/configs';
+import Logger from '../common/logger';
 
 /**
  * Accept terms and conditions
  */
 function termsAndConditions(): void {
-  createIPCHandler<{termsAccepted: boolean}>(IpcInvokeChannel.TermsAndConditions, args => {
-    Configs.instance.set('termsAccepted', args.termsAccepted);
-    MainApplication.instance.reloadMenuItems();
-    return {payload: {termsAccepted: args.termsAccepted}};
-  });
+  createIPCHandler<{termsAccepted: boolean}>(
+    IpcInvokeChannel.TermsAndConditions,
+    args => {
+      Configs.instance.set('termsAccepted', args.termsAccepted);
+      MainApplication.instance.reloadMenuItems();
+      return {payload: {termsAccepted: args.termsAccepted}};
+    },
+  );
 }
 
 function quitApplication(): void {
@@ -29,9 +34,22 @@ function quitApplication(): void {
 }
 
 /**
+ * The renderer hit an unrecoverable error, log it.
+ */
+function rendererFatalError(): void {
+  createIPCListener<RendererFatalErrorRequest>(
+    IpcSendChannel.RendererFatalError,
+    args => {
+      Logger.logError(new Error(`Renderer fatal error: ${args?.message}`));
+    },
+  );
+}
+
+/**
  * Bind IPC messages
  */
 export default function (): void {
   quitApplication();
+  rendererFatalError();
   termsAndConditions();
 }

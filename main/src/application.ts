@@ -62,8 +62,6 @@ process.env.ELECTRON_DISABLE_SECURITY_WARNINGS = 'true';
 
 const singletonEnforcer = Symbol('singletonEnforcer');
 
-let remoteMain: typeof import('@electron/remote/main');
-
 /**
  * Singleton class that handles Window workflow
  * */
@@ -201,13 +199,6 @@ export default class MainApplication {
 
     ProtocolHandler.register();
 
-    // Import here, rather than at the beginning of the file, because a bug in @electron/remote
-    // causes the Jest tests to fail when the module is imported. This start() function is not
-    // called from the tests, and therefore importing the module here is ok.
-    // See https://github.com/electron/remote/issues/100.
-    remoteMain = await import('@electron/remote/main');
-    remoteMain.initialize();
-
     await this.initWindow();
 
     this.initListeners();
@@ -329,8 +320,6 @@ export default class MainApplication {
         height: 50,
       },
     });
-
-    remoteMain.enable(this.mainWindow.webContents);
 
     // Let us register listeners on the window, so we can update the state
     // automatically (the listeners will be removed when the window is closed)

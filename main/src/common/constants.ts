@@ -6,7 +6,6 @@
  */
 
 export default {
-  SHOULD_RESTART_ON_EXCEPTION: false,
   MAX_RECENT_PROJECTS: 10,
   MAX_UPLOAD_SIZE: process.env.NODE_ENV === 'test' ? 10485760 : 209715200,
   API_TIMEOUT: 600000,

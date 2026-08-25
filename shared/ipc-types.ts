@@ -305,6 +305,10 @@ export interface OpenSystemFolderAtRequest {
   path: string;
 }
 
+export interface RendererFatalErrorRequest {
+  message: string;
+}
+
 // -- WebSocket --------------------------------------------------------------
 
 export interface WsSetPlayheadRequest {
@@ -533,6 +537,7 @@ export interface IpcInvokeMap {
 
 export interface IpcSendMap {
   [IpcSendChannel.QuitApplication]: void;
+  [IpcSendChannel.RendererFatalError]: RendererFatalErrorRequest;
   [IpcSendChannel.OpenExportFolder]: void;
   [IpcSendChannel.OpenSystemFolderAt]: OpenSystemFolderAtRequest;
   [IpcSendChannel.Paste]: void;

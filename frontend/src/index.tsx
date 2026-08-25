@@ -12,12 +12,11 @@ import {Provider} from 'react-redux';
 import {create as createJss} from 'jss';
 import preset from 'jss-preset-default';
 import {JssProvider} from 'react-jss';
-import {app, dialog} from '@electron/remote';
+import {IpcSendChannel, typedSend} from '../../shared';
 
 import state from './state';
 import App from './containers/App';
 import theme from './styles/theme.style';
-import Constants from '../../main/src/common/constants';
 
 import './styles/fonts.global.scss';
 
@@ -30,16 +29,10 @@ Object.keys(localStorage).forEach(key => {
 });
 
 if (window.process && process.env.NODE_ENV !== 'development') {
-  window.process.on('uncaughtException', () => {
-    if (Constants.SHOULD_RESTART_ON_EXCEPTION) {
-      dialog.showMessageBoxSync({
-        type: 'error',
-        message: 'An internal error occurred. Restarting the application.',
-        title: 'Error',
-      });
-      app.relaunch();
-      app.quit();
-    }
+  window.process.on('uncaughtException', (error: Error) => {
+    typedSend(IpcSendChannel.RendererFatalError, {
+      message: error?.stack ?? String(error),
+    });
   });
 }
 

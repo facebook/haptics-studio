@@ -88,6 +88,7 @@ export type IpcInvokeChannelName =
 
 export const IpcSendChannel = {
   QuitApplication: 'quit_application',
+  RendererFatalError: 'renderer_fatal_error',
   OpenExportFolder: 'open_export_folder',
   OpenSystemFolderAt: 'open_system_folder_at',
   Paste: 'paste',
