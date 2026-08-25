@@ -139,6 +139,7 @@ function Editor(props: {className: string}) {
     currentClipId,
     audioPlayerRef,
     audioPath: clip.audio?.path,
+    audioChannels: clip.audio?.channels,
     isOnWindows,
     setAudioPlayingAction: actions.app.setAudioPlaying,
   });

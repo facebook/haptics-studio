@@ -69,7 +69,8 @@ export const generateMockContent = (): {
   );
   const tutorialProjectFile = path.join(
     projectDir,
-    `${Constants.PROJECT.TUTORIAL_PREFIX}${name}${Constants.PROJECT.EXTENSION}`,
+    `${Constants.PROJECT.TUTORIAL_PREFIX}${name}`,
+    `${name}${Constants.PROJECT.EXTENSION}`,
   );
   const mocksPath = path.join(path.resolve(__dirname), '..', 'tmp');
 

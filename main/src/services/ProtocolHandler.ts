@@ -22,8 +22,84 @@ import {net, protocol} from 'electron';
 
 import Logger from '../common/logger';
 import Configs from '../common/configs';
+import Constants from '../common/constants';
+import Project from '../common/project';
 import {isOnWindows} from '../common/utils';
 import PathManager from './PathManager';
+
+function normalizeForComparison(filePath: string): string {
+  const normalizedPath = path.normalize(filePath);
+  return isOnWindows() ? normalizedPath.toLowerCase() : normalizedPath;
+}
+
+function isWithinRoot(filePath: string, root: string): boolean {
+  const relativePath = path.relative(root, filePath);
+  return (
+    relativePath === '' ||
+    (relativePath !== '..' &&
+      !relativePath.startsWith(`..${path.sep}`) &&
+      !path.isAbsolute(relativePath))
+  );
+}
+
+function getCanonicalPath(filePath: string): string | undefined {
+  try {
+    return fs.realpathSync(filePath);
+  } catch {
+    return undefined;
+  }
+}
+
+function getContainedCanonicalPath(
+  filePath: string,
+  root: string,
+): string | undefined {
+  const canonicalRoot = getCanonicalPath(root);
+  const canonicalFilePath = getCanonicalPath(path.resolve(root, filePath));
+  if (
+    canonicalRoot &&
+    canonicalFilePath &&
+    isWithinRoot(canonicalFilePath, canonicalRoot)
+  ) {
+    return canonicalFilePath;
+  }
+  return undefined;
+}
+
+function isReferencedAudioAsset(filePath: string): boolean {
+  if (
+    !Constants.PROJECT.SUPPORTED_AUDIO_EXTENSIONS.includes(
+      path.extname(filePath).toLowerCase(),
+    )
+  ) {
+    return false;
+  }
+
+  const canonicalPath = getCanonicalPath(filePath);
+  if (!canonicalPath) {
+    return false;
+  }
+  const comparablePath = normalizeForComparison(canonicalPath);
+  return Project.instance.getClips().some(clip => {
+    const audioPath = clip.audioAsset?.path;
+    const canonicalAudioPath = audioPath && getCanonicalPath(audioPath);
+    return (
+      canonicalAudioPath !== undefined &&
+      normalizeForComparison(canonicalAudioPath) === comparablePath
+    );
+  });
+}
+
+function fetchContainedFile(
+  filePath: string,
+  root: string,
+): ReturnType<typeof net.fetch> | undefined {
+  const canonicalFilePath = getContainedCanonicalPath(filePath, root);
+  if (canonicalFilePath) {
+    return net.fetch(pathToFileURL(canonicalFilePath).href);
+  }
+  return undefined;
+}
 
 export default class ProtocolHandler {
   /**
@@ -47,46 +123,68 @@ export default class ProtocolHandler {
         filePath = filePath.replace(/\//g, '\\');
       }
 
+      const supportedExtensions = [
+        ...Constants.PROJECT.SUPPORTED_AUDIO_EXTENSIONS,
+        ...Constants.PROJECT.SUPPORTED_IMAGE_EXTENSIONS,
+        ...Constants.PROJECT.SUPPORTED_VIDEO_EXTENSIONS,
+      ];
+      if (!supportedExtensions.includes(path.extname(filePath).toLowerCase())) {
+        Logger.warn(`Unsupported media type at path: ${filePath}`);
+        return new Response();
+      }
+
       const {tmpProjectFile} = Configs.instance.getCurrentProject();
-
-      // First check if the resource is an absolute path
-      if (path.isAbsolute(filePath)) {
-        if (fs.existsSync(filePath)) {
-          return net.fetch(pathToFileURL(filePath).href);
-        } else {
-          Logger.warn(`Absolute path does not exist: ${filePath}`);
-          return new Response();
-        }
-      }
-
-      // Check if the resource is inside the project folder
-      if (tmpProjectFile) {
-        const projectRelativePath = path.join(
-          path.dirname(tmpProjectFile),
-          filePath,
-        );
-
-        if (fs.existsSync(projectRelativePath)) {
-          return net.fetch(pathToFileURL(projectRelativePath).href);
-        }
-      }
-
-      // Try assets folder
-      const assetsPath = path.join(
+      const tmpProjectDir = tmpProjectFile
+        ? path.dirname(tmpProjectFile)
+        : undefined;
+      const knownRoots = [
+        tmpProjectDir,
         PathManager.instance.getAssetsPath(),
-        filePath,
-      );
-      if (fs.existsSync(assetsPath)) {
-        return net.fetch(pathToFileURL(assetsPath).href);
+        PathManager.instance.getSamplesPath(),
+        PathManager.instance.getResourcesPath(),
+      ].filter((root): root is string => root !== undefined);
+
+      // Absolute user audio is allowed only when the current project references it.
+      if (path.isAbsolute(filePath)) {
+        const canonicalFilePath = getCanonicalPath(filePath);
+        const isAllowed =
+          canonicalFilePath !== undefined &&
+          (knownRoots.some(root => {
+            const canonicalRoot = getCanonicalPath(root);
+            return (
+              canonicalRoot !== undefined &&
+              isWithinRoot(canonicalFilePath, canonicalRoot)
+            );
+          }) ||
+            isReferencedAudioAsset(filePath));
+        if (isAllowed && canonicalFilePath) {
+          return net.fetch(pathToFileURL(canonicalFilePath).href);
+        }
+        Logger.warn(`Disallowed or missing absolute media path: ${filePath}`);
+        return new Response();
       }
 
-      // Try samples folder as last resort
-      const samplesPath = path.join(
-        PathManager.instance.getSamplesPath(),
+      if (tmpProjectDir) {
+        const projectFile = fetchContainedFile(filePath, tmpProjectDir);
+        if (projectFile) {
+          return projectFile;
+        }
+      }
+
+      const assetsFile = fetchContainedFile(
         filePath,
+        PathManager.instance.getAssetsPath(),
       );
-      if (fs.existsSync(samplesPath)) {
-        return net.fetch(pathToFileURL(samplesPath).href);
+      if (assetsFile) {
+        return assetsFile;
+      }
+
+      const samplesFile = fetchContainedFile(
+        filePath,
+        PathManager.instance.getSamplesPath(),
+      );
+      if (samplesFile) {
+        return samplesFile;
       }
 
       Logger.warn(`Missing media at path: ${filePath}`);

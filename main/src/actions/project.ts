@@ -305,6 +305,10 @@ export async function saveProject(
       dirty: false,
       tmpProjectFile: Project.instance.getProjectFile(),
     });
+    Configs.instance.setCurrentProjectOrigin({
+      tmpProjectFile: Project.instance.getProjectFile(),
+      isSample: isSampleProject(projectFile),
+    });
 
     // Add the project to the recent list
     Configs.instance.addRecentProject({projectFile, name: projectName});
@@ -567,6 +571,11 @@ export async function loadProject(
 
       payloadClips.push(payloadClip);
     }
+
+    Configs.instance.setCurrentProjectOrigin({
+      tmpProjectFile: Project.instance.getProjectFile(),
+      isSample,
+    });
 
     const projectName = Project.instance.getName();
     const {description, category, slug, version} =

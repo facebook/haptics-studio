@@ -14,7 +14,6 @@ import {isEmpty, max} from 'lodash';
 import Configs from '../configs';
 import Constants from '../constants';
 import {PathManager} from '../../services';
-import Project from '../project';
 
 /**
  * Characters that are invalid in filenames on Windows and/or macOS
@@ -125,7 +124,18 @@ export function getAudioFiles(sourcePath: string): string[] {
  */
 export function isSampleProject(projectFile: string): boolean {
   const samplesPath = PathManager.instance.getSamplesPath();
-  return projectFile.startsWith(samplesPath) || Project.instance.isTutorial();
+  const relativeToSamples = path.relative(samplesPath, projectFile);
+  const isInsideSamples =
+    relativeToSamples !== '' &&
+    relativeToSamples !== '..' &&
+    !relativeToSamples.startsWith(`..${path.sep}`) &&
+    !path.isAbsolute(relativeToSamples);
+  const origin = Configs.instance.getCurrentProjectOrigin();
+
+  return (
+    isInsideSamples ||
+    (origin?.tmpProjectFile === projectFile && origin.isSample)
+  );
 }
 
 /**

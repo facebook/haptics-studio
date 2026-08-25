@@ -103,6 +103,11 @@ export interface CurrentProject {
   tmpProjectFile: string;
 }
 
+export interface CurrentProjectOrigin {
+  tmpProjectFile: string;
+  isSample: boolean;
+}
+
 export interface Config {
   version: string; // Configuration file version
   app: AppConfig;
@@ -121,6 +126,7 @@ export interface Config {
   };
   recentProjects: ProjectMetadata[];
   currentProject: CurrentProject;
+  currentProjectOrigin?: CurrentProjectOrigin;
   knownDevices: string[];
   termsAccepted: boolean;
   deviceId: string;
@@ -133,6 +139,7 @@ const persistedKeys: PersistedKey[] = [
   'globals',
   'recentProjects',
   'currentProject',
+  'currentProjectOrigin',
   'version',
   'knownDevices',
   'termsAccepted',
@@ -428,6 +435,14 @@ export default class Configs {
     return this.configs.currentProject || {};
   }
 
+  public setCurrentProjectOrigin(origin: CurrentProjectOrigin): void {
+    this.set('currentProjectOrigin', origin);
+  }
+
+  public getCurrentProjectOrigin(): CurrentProjectOrigin | undefined {
+    return this.configs.currentProjectOrigin;
+  }
+
   /**
    * Get the current project file
    * @return {string} - Current project file
@@ -446,6 +461,7 @@ export default class Configs {
       const tmpProjectDir = path.dirname(tmpProjectFile);
       void rmpDir(tmpProjectDir);
     }
+    this.unset('currentProjectOrigin', false);
     this.set('currentProject', {});
     Project.instance.close();
   }

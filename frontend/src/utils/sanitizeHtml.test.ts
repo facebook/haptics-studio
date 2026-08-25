@@ -53,6 +53,11 @@ describe('sanitizeHtml', () => {
       expect(result).toContain('src="https://example.com/a.png"');
     });
 
+    it('strips media:// URIs from anchors', () => {
+      const result = sanitizeHtml('<a href="media://assets/evil.html">x</a>');
+      expect(result).toBe('<a>x</a>');
+    });
+
     it('preserves media:// URIs on images', () => {
       const result = sanitizeHtml('<img src="media://assets/intro.png" />');
       expect(result).toContain('src="media://assets/intro.png"');
@@ -63,6 +68,18 @@ describe('sanitizeHtml', () => {
         '<video src="media://assets/clip.mp4" autoplay loop />',
       );
       expect(result).toContain('src="media://assets/clip.mp4"');
+    });
+
+    it('preserves media:// URIs on audio elements', () => {
+      const result = sanitizeHtml('<audio src="media://assets/clip.wav" />');
+      expect(result).toContain('src="media://assets/clip.wav"');
+    });
+
+    it('strips media:// URIs from non-src attributes', () => {
+      const result = sanitizeHtml(
+        '<img src="https://example.com/a.png" formaction="media://evil.png" />',
+      );
+      expect(result).not.toContain('media://');
     });
   });
 

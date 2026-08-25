@@ -376,17 +376,36 @@ export default class MainApplication {
     });
 
     this.mainWindow.webContents.on('will-navigate', (e, url) => {
-      if (url.startsWith('http') && !url.startsWith('http://localhost:8080')) {
-        e.preventDefault();
-        void shell.openExternal(url);
+      let isTrustedAppUrl = url === this.getMainUrl();
+      if (!isTrustedAppUrl && env === 'development') {
+        try {
+          isTrustedAppUrl = new URL(url).origin === 'http://localhost:8080';
+        } catch {
+          isTrustedAppUrl = false;
+        }
+      }
+      if (isTrustedAppUrl) {
+        return;
       }
 
+      e.preventDefault();
       if (url.startsWith('documentation:')) {
-        e.preventDefault();
         const action = `documentation_${url.replace('documentation:', '')}`;
         const message: IPCMessage = {action, status: 'ok', payload: {}};
         this.sendToUI(action, message);
+        return;
       }
+
+      if (url.startsWith('http://') || url.startsWith('https://')) {
+        void shell.openExternal(url);
+      }
+    });
+
+    this.mainWindow.webContents.setWindowOpenHandler(({url}) => {
+      if (url.startsWith('http://') || url.startsWith('https://')) {
+        void shell.openExternal(url);
+      }
+      return {action: 'deny'};
     });
 
     this.mainWindow.on('closed', () => {

@@ -17,6 +17,8 @@ import Constants from '../../src/common/constants';
 import mockedHapticData from '../mocks/datamodel';
 import FFmpegHelper from '../../src/ffmpeg';
 import Configs, {AppVersion} from '../../src/common/configs';
+import Project from '../../src/common/project';
+import {PathManager} from '../../src/services';
 // @oss-disable
 
 const mocksPath = path.join(path.resolve(__dirname), '..', 'samples');
@@ -41,6 +43,56 @@ const mockFFmpeg: ffmpeg.FFmpeg = {
 };
 
 describe('utils', () => {
+  describe('isSampleProject', () => {
+    const samplesPath = path.join(mocksPath, 'samples');
+    const tmpProjectFile = path.join(mocksPath, 'tmp', 'project.hasp');
+
+    beforeEach(() => {
+      jest
+        .spyOn(PathManager.instance, 'getSamplesPath')
+        .mockReturnValue(samplesPath);
+      Configs.instance.unset('currentProjectOrigin', false);
+    });
+
+    it('trusts projects located under the samples path', () => {
+      expect(
+        utils.isSampleProject(
+          path.join(samplesPath, 'Footsteps', 'Footsteps.hasp'),
+        ),
+      ).toBe(true);
+    });
+
+    it('does not trust an arbitrary project that marks itself as a tutorial', () => {
+      jest.spyOn(Project.instance, 'isTutorial').mockReturnValue(true);
+
+      expect(
+        utils.isSampleProject(
+          path.join(mocksPath, '[tutorial] Free Haptics.hasp'),
+        ),
+      ).toBe(false);
+    });
+
+    it('trusts the matching temporary project when its recorded origin is a sample', () => {
+      Configs.instance.setCurrentProjectOrigin({
+        tmpProjectFile,
+        isSample: true,
+      });
+
+      expect(utils.isSampleProject(tmpProjectFile)).toBe(true);
+    });
+
+    it('ignores a recorded sample origin for a different temporary project', () => {
+      Configs.instance.setCurrentProjectOrigin({
+        tmpProjectFile,
+        isSample: true,
+      });
+
+      expect(
+        utils.isSampleProject(path.join(mocksPath, 'tmp', 'other.hasp')),
+      ).toBe(false);
+    });
+  });
+
   describe('trimmedHapticData', () => {
     it('should return a valid HapticData object with the envelopes trimmed at the given time', () => {
       const trimmed = utils.trimmedHapticData(mockedHapticData, 0.75);

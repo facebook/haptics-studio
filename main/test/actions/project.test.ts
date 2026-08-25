@@ -101,6 +101,9 @@ describe('actions', () => {
             // @oss-disable
             // @oss-disable
           // @oss-disable
+            // @oss-disable
+            // @oss-disable
+          // @oss-disable
         // @oss-disable
         // @oss-disable
           // @oss-disable

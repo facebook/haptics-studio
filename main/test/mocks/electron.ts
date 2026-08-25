@@ -17,6 +17,15 @@ const clipboard = {
   readText: jest.fn(),
   writeText: jest.fn(),
 };
+const net = {
+  fetch: jest.fn(),
+};
+const protocol = {
+  handle: jest.fn(),
+};
+const shell = {
+  openExternal: jest.fn(),
+};
 
 const app = {
   on: jest.fn(),
@@ -109,6 +118,9 @@ export {
   ipcRenderer,
   dialog,
   clipboard,
+  net,
+  protocol,
+  shell,
   app,
   Menu,
   MenuItem,

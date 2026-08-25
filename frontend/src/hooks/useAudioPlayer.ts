@@ -17,6 +17,8 @@ interface UseAudioPlayerParams {
   audioPlayerRef: React.RefObject<HTMLAudioElement | null>;
   /** Path to the audio file */
   audioPath: string | undefined;
+  /** Populated when the main process has verified the audio */
+  audioChannels: number | undefined;
   /** Whether the app is running on Windows */
   isOnWindows: boolean;
   /** Redux action to set audio playing state */
@@ -59,6 +61,7 @@ export function useAudioPlayer({
   currentClipId,
   audioPlayerRef,
   audioPath,
+  audioChannels,
   isOnWindows,
   setAudioPlayingAction,
 }: UseAudioPlayerParams): UseAudioPlayerReturn {
@@ -131,7 +134,7 @@ export function useAudioPlayer({
         previousBlobUrlRef.current = undefined;
       }
     };
-  }, [currentClipId, audioPath, isOnWindows]);
+  }, [currentClipId, audioPath, audioChannels, isOnWindows]);
 
   const playStopAudio = useCallback(
     (fromBeginning = false) => {
