@@ -80,8 +80,9 @@ export default class SecondaryWindowManager {
       height: config.height,
       useContentSize: true,
       webPreferences: {
-        nodeIntegration: true,
-        contextIsolation: false,
+        nodeIntegration: false,
+        contextIsolation: true,
+        sandbox: true,
       },
       ...(config.parent && {parent: config.parent}),
       ...(config.center && {
