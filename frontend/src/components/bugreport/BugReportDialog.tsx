@@ -7,7 +7,7 @@
 
 import React, {useContext} from 'react';
 import {useDispatch} from 'react-redux';
-import {clipboard} from 'electron';
+import {writeClipboardText} from '../../../../shared/typed-ipc';
 import {createAppStyle} from '../../styles/theme.style';
 import {dialogActions} from '../../styles/shared.styles';
 import {AppContext} from '../../containers/App';
@@ -74,7 +74,7 @@ export default function BugReportDialog(): JSX.Element {
   const windowInfo = selectors.app.getWindowInformation();
 
   const onCopy = (text: string) => {
-    clipboard.writeText(text);
+    writeClipboardText(text);
     dispatch(
       actions.app.showSnackbar({
         text: lang('bugreport.copied'),

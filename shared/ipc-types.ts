@@ -309,6 +309,16 @@ export interface RendererFatalErrorRequest {
   message: string;
 }
 
+export interface OpenExternalUrlRequest {
+  url: string;
+}
+
+export interface WriteClipboardTextRequest {
+  text: string;
+}
+
+// -- WebSocket
+
 // -- WebSocket --------------------------------------------------------------
 
 export interface WsSetPlayheadRequest {
@@ -538,6 +548,8 @@ export interface IpcInvokeMap {
 export interface IpcSendMap {
   [IpcSendChannel.QuitApplication]: void;
   [IpcSendChannel.RendererFatalError]: RendererFatalErrorRequest;
+  [IpcSendChannel.OpenExternalUrl]: OpenExternalUrlRequest;
+  [IpcSendChannel.WriteClipboardText]: WriteClipboardTextRequest;
   [IpcSendChannel.OpenExportFolder]: void;
   [IpcSendChannel.OpenSystemFolderAt]: OpenSystemFolderAtRequest;
   [IpcSendChannel.Paste]: void;

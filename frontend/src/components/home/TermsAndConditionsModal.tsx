@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import {shell} from 'electron';
+import {openExternal} from '../../../../shared/typed-ipc';
 import React, {useContext} from 'react';
 import {useDispatch} from 'react-redux';
 
@@ -136,7 +136,7 @@ function TermsAndConditionsModal() {
   };
 
   const onLinkClick = (url: string) => {
-    void shell.openExternal(url);
+    openExternal(url);
   };
 
   return (

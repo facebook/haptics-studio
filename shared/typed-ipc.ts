@@ -5,9 +5,13 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import {ipcRenderer} from 'electron';
 import type {IpcRendererEvent} from 'electron';
-import type {IpcInvokeChannelName, IpcSendChannelName, MainToRendererChannelName} from './ipc-channels';
+import type {
+  IpcInvokeChannelName,
+  IpcSendChannelName,
+  MainToRendererChannelName,
+} from './ipc-channels';
+import type {IpcBridgeListener} from './ipc-bridge';
 import type {IpcInvokeMap, IpcSendMap, IPCResponse} from './ipc-types';
 
 // ---------------------------------------------------------------------------
@@ -32,12 +36,12 @@ export function typedInvoke<C extends IpcInvokeChannelName>(
     ? IPCResponse<IpcInvokeMap[C]['response']>
     : unknown
 > {
-  if (!ipcRenderer) {
-    return Promise.reject(new Error(`ipcRenderer is not available (channel: ${channel})`));
-  }
   const [payload] = args;
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-return
-  return ipcRenderer.invoke(channel, payload) as any;
+  return window.hapticsStudio.invoke(channel, payload) as Promise<
+    C extends keyof IpcInvokeMap
+      ? IPCResponse<IpcInvokeMap[C]['response']>
+      : unknown
+  >;
 }
 
 // ---------------------------------------------------------------------------
@@ -57,39 +61,66 @@ export function typedSend<C extends IpcSendChannelName>(
       : [payload: IpcSendMap[C]]
     : [payload?: unknown]
 ): void {
-  if (!ipcRenderer) {
-    return;
-  }
   const [payload] = args;
-  ipcRenderer.send(channel, payload);
+  window.hapticsStudio.send(channel, payload);
 }
 
 // ---------------------------------------------------------------------------
 // typedOn / typedOff — main → renderer event listeners
 // ---------------------------------------------------------------------------
 
-type MainToRendererCallback = (event: IpcRendererEvent, ...args: unknown[]) => void;
+type MainToRendererCallback = (
+  event: IpcRendererEvent,
+  ...args: unknown[]
+) => void;
+
+const listenerWrappers = new Map<
+  MainToRendererCallback,
+  Map<MainToRendererChannelName, IpcBridgeListener>
+>();
+
+function getListenerWrapper(
+  channel: MainToRendererChannelName,
+  listener: MainToRendererCallback,
+): IpcBridgeListener {
+  const channelListeners = listenerWrappers.get(listener) ?? new Map();
+  const existing = channelListeners.get(channel);
+  if (existing) {
+    return existing;
+  }
+
+  const wrapper: IpcBridgeListener = (...args) =>
+    listener({} as IpcRendererEvent, ...args);
+  channelListeners.set(channel, wrapper);
+  listenerWrappers.set(listener, channelListeners);
+  return wrapper;
+}
+
+function forgetListenerWrapper(
+  channel: MainToRendererChannelName,
+  listener: MainToRendererCallback,
+): void {
+  const channelListeners = listenerWrappers.get(listener);
+  channelListeners?.delete(channel);
+  if (channelListeners?.size === 0) {
+    listenerWrappers.delete(listener);
+  }
+}
 
 /**
  * Registers a listener for events pushed from the main process.
  *
- * Returns a cleanup function you can call in a useEffect teardown:
- *
- *   useEffect(() => {
- *     const off = typedOn(MainToRenderer.Close, handler);
- *     return off;
- *   }, []);
+ * Returns a cleanup function you can call in a useEffect teardown.
  */
 export function typedOn(
   channel: MainToRendererChannelName,
   listener: MainToRendererCallback,
 ): () => void {
-  if (!ipcRenderer) {
-    return () => {};
-  }
-  ipcRenderer.on(channel, listener);
+  const wrapper = getListenerWrapper(channel, listener);
+  const cleanup = window.hapticsStudio.on(channel, wrapper);
   return () => {
-    ipcRenderer.off(channel, listener);
+    cleanup();
+    forgetListenerWrapper(channel, listener);
   };
 }
 
@@ -100,10 +131,12 @@ export function typedOff(
   channel: MainToRendererChannelName,
   listener: MainToRendererCallback,
 ): void {
-  if (!ipcRenderer) {
+  const wrapper = listenerWrappers.get(listener)?.get(channel);
+  if (!wrapper) {
     return;
   }
-  ipcRenderer.off(channel, listener);
+  window.hapticsStudio.off(channel, wrapper);
+  forgetListenerWrapper(channel, listener);
 }
 
 /**
@@ -113,8 +146,22 @@ export function typedOff(
 export function typedRemoveAllListeners(
   channel: MainToRendererChannelName,
 ): void {
-  if (!ipcRenderer) {
-    return;
-  }
-  ipcRenderer.removeAllListeners(channel);
+  window.hapticsStudio.removeAllListeners(channel);
+  listenerWrappers.forEach((channelListeners, listener) => {
+    if (channelListeners.has(channel)) {
+      forgetListenerWrapper(channel, listener);
+    }
+  });
+}
+
+export function getPathForFile(file: File): string {
+  return window.hapticsStudio.getPathForFile(file);
+}
+
+export function openExternal(url: string): void {
+  window.hapticsStudio.openExternal(url);
+}
+
+export function writeClipboardText(text: string): void {
+  window.hapticsStudio.writeClipboardText(text);
 }

@@ -8,7 +8,7 @@
 /* eslint-disable @typescript-eslint/unbound-method */
 
 import {waitFor} from '@testing-library/react';
-import {ipcRenderer} from 'electron';
+import {mockHapticsStudioBridge} from '../__mocks__/hapticsStudioBridge';
 
 import actions from './actions';
 import {createStore, initialValues, RootState} from './store';
@@ -16,13 +16,6 @@ import {EnvelopeType, RightPanelSection} from './types';
 import baseClipState from '../__mocks__/clipMock';
 import {defaultDspSettings, packDspSettings} from './dsp';
 import {Tool} from './editingTools/types';
-
-jest.mock('electron', () => ({
-  ipcRenderer: {
-    send: jest.fn(),
-    invoke: jest.fn(),
-  },
-}));
 
 describe('middleware', () => {
   it('should handle the setRightPanelItem action', () => {
@@ -93,11 +86,14 @@ describe('middleware', () => {
           group: 'amplitude',
         }),
       );
-      expect(ipcRenderer.send).toHaveBeenCalledWith('update_audio_analysis', {
+      expect(mockHapticsStudioBridge.send).toHaveBeenCalledWith(
+        'update_audio_analysis',
+        {
         clipId: 'clip1',
         settings: packedSettings,
-        group: 'amplitude',
-      });
+          group: 'amplitude',
+        },
+      );
     });
 
     it('should switch the active envelope to match the parameter change', async () => {
@@ -145,10 +141,13 @@ describe('middleware', () => {
         actions.editingTools.enableTrim({duration: 1, time: 0.42}),
       );
       store.dispatch(actions.editingTools.commitTrim({time: 0.42}));
-      expect(ipcRenderer.invoke).toHaveBeenCalledWith('update_trim', {
+      expect(mockHapticsStudioBridge.invoke).toHaveBeenCalledWith(
+        'update_trim',
+        {
         clipId: 'clip1',
-        trim: 0.42,
-      });
+          trim: 0.42,
+        },
+      );
     });
   });
 
@@ -172,10 +171,13 @@ describe('middleware', () => {
       });
 
       store.dispatch(actions.project.createEmptyClip({clipId: 'clip1'}));
-      expect(ipcRenderer.send).toHaveBeenCalledWith('create_empty_clip', {
+      expect(mockHapticsStudioBridge.send).toHaveBeenCalledWith(
+        'create_empty_clip',
+        {
         clipId: 'clip1',
-        name: expect.any(String),
-      });
+          name: expect.any(String),
+        },
+      );
     });
   });
 });

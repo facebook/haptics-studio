@@ -48,4 +48,5 @@ export {
   folderFromDroppedFile,
 } from './project';
 
+export {basename, extname} from './path';
 export {mediaPath} from './url';

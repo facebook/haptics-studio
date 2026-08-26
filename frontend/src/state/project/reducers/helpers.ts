@@ -5,11 +5,11 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import path from 'path';
 import {v4 as uuidv4} from 'uuid';
 
 import {original} from '@reduxjs/toolkit';
 import {UndoHistorySize} from '../../../globals/constants';
+import {basename, extname} from '../../../globals/utils/path';
 import {defaultDspSettings} from '../../dsp';
 import {
   AmplitudeBreakpoint,
@@ -205,7 +205,7 @@ export const prepareClipsForAnalysis = (
       clips[k].error = undefined;
     } else {
       clips[k] = {
-        name: path.basename(data[k].path, path.extname(data[k].path)),
+        name: basename(data[k].path, extname(data[k].path)),
         loading: false,
         failed: false,
         error: undefined,

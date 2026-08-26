@@ -307,6 +307,7 @@ export default class MainApplication {
       webPreferences: {
         nodeIntegration: true,
         contextIsolation: false,
+        preload: path.join(__dirname, 'preload.js'),
       },
       icon: image,
       titleBarStyle: isOnWindows() ? 'default' : 'hidden',

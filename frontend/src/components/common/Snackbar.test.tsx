@@ -8,7 +8,7 @@
 /* eslint-disable @typescript-eslint/unbound-method */
 
 import React from 'react';
-import {clipboard} from 'electron';
+import {mockHapticsStudioBridge} from '../../__mocks__/hapticsStudioBridge';
 import {render, cleanup, act} from '../../test-utils';
 import Snackbar from './Snackbar';
 import {SnackbarType} from '../../state/types';
@@ -97,7 +97,6 @@ describe('<Snackbar />', () => {
   });
 
   it('can copy error message', () => {
-    jest.spyOn(clipboard, 'writeText').mockImplementation();
     const element = render(
       <Snackbar
         text="error message"
@@ -111,6 +110,8 @@ describe('<Snackbar />', () => {
     const copyButton = element.getByTestId('copy-button');
     expect(copyButton).toBeInTheDocument();
     copyButton.click();
-    expect(clipboard.writeText).toHaveBeenCalledWith('error message');
+    expect(mockHapticsStudioBridge.writeClipboardText).toHaveBeenCalledWith(
+      'error message',
+    );
   });
 });

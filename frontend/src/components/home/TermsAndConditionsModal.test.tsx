@@ -40,12 +40,6 @@ beforeAll(() => {
   });
 });
 
-jest.mock('electron', () => ({
-  shell: {
-    openExternal: jest.fn(),
-  },
-}));
-
 // eslint-disable-next-line @typescript-eslint/no-unsafe-return
 jest.mock('react-redux', () => ({
   ...jest.requireActual('react-redux'),

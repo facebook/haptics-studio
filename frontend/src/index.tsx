@@ -29,10 +29,16 @@ Object.keys(localStorage).forEach(key => {
   if (key.startsWith('flags:')) localStorage.removeItem(key);
 });
 
-if (window.process && process.env.NODE_ENV !== 'development') {
-  window.process.on('uncaughtException', (error: Error) => {
+if (process.env.NODE_ENV !== 'development') {
+  window.addEventListener('error', event => {
     typedSend(IpcSendChannel.RendererFatalError, {
-      message: error?.stack ?? String(error),
+      message: event.error?.stack ?? event.message,
+    });
+  });
+  window.addEventListener('unhandledrejection', event => {
+    const reason = event.reason;
+    typedSend(IpcSendChannel.RendererFatalError, {
+      message: reason instanceof Error ? reason.stack ?? reason.message : String(reason),
     });
   });
 }

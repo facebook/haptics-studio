@@ -6,10 +6,10 @@
  */
 
 import React, {useContext} from 'react';
-import path from 'path';
 import {useDispatch} from 'react-redux';
 
 import {AppContext} from '../../../containers/App';
+import {basename} from '../../../globals/utils/path';
 import {useStyles} from './RightPanelTools.styles';
 import Tooltip from '../../common/Tooltip';
 
@@ -87,7 +87,7 @@ function AudioFile(props: {hideActionButton?: boolean}) {
 
   const title = () => {
     if (audio && audio.path) {
-      return path.basename(audio.path);
+      return basename(audio.path);
     } else {
       return lang('editor.no-audio-file');
     }

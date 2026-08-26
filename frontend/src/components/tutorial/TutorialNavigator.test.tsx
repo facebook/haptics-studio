@@ -8,7 +8,7 @@
 /* eslint-disable @typescript-eslint/unbound-method */
 
 import React from 'react';
-import {ipcRenderer} from 'electron';
+import {mockHapticsStudioBridge} from '../../__mocks__/hapticsStudioBridge';
 import {render, cleanup, RenderResult, fireEvent} from '../../test-utils';
 import TutorialNavigator from './TutorialNavigator';
 import clipMock from '../../__mocks__/clipMock';
@@ -23,15 +23,6 @@ const dispatchMock = jest.fn();
 jest.mock('react-redux', () => ({
   ...jest.requireActual('react-redux'),
   useDispatch: () => dispatchMock,
-}));
-
-jest.mock('electron', () => ({
-  ipcRenderer: {
-    removeAllListeners: jest.fn(),
-    invoke: jest.fn(),
-    send: jest.fn(),
-    on: jest.fn(),
-  },
 }));
 
 const renderSubject = (): RenderResult => {

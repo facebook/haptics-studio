@@ -5,7 +5,10 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import {clipboard, shell} from 'electron';
+import {
+  openExternal,
+  writeClipboardText,
+} from '../../../../shared/typed-ipc';
 import {useDispatch} from 'react-redux';
 import React, {useContext, useEffect, useState} from 'react';
 import {CircularProgressbar} from 'react-circular-progressbar';
@@ -137,7 +140,7 @@ export default function Snackbar(props: Props): JSX.Element {
 
   const onAction = () => {
     if (action?.startsWith('http://') || action?.startsWith('https://')) {
-      void shell.openExternal(action);
+      openExternal(action);
     }
     dispatch(actions.app.dismissSnackbar());
   };
@@ -185,7 +188,7 @@ export default function Snackbar(props: Props): JSX.Element {
             className="hsbutton borderless square invert"
             data-testid="copy-button"
             type="button"
-            onClick={() => clipboard.writeText(text)}>
+            onClick={() => writeClipboardText(text)}>
             <img src={CopyIcon} alt="Copy" />
           </button>
         ) : null}

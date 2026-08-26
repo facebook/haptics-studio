@@ -9,7 +9,7 @@
 
 import React, {useContext, useEffect, useState} from 'react';
 import {useDispatch} from 'react-redux';
-import {clipboard} from 'electron';
+import {writeClipboardText} from '../../../../shared/typed-ipc';
 import {IpcInvokeChannel} from '../../../../shared';
 import {typedInvoke} from '../../../../shared/typed-ipc';
 
@@ -179,7 +179,7 @@ export default function AndroidExport(): JSX.Element {
           }),
         );
       } else {
-        clipboard.writeText(text);
+        writeClipboardText(text);
       }
     }
   };

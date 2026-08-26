@@ -8,7 +8,7 @@
 /* eslint-disable @typescript-eslint/unbound-method */
 
 import React from 'react';
-import {ipcRenderer} from 'electron';
+import {mockHapticsStudioBridge} from '../../__mocks__/hapticsStudioBridge';
 import {render, cleanup, RenderResult, waitFor} from '../../test-utils';
 import Landing from './Landing';
 import {LandingPageSection} from '../../state/types';
@@ -27,8 +27,8 @@ const mockLocalStorage: {[key: string]: string} = {};
 
 beforeEach(() => {
   jest
-    .spyOn(ipcRenderer, 'invoke')
-    .mockImplementation(async (channel: string) => {
+    .spyOn(mockHapticsStudioBridge, 'invoke')
+    .mockImplementation(async channel => {
       if (channel === 'recent_projects') {
         return {status: 'ok', payload: {projects: []}};
       }

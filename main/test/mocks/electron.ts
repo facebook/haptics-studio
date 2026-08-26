@@ -8,6 +8,12 @@
 import createIPCMock from 'electron-mock-ipc';
 
 const {ipcMain, ipcRenderer} = createIPCMock();
+const contextBridge = {
+  exposeInMainWorld: jest.fn(),
+};
+const webUtils = {
+  getPathForFile: jest.fn(),
+};
 const dialog = {
   showSaveDialogSync: jest.fn(),
   showOpenDialogSync: jest.fn(),
@@ -116,6 +122,8 @@ const Menu = {
 export {
   ipcMain,
   ipcRenderer,
+  contextBridge,
+  webUtils,
   dialog,
   clipboard,
   net,

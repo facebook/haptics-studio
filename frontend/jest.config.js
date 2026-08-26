@@ -33,6 +33,7 @@ module.exports = {
   setupFilesAfterEnv: [
     '@testing-library/jest-dom/extend-expect',
     'jest-canvas-mock',
+    '<rootDir>/frontend/src/__mocks__/hapticsStudioBridge.ts',
   ],
 
   // Test spec file resolution pattern
@@ -50,7 +51,7 @@ module.exports = {
     '^react-konva-utils':
       '<rootDir>/frontend/src/__mocks__/react-konva-utils.tsx',
     '^uuid$': '<rootDir>/main/test/mocks/uuid.ts',
-    '^electron$': '<rootDir>/main/test/mocks/electron.ts',
+    '^electron$': '<rootDir>/frontend/src/__mocks__/electronHardFail.ts',
     '^TelemetryServiceNative$':
       '<rootDir>/main/test/mocks/TelemetryServiceNative.ts',
     '^HapticsSdkNapi$': `<rootDir>/native/bin/${process.platform === 'win32' ? 'win' : 'mac'}/development/HapticsSDK.node`,

@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import {shell} from 'electron';
+import {openExternal} from '../../../../../../../shared/typed-ipc';
 import {AppContext} from '../../../../../../src/containers/App';
 import {Device} from '../../../../../../src/state/types';
 import {createAppStyle} from '../../../../../../src/styles/theme.style';
@@ -60,7 +60,7 @@ function EmptyDevicePanelView(props: Props) {
   const {availableDevices} = props;
 
   const openMetaStore = () => {
-    void shell.openExternal(AppLabUrl);
+    openExternal(AppLabUrl);
   };
 
   return (

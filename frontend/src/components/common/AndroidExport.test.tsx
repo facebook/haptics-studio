@@ -23,12 +23,6 @@ jest.mock('react-redux', () => ({
   ...jest.requireActual('react-redux'),
   useDispatch: () => dispatchMock,
 }));
-jest.mock('electron', () => ({
-  ipcRenderer: {
-    send: jest.fn(),
-    invoke: jest.fn(),
-  },
-}));
 window.localStorage.setItem = jest.fn();
 
 const renderSubject = (options: {

@@ -48,7 +48,7 @@ module.exports = (webpackEnv, argv) => {
   console.log(
     `\nCompile main for ${env} environment on platform ${platform} and architecture ${arch}\n`,
   ); // eslint-disable-line no-console
-  return {
+  const mainConfig = {
     mode: isProd ? 'production' : 'development',
     context: resolve(__dirname, 'src'),
     entry: {main: './main'},
@@ -160,4 +160,29 @@ module.exports = (webpackEnv, argv) => {
       },
     ],
   };
+
+  const preloadConfig = {
+    mode: mainConfig.mode,
+    context: mainConfig.context,
+    entry: {preload: './preload'},
+    target: 'electron-preload',
+    output: mainConfig.output,
+    devtool: mainConfig.devtool,
+    optimization: mainConfig.optimization,
+    plugins: [new webpack.DefinePlugin(GLOBALS)],
+    resolve: {
+      extensions: ['.js', '.json', '.ts'],
+    },
+    module: {
+      rules: [
+        {
+          test: /\.ts$/,
+          exclude: [resolve(__dirname, 'node_modules')],
+          use: [{loader: 'ts-loader'}],
+        },
+      ],
+    },
+  };
+
+  return [mainConfig, preloadConfig];
 };

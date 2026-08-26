@@ -8,9 +8,11 @@
 import {useDispatch} from 'react-redux';
 import React, {useContext, useCallback, useEffect, useMemo} from 'react';
 import {useDropzone} from 'react-dropzone';
-import {webUtils} from 'electron';
 import {IpcInvokeChannel} from '../../../../shared';
-import {typedInvoke} from '../../../../shared/typed-ipc';
+import {
+  getPathForFile,
+  typedInvoke,
+} from '../../../../shared/typed-ipc';
 import semver from 'semver';
 
 import {createAppStyle} from '../../styles/theme.style';
@@ -197,7 +199,7 @@ export default function LandingContainer(): JSX.Element {
           actions.project.openProject({
             project: {
               name: rejectedFiles[0].file.name,
-              projectFile: webUtils.getPathForFile(rejectedFiles[0].file),
+              projectFile: getPathForFile(rejectedFiles[0].file),
             },
           }),
         );

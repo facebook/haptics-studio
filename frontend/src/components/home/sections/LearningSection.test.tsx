@@ -8,7 +8,7 @@
 /* eslint-disable @typescript-eslint/unbound-method */
 
 import React from 'react';
-import {shell} from 'electron';
+import {mockHapticsStudioBridge} from '../../../__mocks__/hapticsStudioBridge';
 import {render, cleanup, RenderResult} from '../../../test-utils';
 import LearningSection from './LearningSection';
 import {SampleProject} from '../../../state/types';
@@ -16,10 +16,6 @@ import {SampleProject} from '../../../state/types';
 import resources from '../../../globals/ExternalResources.json';
 
 afterEach(cleanup);
-
-jest.mock('electron', () => ({
-  shell: {openExternal: jest.fn()},
-}));
 
 const renderSubject = (): RenderResult => {
   const tutorials: SampleProject[] = [
@@ -64,6 +60,8 @@ describe('<LearningSection />', () => {
   it('redirects to the external link on click', () => {
     const element = renderSubject();
     element.getAllByTestId('resource-card')[0].click();
-    expect(shell.openExternal).toHaveBeenCalledWith(resources[0].url);
+    expect(mockHapticsStudioBridge.openExternal).toHaveBeenCalledWith(
+      resources[0].url,
+    );
   });
 });

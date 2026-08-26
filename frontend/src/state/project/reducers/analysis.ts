@@ -6,7 +6,7 @@
  */
 
 import {v4 as uuidv4} from 'uuid';
-import {webUtils} from 'electron';
+import {getPathForFile} from '../../../../../shared/typed-ipc';
 
 import type {PayloadAction} from '@reduxjs/toolkit';
 import {timelineFor} from '../../../globals/utils';
@@ -135,7 +135,7 @@ export const analysisReducers = {
           filePath = (f as any).path ?? f.name;
         } else {
           try {
-            filePath = webUtils.getPathForFile(f);
+            filePath = getPathForFile(f);
           } catch {
             filePath = (f as any).path;
           }

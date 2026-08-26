@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import {shell} from 'electron';
+import {openExternal} from '../../../../../../shared/typed-ipc';
 import {createAppStyle} from '../../../../styles/theme.style';
 
 const useStyles = createAppStyle(theme => ({
@@ -104,7 +104,7 @@ export default function ResourceCard(props: Props): JSX.Element {
   const classes = useStyles();
 
   const onOpenLink = () => {
-    void shell.openExternal(url);
+    openExternal(url);
   };
 
   return (
