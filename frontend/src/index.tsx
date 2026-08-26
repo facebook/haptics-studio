@@ -12,7 +12,8 @@ import {Provider} from 'react-redux';
 import {create as createJss} from 'jss';
 import preset from 'jss-preset-default';
 import {JssProvider} from 'react-jss';
-import {IpcSendChannel, typedSend} from '../../shared';
+import {IpcSendChannel} from '../../shared';
+import {typedSend} from '../../shared/typed-ipc';
 
 import state from './state';
 import App from './containers/App';

@@ -7,4 +7,3 @@
 
 export * from './ipc-channels';
 export * from './ipc-types';
-export * from './typed-ipc';
