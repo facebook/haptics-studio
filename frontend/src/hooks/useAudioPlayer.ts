@@ -68,24 +68,17 @@ export function useAudioPlayer({
   const dispatch = useDispatch();
   const audioPlayerInterval = useRef<NodeJS.Timeout | null>(null);
   const [playhead, setPlayhead] = useState<number | undefined>(undefined);
-  const [audioBlobUrl, setAudioBlobUrl] = useState<string | undefined>(
-    undefined,
-  );
+
+  const [audioBlob, setAudioBlob] = useState<
+    {clipId: string; url: string} | undefined
+  >(undefined);
   const [isAudioLoading, setIsAudioLoading] = useState(false);
   const previousBlobUrlRef = useRef<string | undefined>(undefined);
 
   // Pre-load audio file as blob URL when clip changes
   useEffect(() => {
-    // Clean up previous blob URL
-    if (previousBlobUrlRef.current) {
-      URL.revokeObjectURL(previousBlobUrlRef.current);
-      previousBlobUrlRef.current = undefined;
-    }
-
-    // Reset state
-    setAudioBlobUrl(undefined);
-
     if (!audioPath || !currentClipId) {
+      setAudioBlob(undefined);
       setIsAudioLoading(false);
       return;
     }
@@ -108,7 +101,7 @@ export function useAudioPlayer({
         const blobUrl = URL.createObjectURL(blob);
 
         previousBlobUrlRef.current = blobUrl;
-        setAudioBlobUrl(blobUrl);
+        setAudioBlob({clipId: currentClipId, url: blobUrl});
       } catch (error) {
         // Ignore abort errors - these are expected when dependencies change
         if (error instanceof DOMException && error.name === 'AbortError') {
@@ -236,6 +229,9 @@ export function useAudioPlayer({
       audioPlayerInterval.current = null;
     }
   }, [dispatch, setAudioPlayingAction]);
+
+  const audioBlobUrl =
+    audioBlob && audioBlob.clipId === currentClipId ? audioBlob.url : undefined;
 
   return {
     playhead,

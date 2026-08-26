@@ -66,4 +66,60 @@ describe('useAudioPlayer', () => {
     await waitFor(() => expect(fetchMock).toHaveBeenCalledTimes(2));
     await waitFor(() => expect(result.current.audioBlobUrl).toBe('blob:audio'));
   });
+
+  it('never exposes a blob URL that was revoked when the clip changed', async () => {
+    const fetchMock = global.fetch as jest.Mock;
+    fetchMock.mockImplementation(() =>
+      Promise.resolve({
+        ok: true,
+        status: 200,
+        blob: jest.fn().mockResolvedValue(new Blob(['audio'])),
+      }),
+    );
+
+    let blobCount = 0;
+    (URL.createObjectURL as jest.Mock).mockImplementation(
+      () => `blob:audio-${++blobCount}`,
+    );
+    const revoked: string[] = [];
+    (URL.revokeObjectURL as jest.Mock).mockImplementation((url: string) => {
+      revoked.push(url);
+    });
+
+    const {result, rerender} = renderHook<
+      {currentClipId: string; audioPath: string},
+      ReturnType<typeof useAudioPlayer>
+    >(
+      ({currentClipId, audioPath}) =>
+        useAudioPlayer({
+          currentClipId,
+          audioPlayerRef,
+          audioPath,
+          audioChannels: 2,
+          isOnWindows: false,
+          setAudioPlayingAction,
+        }),
+      {
+        initialProps: {currentClipId: 'clip-1', audioPath: '/tmp/clip-1.wav'},
+        wrapper,
+      },
+    );
+
+    await waitFor(() =>
+      expect(result.current.audioBlobUrl).toBe('blob:audio-1'),
+    );
+
+    rerender({currentClipId: 'clip-2', audioPath: '/tmp/clip-2.wav'});
+
+    // The effect cleanup revokes the previous clip's URL during this rerender.
+    // Handing it back here would mount an <audio> element pointing at a dead
+    // blob and surface ERR_FILE_NOT_FOUND.
+    expect(revoked).toContain('blob:audio-1');
+    expect(result.current.audioBlobUrl).toBeUndefined();
+
+    await waitFor(() =>
+      expect(result.current.audioBlobUrl).toBe('blob:audio-2'),
+    );
+    expect(revoked).not.toContain('blob:audio-2');
+  });
 });

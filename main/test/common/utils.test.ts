@@ -93,6 +93,61 @@ describe('utils', () => {
     });
   });
 
+  describe('isBuiltInTutorial', () => {
+    const samplesPath = path.join(mocksPath, 'samples');
+    const tutorialProjectFile = path.join(
+      samplesPath,
+      '[tutorial]The_Basics',
+      'The_Basics.hasp',
+    );
+    // The temporary copy is named after the .hasp basename, so it never
+    // inherits the [tutorial] marker that lives on the sample directory.
+    const tmpProjectFile = path.join(mocksPath, 'tmp', 'The_Basics.hasp');
+
+    beforeEach(() => {
+      jest
+        .spyOn(PathManager.instance, 'getSamplesPath')
+        .mockReturnValue(samplesPath);
+      Configs.instance.unset('currentProjectOrigin', false);
+    });
+
+    it('classifies a tutorial opened from the samples folder', () => {
+      expect(utils.isBuiltInTutorial(tutorialProjectFile)).toBe(true);
+    });
+
+    it('keeps the tutorial classification for the matching temporary project', () => {
+      Configs.instance.setCurrentProjectOrigin({
+        tmpProjectFile,
+        isSample: true,
+        isTutorial: true,
+      });
+
+      expect(utils.isBuiltInTutorial(tmpProjectFile)).toBe(true);
+    });
+
+    it('ignores a recorded tutorial origin for a different temporary project', () => {
+      Configs.instance.setCurrentProjectOrigin({
+        tmpProjectFile,
+        isSample: true,
+        isTutorial: true,
+      });
+
+      expect(
+        utils.isBuiltInTutorial(path.join(mocksPath, 'tmp', 'other.hasp')),
+      ).toBe(false);
+    });
+
+    it('does not trust an arbitrary project that marks itself as a tutorial', () => {
+      jest.spyOn(Project.instance, 'isTutorial').mockReturnValue(true);
+
+      expect(
+        utils.isBuiltInTutorial(
+          path.join(mocksPath, '[tutorial] Free Haptics.hasp'),
+        ),
+      ).toBe(false);
+    });
+  });
+
   describe('trimmedHapticData', () => {
     it('should return a valid HapticData object with the envelopes trimmed at the given time', () => {
       const trimmed = utils.trimmedHapticData(mockedHapticData, 0.75);

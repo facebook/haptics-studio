@@ -106,6 +106,9 @@ export interface CurrentProject {
 export interface CurrentProjectOrigin {
   tmpProjectFile: string;
   isSample: boolean;
+  // Optional so configs persisted before these were tracked still load.
+  isTutorial?: boolean;
+  isAuthoringTutorial?: boolean;
 }
 
 export interface Config {

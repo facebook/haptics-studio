@@ -26,14 +26,11 @@ module.exports = {
       // the entry point of our app
     ],
   },
-  target: 'electron-renderer',
+  target: 'web',
   output: {
     path: outputPath,
     publicPath: '/',
     filename: '[name].js',
-  },
-  node: {
-    __filename: true,
   },
   devtool: 'inline-source-map',
   resolve: {

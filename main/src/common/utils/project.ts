@@ -144,6 +144,13 @@ export function isSampleProject(projectFile: string): boolean {
  * @returns true if the project is a built-in tutorial
  */
 export function isBuiltInTutorial(projectFile: string): boolean {
+  const origin = Configs.instance.getCurrentProjectOrigin();
+  // The tutorial marker lives on the sample directory, which the temporary
+  // working copy does not inherit, so the path check cannot classify a
+  // reopened project. Fall back to what the app recorded when it opened it.
+  if (origin?.tmpProjectFile === projectFile && origin.isTutorial === true) {
+    return true;
+  }
   return (
     projectFile.includes(Constants.PROJECT.TUTORIAL_PREFIX) &&
     isSampleProject(projectFile)
@@ -156,6 +163,13 @@ export function isBuiltInTutorial(projectFile: string): boolean {
  * @returns true if the project is a custom tutorial
  */
 export function isCustomTutorial(projectFile: string): boolean {
+  const origin = Configs.instance.getCurrentProjectOrigin();
+  if (
+    origin?.tmpProjectFile === projectFile &&
+    origin.isAuthoringTutorial === true
+  ) {
+    return true;
+  }
   return (
     projectFile.includes(Constants.PROJECT.TUTORIAL_PREFIX) &&
     !isSampleProject(projectFile)

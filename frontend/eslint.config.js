@@ -8,6 +8,26 @@
 const path = require('path');
 const baseConfig = require('../eslint.config.js');
 
+const restrictedModules = [
+  'electron',
+  '@electron/remote',
+  'fs',
+  'path',
+  'os',
+  'child_process',
+];
+const restrictedModulePatterns = [
+  'electron/*',
+  '@electron/remote/*',
+  'node:*',
+  'fs/*',
+  'path/*',
+  'os/*',
+  'child_process/*',
+];
+const restrictedModuleMessage =
+  'Use the Haptics Studio preload bridge instead.';
+
 module.exports = [
   ...baseConfig,
   {
@@ -25,6 +45,31 @@ module.exports = [
       '@typescript-eslint/no-unsafe-assignment': 'off',
       '@typescript-eslint/no-unsafe-call': 'off',
       '@typescript-eslint/no-unsafe-member-access': 'off',
+      'no-restricted-imports': [
+        'error',
+        {
+          paths: restrictedModules.map(name => ({
+            name,
+            message: restrictedModuleMessage,
+          })),
+          patterns: [
+            {
+              group: restrictedModulePatterns,
+              message: restrictedModuleMessage,
+            },
+          ],
+        },
+      ],
+      'no-restricted-modules': [
+        'error',
+        {
+          paths: restrictedModules.map(name => ({
+            name,
+            message: restrictedModuleMessage,
+          })),
+          patterns: restrictedModulePatterns,
+        },
+      ],
     },
   },
 ];

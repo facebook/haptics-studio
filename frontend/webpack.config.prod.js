@@ -22,14 +22,11 @@ module.exports = {
   entry: {
     app: ['./index'],
   },
-  target: 'electron-renderer',
+  target: 'web',
   output: {
     path: outputPath,
     publicPath: '',
     filename: '[name].[contenthash].js',
-  },
-  node: {
-    __filename: true,
   },
   devtool: 'source-map',
   resolve: {

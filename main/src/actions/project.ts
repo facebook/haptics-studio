@@ -308,6 +308,8 @@ export async function saveProject(
     Configs.instance.setCurrentProjectOrigin({
       tmpProjectFile: Project.instance.getProjectFile(),
       isSample: isSampleProject(projectFile),
+      isTutorial,
+      isAuthoringTutorial,
     });
 
     // Add the project to the recent list
@@ -575,6 +577,8 @@ export async function loadProject(
     Configs.instance.setCurrentProjectOrigin({
       tmpProjectFile: Project.instance.getProjectFile(),
       isSample,
+      isTutorial,
+      isAuthoringTutorial,
     });
 
     const projectName = Project.instance.getName();
