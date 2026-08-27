@@ -9,6 +9,7 @@
 /* eslint-disable @typescript-eslint/unbound-method */
 import faker from 'faker';
 import _ from 'lodash';
+import fs from 'fs';
 import path from 'path';
 
 import {io, Socket} from 'socket.io-client';
@@ -334,12 +335,14 @@ describe('Websocket Server', () => {
         socket.emit('get_audio', {clipId, binary: true});
       });
 
-      it('should send the audio as a base64 for legacy support', done => {
+      it('should send the audio as a base64 data URI for legacy support', done => {
         socket.on('get_audio', (res: {audio: string; clipId: string}) => {
-          expect(res).toMatchObject({
-            clipId,
-            audio: expect.any(String),
-          });
+          const [metadata, encodedAudio] = res.audio.split(',');
+          expect(res.clipId).toBe(clipId);
+          expect(metadata).toBe('data:audio/wav;base64');
+          expect(Buffer.from(encodedAudio, 'base64')).toEqual(
+            fs.readFileSync(clip.audioAsset?.path ?? ''),
+          );
           done();
         });
         socket.emit('get_audio', {clipId});

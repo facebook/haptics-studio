@@ -7,7 +7,6 @@
 
 import os from 'os';
 import fs from 'fs';
-import datauri from 'datauri';
 import {Server, Socket} from 'socket.io';
 import dgram from 'dgram';
 import _, {isEmpty, isNil, pick} from 'lodash';
@@ -559,7 +558,8 @@ export default class WSServer {
           this.sendToRoom('get_audio_binary', {audio, clipId: clip?.clipId});
         } else {
           // Legacy support for older companion app versions
-          const audio = await datauri(audioAsset.path);
+          const audioBuffer = await fs.promises.readFile(audioAsset.path);
+          const audio = `data:${getFileMimeType(audioAsset.path)};base64,${audioBuffer.toString('base64')}`;
           this.sendToRoom('get_audio', {audio, clipId: clip?.clipId});
         }
       } else {
