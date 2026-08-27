@@ -63,6 +63,7 @@
     "releasenotes:update": "cross-env node ./scripts/update_release_notes.js",
     "generate-license": "cross-env node node_modules/electron-license/bin/electron-license.js third-party-notices --markdown > licenses.md && cross-env node ./scripts/generate_license.js",
     "samples:generate_metadata": "cross-env node ./scripts/generate_samples_metadata.js",
+    "audit:ci": "cross-env node ./scripts/audit_ci.js",
     "native:update": "node ./scripts/build_native.js --force",
     "native:build": "node ./scripts/build_native.js"
   },
