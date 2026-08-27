@@ -101,11 +101,11 @@ describe('files listeners', () => {
 
     describe('with audio file longer than limits', () => {
       beforeEach(async () => {
-        jest.spyOn(mm, 'parseFile').mockReturnValue(
-          Promise.resolve({
-            format: {duration: 1000},
-          } as any as mm.IAudioMetadata),
-        );
+        (
+          mm.parseFile as jest.MockedFunction<typeof mm.parseFile>
+        ).mockResolvedValue({
+          format: {duration: 1000},
+        } as mm.IAudioMetadata);
         response = await ipcRenderer.invoke(testAction, message);
       });
 
@@ -117,11 +117,11 @@ describe('files listeners', () => {
 
     describe('with audio file bigger than limits', () => {
       beforeEach(async () => {
-        jest.spyOn(mm, 'parseFile').mockReturnValue(
-          Promise.resolve({
-            format: {duration: 500},
-          } as any as mm.IAudioMetadata),
-        );
+        (
+          mm.parseFile as jest.MockedFunction<typeof mm.parseFile>
+        ).mockResolvedValue({
+          format: {duration: 500},
+        } as mm.IAudioMetadata);
         mockFs({
           [audioFile]: Buffer.from(
             _.times(20 * 2 ** 20, () => {

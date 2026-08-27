@@ -107,6 +107,7 @@ module.exports = (webpackEnv, argv) => {
       ),
     ],
     resolve: {
+      conditionNames: ['import', '...'],
       extensions: ['.js', '.json', '.ts', '.tsx', '.node'],
       alias: {
         // @oss-disable

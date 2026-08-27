@@ -347,13 +347,11 @@ describe('utils', () => {
 
     it('should raise an error if the file is too long', () => {
       const {MAX_AUDIO_DURATION} = Constants;
-      jest.spyOn(mm, 'parseFile').mockReturnValue(
-        Promise.resolve({
-          format: {
-            duration: MAX_AUDIO_DURATION * 2,
-          },
-        } as mm.IAudioMetadata),
-      );
+      (mm.parseFile as jest.MockedFunction<typeof mm.parseFile>).mockResolvedValue({
+        format: {
+          duration: MAX_AUDIO_DURATION * 2,
+        },
+      } as mm.IAudioMetadata);
       void expect(
         utils.verifyAudioFile(path.join(mocksPath, 'audio.wav')),
       ).rejects.toThrow();

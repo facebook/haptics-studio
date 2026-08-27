@@ -18,6 +18,7 @@ module.exports = {
     '^mixpanel$': '<rootDir>/main/test/mocks/mixpanel.ts',
     '^dgram$': '<rootDir>/main/test/mocks/dgram.ts',
     '^uuid$': '<rootDir>/main/test/mocks/uuid.ts',
+    '^music-metadata$': '<rootDir>/main/test/mocks/music-metadata.ts',
     '/logger$': '<rootDir>/main/test/mocks/logger.ts',
     '^TelemetryServiceNative$':
       '<rootDir>/main/test/mocks/TelemetryServiceNative.ts',
