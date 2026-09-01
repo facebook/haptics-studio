@@ -1,10 +1,10 @@
 {
   "dependencies": {
     "com.itisnajim.socketiounity": "https://github.com/mzzndr/SocketIOUnity.git#e18c7e909709d644703576439454a0f22c86ca13",
-    "com.meta.xr.sdk.core": "81.0.0",
-    "com.meta.xr.sdk.haptics": "81.0.0",
-    "com.meta.xr.sdk.interaction": "81.0.0",
-    "com.meta.xr.sdk.interaction.ovr": "81.0.0",
+    "com.meta.xr.sdk.core": "205.0.0",
+    "com.meta.xr.sdk.haptics": "205.0.0",
+    "com.meta.xr.sdk.interaction": "205.0.0",
+    "com.meta.xr.sdk.interaction.ovr": "205.0.0",
     "com.unity.2d.sprite": "1.0.0",
     "com.unity.ai.navigation": "2.0.9",
     "com.unity.feature.development": "1.0.2",

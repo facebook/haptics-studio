@@ -51,9 +51,9 @@ namespace HapticStudio
 
         [Header("Tab buttons")]
         [SerializeField]
-        private AnimatorOverrideLayerWeigth currentProjectTab;
+        private AnimatorOverrideLayerWeight currentProjectTab;
 
-        [SerializeField] private AnimatorOverrideLayerWeigth pinnedProjectsTab;
+        [SerializeField] private AnimatorOverrideLayerWeight pinnedProjectsTab;
 
         private Dictionary<string, TextMeshProUGUI> _timeLabels = new();
         public PanelState CurrentPanelState { get; private set; }

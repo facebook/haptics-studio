@@ -41,7 +41,7 @@ namespace HapticStudio
         [SerializeField] private GameObject clipsContainer;
 
         [SerializeField] private Toggle pinButton;
-        private AnimatorOverrideLayerWeigth pinButtonAnimatorLayerWeight;
+        private AnimatorOverrideLayerWeight pinButtonAnimatorLayerWeight;
 
         private Project _currentProject;
         private string _selectedClipId;
@@ -58,7 +58,7 @@ namespace HapticStudio
 
         private void Awake()
         {
-            pinButtonAnimatorLayerWeight = pinButton.GetComponent<AnimatorOverrideLayerWeigth>();
+            pinButtonAnimatorLayerWeight = pinButton.GetComponent<AnimatorOverrideLayerWeight>();
         }
 
         private void OnEnable()
