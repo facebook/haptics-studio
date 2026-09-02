@@ -107,7 +107,6 @@ module.exports = (webpackEnv, argv) => {
       ),
     ],
     resolve: {
-      conditionNames: ['import', '...'],
       extensions: ['.js', '.json', '.ts', '.tsx', '.node'],
       alias: {
         // @oss-disable
@@ -129,6 +128,9 @@ module.exports = (webpackEnv, argv) => {
           test: /\.ts$/,
           exclude: [resolve(__dirname, 'node_modules')],
           use: [{loader: 'ts-loader'}],
+          resolve: {
+            conditionNames: ['import', '...'],
+          },
         },
         {
           include: [/@ffmpeg\/ffmpeg\/src\/node\/getCreateFFmpegCore\.js/],
