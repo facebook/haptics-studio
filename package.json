@@ -13,7 +13,7 @@
     "main:typecheck": "tsc --project ./main/tsconfig.json --noEmit --skipLibCheck",
     "premain:build": "rimraf ./main/dist && mkdirp main/dist",
     "main:build": "yarn samples:generate_metadata && webpack --config main/webpack.config.electron.js --progress",
-    "main:build:mac": "yarn main:build --env platform=darwin --env arch=x64",
+    "main:build:mac": "yarn main:build --env platform=darwin",
     "main:build:win": "yarn main:build --env platform=win32 --env arch=x64",
     "main:build:dev": "cross-env NODE_ENV=development yarn main:build",
     "main:build:prod": "cross-env NODE_ENV=production yarn main:build",
@@ -99,7 +99,17 @@
       "hardenedRuntime": true,
       "gatekeeperAssess": false,
       "mergeASARs": true,
-      "x64ArchFiles": "**/Contents/Resources/bin/**",
+      "x64ArchFiles": "**/Contents/Resources/bin/adb.darwin",
+      "extraResources": [
+        {
+          "from": "bin",
+          "to": "./bin",
+          "filter": [
+            "adb.darwin",
+            "NOTICE.txt"
+          ]
+        }
+      ],
       "target": [
         {
           "target": "default",
@@ -140,7 +150,18 @@
           ]
         }
       ],
-      "icon": "./main/assets/icons/AppIcon-win.ico"
+      "icon": "./main/assets/icons/AppIcon-win.ico",
+      "extraResources": [
+        {
+          "from": "bin",
+          "to": "./bin",
+          "filter": [
+            "adb.exe",
+            "AdbWinApi.dll",
+            "AdbWinUsbApi.dll"
+          ]
+        }
+      ]
     },
     "files": [
       "!**/*",
@@ -178,13 +199,6 @@
       {
         "from": "main/renderers",
         "to": "./renderers",
-        "filter": [
-          "**/*"
-        ]
-      },
-      {
-        "from": "bin",
-        "to": "./bin",
         "filter": [
           "**/*"
         ]
