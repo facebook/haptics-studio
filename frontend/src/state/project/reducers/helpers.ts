@@ -121,13 +121,21 @@ export function withAmplitudeEdit(
 }
 
 export const getAllSelectedClips = (state: ProjectState): string[] => {
-  return state.groups.flatMap(g =>
-    g.clips.filter(
-      c =>
-        state.selection.clips.includes(c) ||
-        state.selection.groups.includes(g.id),
-    ),
-  );
+  const seen = new Set<string>();
+  const result: string[] = [];
+  for (const g of state.groups) {
+    for (const c of g.clips) {
+      if (
+        (state.selection.clips.includes(c) ||
+          state.selection.groups.includes(g.id)) &&
+        !seen.has(c)
+      ) {
+        seen.add(c);
+        result.push(c);
+      }
+    }
+  }
+  return result;
 };
 
 export const setAndSelectClip = (
@@ -163,14 +171,16 @@ export const ungroupClipsHelper = (
   to: string,
   position: 'before' | 'after',
 ): ProjectState => {
+  const uniqueClips = [...new Set(clips)];
+  if (uniqueClips.length === 0) return state;
   const groups = state.groups.map(g => {
-    return {...g, clips: g.clips.filter(c => !(clips as string[]).includes(c))};
+    return {...g, clips: g.clips.filter(c => !uniqueClips.includes(c))};
   });
 
   const destinationGroupIndex = state.groups.findIndex(g => g.id === to);
   if (!groups[destinationGroupIndex]) return state;
 
-  const newGroups = (clips as string[]).map((c: string) => {
+  const newGroups = uniqueClips.map((c: string) => {
     return {
       id: uuidv4(),
       isFolder: false,
@@ -188,8 +198,12 @@ export const ungroupClipsHelper = (
   return {
     ...state,
     groups: groups.filter(g => g.clips.length > 0),
-    selection: {clips, groups: [], lastSelected: clips[clips.length - 1]},
-    currentClipId: clips[0],
+    selection: {
+      clips: uniqueClips,
+      groups: [],
+      lastSelected: uniqueClips[uniqueClips.length - 1],
+    },
+    currentClipId: uniqueClips[0],
   };
 };
 

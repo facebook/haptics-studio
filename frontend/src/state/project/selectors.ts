@@ -47,7 +47,7 @@ export const selectSelectedClips = createSelector(
     const clips = groups
       .filter(g => selection.groups.includes(g.id))
       .flatMap(g => g.clips);
-    return selection.clips.concat(clips);
+    return [...new Set(selection.clips.concat(clips))];
   },
 );
 
@@ -61,9 +61,13 @@ export const selectSelectedClipsWithAudio = createSelector(
           c => clips[c].audio !== undefined && clips[c].audio?.path,
         ),
       );
-    return selection.clips
-      .filter(id => clips[id].audio !== undefined && clips[id].audio?.path)
-      .concat(groupClips);
+    return [
+      ...new Set(
+        selection.clips
+          .filter(id => clips[id].audio !== undefined && clips[id].audio?.path)
+          .concat(groupClips),
+      ),
+    ];
   },
 );
 

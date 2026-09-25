@@ -500,9 +500,12 @@ export const selectionReducers = {
         const selectedGroupsClips = groups
           .filter(g => selection.groups.includes(g.id))
           .flatMap(g => g.clips);
+        const uniqueClips = [
+          ...new Set(selection.clips.concat(selectedGroupsClips)),
+        ];
         return ungroupClipsHelper(
           state,
-          selection.clips.concat(selectedGroupsClips),
+          uniqueClips,
           currentGroup.id,
           'before',
         );

@@ -621,6 +621,48 @@ describe('project slice', () => {
       store.dispatch(projectSlice.actions.ungroupSelectedClips());
       expect((store.getState() as RootState).project.groups.length).toEqual(3);
     });
+
+    it('should not duplicate clips when selection contains both a group and its clips', () => {
+      store.dispatch(
+        projectSlice.actions.selectClips({ids: [clipId, clipId2, clipId3]}),
+      );
+      store.dispatch(projectSlice.actions.groupSelectedClips());
+      const groupId = (store.getState() as RootState).project.groups[0].id;
+      // Simulate the overlapping selection left by duplicateSelectedClip:
+      // the duplicated group's clips are in both selection.clips and
+      // selection.groups.
+      store.dispatch(
+        projectSlice.actions.setSelection({
+          clips: [clipId, clipId2, clipId3],
+          groups: [groupId],
+          lastSelected: clipId3,
+        }),
+      );
+      store.dispatch(projectSlice.actions.ungroupSelectedClips());
+      const state = (store.getState() as RootState).project;
+      expect(state.groups.length).toEqual(3);
+      const allClips = state.groups.flatMap(g => g.clips);
+      expect(allClips).toHaveLength(3);
+      expect(new Set(allClips).size).toEqual(3);
+    });
+
+    it('should dedupe explicit duplicate clip ids passed to ungroupClips', () => {
+      store.dispatch(
+        projectSlice.actions.selectClips({ids: [clipId, clipId2, clipId3]}),
+      );
+      store.dispatch(projectSlice.actions.groupSelectedClips());
+      const groupId = (store.getState() as RootState).project.groups[0].id;
+      store.dispatch(
+        projectSlice.actions.ungroupClips({
+          clips: [clipId, clipId, clipId2, clipId3, clipId3],
+          to: groupId,
+          position: 'before',
+        }),
+      );
+      const state = (store.getState() as RootState).project;
+      expect(state.groups.length).toEqual(3);
+      expect(state.groups.flatMap(g => g.clips)).toHaveLength(3);
+    });
   });
 
   describe('renameClip', () => {

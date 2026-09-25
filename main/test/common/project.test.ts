@@ -8,7 +8,7 @@
 import fs from 'fs';
 
 import Project from '../../src/common/project';
-import {generateMockContent} from '../mocks/project';
+import {generateMockContent, generateRandomClip} from '../mocks/project';
 import Configs from '../../src/common/configs';
 
 const projectMock = generateMockContent();
@@ -95,6 +95,38 @@ describe('project', () => {
         await expect(
           Project.instance.load(projectMock.projectFile),
         ).rejects.toThrow();
+      });
+    });
+
+    describe('when groups reference the same clip twice', () => {
+      beforeEach(() => {
+        const clip = generateRandomClip({id: 'clip-1', name: 'clip 1'});
+        const duplicatedClip = generateRandomClip({
+          id: 'clip-2',
+          name: 'clip 2',
+        });
+        const corrupted = {
+          ...projectMock.defautProjectContent,
+          clips: [clip, duplicatedClip],
+          groups: [
+            {id: 'g1', name: 'untitled', isFolder: false, clips: ['clip-1']},
+            {id: 'g2', name: 'untitled', isFolder: false, clips: ['clip-1']},
+            {id: 'g3', name: 'untitled', isFolder: false, clips: ['clip-2']},
+          ],
+        };
+        fs.writeFileSync(projectMock.projectFile, JSON.stringify(corrupted));
+        jest.spyOn(Configs.instance, 'getAppVersion').mockReturnValue({
+          major: 2,
+          minor: 4,
+          patch: 0,
+        });
+      });
+      it('should drop the duplicate clip references on load', async () => {
+        await Project.instance.load(projectMock.projectFile);
+        const groups = Project.instance.getGroups();
+        const allClips = groups.flatMap(g => g.clips);
+        expect(allClips).toHaveLength(2);
+        expect(new Set(allClips).size).toEqual(2);
       });
     });
   });

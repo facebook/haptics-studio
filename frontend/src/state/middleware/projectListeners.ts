@@ -447,12 +447,21 @@ export function registerProjectListeners(
         d => d.originalClipId === selection.lastSelected,
       );
 
+      const clipsInDuplicatedGroups = new Set(
+        groups
+          .filter(g => duplicatedGroups.includes(g.id))
+          .flatMap(g => g.clips),
+      );
+      const selectionClips = duplicatedClips
+        .map(d => d.clipId)
+        .filter(id => !clipsInDuplicatedGroups.has(id));
+
       listenerApi.dispatch(
         projectSlice.actions.addDuplicatedClips({groups, clips}),
       );
       listenerApi.dispatch(
         projectSlice.actions.setSelection({
-          clips: duplicatedClips.map(d => d.clipId),
+          clips: selectionClips,
           groups: duplicatedGroups,
           lastSelected: newCurrent?.clipId,
         }),

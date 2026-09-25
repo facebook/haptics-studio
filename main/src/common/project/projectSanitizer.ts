@@ -183,6 +183,42 @@ const sanitizeClipFor200 = (clip: Clip): boolean => {
 };
 
 /**
+ * Remove duplicate clip references left behind by the duplicate-group +
+ * ungroup corruption.
+ * Keeps the first occurrence and drops empty groups.
+ */
+const sanitizeDuplicateGroupReferences = (
+  content: ProjectContent,
+): boolean => {
+  if (isNil(content.groups)) return false;
+  let modified = false;
+  const seen = new Set<string>();
+  content.groups = content.groups
+    .map(group => {
+      const clips = group.clips.filter(clipId => {
+        if (seen.has(clipId)) {
+          modified = true;
+          return false;
+        }
+        seen.add(clipId);
+        return true;
+      });
+      if (clips.length !== group.clips.length) {
+        return {...group, clips};
+      }
+      return group;
+    })
+    .filter(group => {
+      if (group.clips.length === 0) {
+        modified = true;
+        return false;
+      }
+      return true;
+    });
+  return modified;
+};
+
+/**
  * Update the project file with the latest format
  * Returns true if the content was modified
  */
@@ -241,6 +277,11 @@ export const sanitizeProject = async (
     }
   }
   /* eslint-enable no-restricted-syntax */
+
+  // Repair projects corrupted by duplicate-group + ungroup.
+  if (sanitizeDuplicateGroupReferences(content)) {
+    modified = true;
+  }
 
   // Update version and timestamp if modified
   if (modified) {
