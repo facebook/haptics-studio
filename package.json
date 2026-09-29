@@ -294,7 +294,7 @@
     "cross-spawn": "7.0.3",
     "css-loader": "6.5.1",
     "dotenv": "10.0.0",
-    "electron": "41.3.0",
+    "electron": "41.10.3",
     "electron-builder": "24.4.0",
     "electron-devtools-installer": "4.0.0",
     "electron-license": "3.0.0",
