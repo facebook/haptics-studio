@@ -322,7 +322,7 @@
     "mkdirp": "1.0.4",
     "mock-fs": "5.2.0",
     "node-loader": "2.0.0",
-    "postcss": "8.5.12",
+    "postcss": "8.5.23",
     "postcss-import": "14.0.2",
     "postcss-loader": "6.2.0",
     "react-dnd-test-backend": "16.0.1",
