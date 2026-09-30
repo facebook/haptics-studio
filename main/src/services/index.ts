@@ -23,6 +23,6 @@ export {default as ProtocolHandler} from './ProtocolHandler';
 export {default as FileAssociationHandler} from './FileAssociationHandler';
 
 // Re-export types
-export type {ClipboardCallbacks} from './ClipboardService';
+export type {ClipboardCallbacks, ClipboardWatcher} from './ClipboardService';
 export type {SecondaryWindowManagerCallbacks} from './SecondaryWindowManager';
 export type {FileAssociationCallbacks} from './FileAssociationHandler';

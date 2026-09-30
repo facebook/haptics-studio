@@ -10,7 +10,6 @@ import {v4 as uuidv4} from 'uuid';
 
 import {app, BrowserWindow, Menu, nativeImage, shell} from 'electron';
 import windowStateKeeper from 'electron-window-state';
-import {ClipboardWatcher} from 'electron-clipboard-watcher';
 import {HapticsSdkNapi} from './hapticsSdk';
 import {execSync} from 'child_process';
 import {
@@ -56,6 +55,7 @@ import {
   ProtocolHandler,
   FileAssociationHandler,
 } from './services';
+import type {ClipboardWatcher} from './services';
 
 const env = process.env.NODE_ENV || 'development';
 
@@ -423,8 +423,8 @@ export default class MainApplication {
       app.dock?.setIcon(image);
       app.dock?.bounce();
     }
+    await this.watchClipboard();
     this.initMenu();
-    this.watchClipboard();
 
     ADBDevice.instance.startDevicePolling();
 
@@ -488,8 +488,8 @@ export default class MainApplication {
   /**
    * Watch clipboard content to enable/disable paste feature
    */
-  private watchClipboard = (): void => {
-    this.clipboardService.startWatching(() =>
+  private watchClipboard = async (): Promise<void> => {
+    await this.clipboardService.startWatching(() =>
       Configs.instance.hasCurrentProject(),
     );
     this.clipboardWatcher = this.clipboardService.getWatcher();

@@ -16,7 +16,6 @@
  */
 
 import {clipboard} from 'electron';
-import clipboardWatcher, {ClipboardWatcher} from 'electron-clipboard-watcher';
 import {
   AmplitudeBreakpoint,
   FrequencyBreakpoint,
@@ -30,12 +29,18 @@ export interface ClipboardCallbacks {
   sendToUI: (action: string, message: any) => void;
 }
 
+export interface ClipboardWatcher {
+  stop: () => void;
+}
+
 /**
  * Service for clipboard operations
  */
 export default class ClipboardService {
   private watcher: ClipboardWatcher | undefined;
   private callbacks: ClipboardCallbacks;
+  private currentText = '';
+  private hasReadClipboard = false;
 
   constructor(callbacks: ClipboardCallbacks) {
     this.callbacks = callbacks;
@@ -44,16 +49,32 @@ export default class ClipboardService {
   /**
    * Start watching the clipboard for valid haptic content
    */
-  public startWatching = (hasCurrentProject: () => boolean): void => {
-    this.watcher = clipboardWatcher({
-      // delay in ms between polls
-      watchDelay: 1000,
-      // handler for when text data is copied into the clipboard
-      onTextChange: (text: string) => {
+  public startWatching = async (
+    hasCurrentProject: () => boolean,
+  ): Promise<void> => {
+    this.watcher?.stop();
+    const updateClipboard = async (): Promise<void> => {
+      try {
+        const text = await clipboard.readText();
+        if (this.hasReadClipboard && text === this.currentText) {
+          return;
+        }
+
+        this.currentText = text;
+        this.hasReadClipboard = true;
         const pasteEnabled = this.isValid(text) && hasCurrentProject();
         this.callbacks.onTextChange(pasteEnabled);
-      },
-    });
+      } catch (error) {
+        const err = error as Error;
+        Logger.error(err.message, err.stack);
+      }
+    };
+
+    await updateClipboard();
+    const intervalId = setInterval(() => void updateClipboard(), 1000);
+    this.watcher = {
+      stop: () => clearInterval(intervalId),
+    };
   };
 
   /**
@@ -74,11 +95,9 @@ export default class ClipboardService {
   /**
    * Checks if clipboard content is valid haptic data
    */
-  public isValid = (text?: string): boolean => {
+  public isValid = (text: string = this.currentText): boolean => {
     try {
-      const content = JSON.parse(
-        text || clipboard.readText(),
-      ) as ClipboardContent;
+      const content = JSON.parse(text) as ClipboardContent;
       return isContentValid(content);
     } catch {
       return false;
@@ -88,14 +107,12 @@ export default class ClipboardService {
   /**
    * Checks if clipboard content contains emphasis breakpoints
    */
-  public containsEmphasis = (text?: string): boolean => {
+  public containsEmphasis = (text: string = this.currentText): boolean => {
     if (!this.isValid(text)) {
       return false;
     }
 
-    const content = JSON.parse(
-      text || clipboard.readText(),
-    ) as ClipboardContent;
+    const content = JSON.parse(text) as ClipboardContent;
     return content.amplitude.some(breakpoint => {
       return breakpoint.emphasis;
     });
@@ -104,14 +121,14 @@ export default class ClipboardService {
   /**
    * Send clipboard content to the UI
    */
-  public sendContent = (action: string): void => {
+  public sendContent = async (action: string): Promise<void> => {
     let contentToPaste = [];
     try {
-      contentToPaste = JSON.parse(clipboard.readText()) as
-        | AmplitudeBreakpoint[]
-        | FrequencyBreakpoint[];
+      const text = await clipboard.readText();
+      contentToPaste = JSON.parse(text) as
+        AmplitudeBreakpoint[] | FrequencyBreakpoint[];
       // validate that the clipboard content is an array of breakpoints
-      if (this.isValid()) {
+      if (this.isValid(text)) {
         this.callbacks.sendToUI(action, {
           action,
           status: 'ok',
