@@ -5906,6 +5906,11 @@ content-type@^1.0.5, content-type@~1.0.4, content-type@~1.0.5:
   resolved "https://registry.yarnpkg.com/content-type/-/content-type-1.0.5.tgz#8b773162656d1d1086784c8f23a54ce6d73d7918"
   integrity sha512-nTjqfcBFEipKdXCv4YDQWCfmcLZKm81ldF0pAopTvyrFGVbcR6P/VAAd5G7N+0tTr8QqiU0tFadD6FK4NtJwOA==
 
+content-type@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/content-type/-/content-type-2.1.0.tgz#d9389c43c0a8cf6a355db464d21e07092a40493a"
+  integrity sha512-mj7UPXE0jaqaOsukNZRUEfEi2AcL7C/vwmwcHV0O97eO1E1pxBZuyjlZrx5seTaNBg1U6+o35wpa35Qfcc+7ag==
+
 convert-source-map@^1.5.0:
   version "1.9.0"
   resolved "https://registry.yarnpkg.com/convert-source-map/-/convert-source-map-1.9.0.tgz#7faae62353fb4213366d0ca98358d22e8368b05f"
@@ -7502,7 +7507,7 @@ file-selector@^0.6.0:
   dependencies:
     tslib "^2.4.0"
 
-file-type@^21.3.1:
+file-type@^21.3.4:
   version "21.3.4"
   resolved "https://registry.yarnpkg.com/file-type/-/file-type-21.3.4.tgz#e3f902faee8ec4aa152909fc902a7a77f9c06725"
   integrity sha512-Ievi/yy8DS3ygGvT47PjSfdFoX+2isQueoYP1cntFW1JLYAuS4GD7NUPGg4zv2iZfV52uDyk5w5Z0TdpRS6Q1g==
@@ -10137,6 +10142,11 @@ media-typer@^1.1.0:
   resolved "https://registry.yarnpkg.com/media-typer/-/media-typer-1.1.0.tgz#6ab74b8f2d3320f2064b2a87a38e7931ff3a5561"
   integrity sha512-aisnrDP4GNe06UcKFnV5bfMNPBUw4jsLGaWwWfnH3v02GnBuXX2MCVn5RbrWo0j3pczUilYblq7fQ7Nw2t5XKw==
 
+media-typer@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/media-typer/-/media-typer-2.0.0.tgz#5f43742a44d474b83ad4d1bd0f0c5cf56c0cd280"
+  integrity sha512-kOy3OxT2HH39N70UnKgu4NWDZjLOz8W/mfyvniHjRH/DrL3f2pOfvWQ4p60offbbtDAnXWp0v9LfMIqMec269Q==
+
 memfs@^4.43.1:
   version "4.57.2"
   resolved "https://registry.yarnpkg.com/memfs/-/memfs-4.57.2.tgz#5f74e977c9a14681ea10d427b3ce5d7db5f817e7"
@@ -10454,18 +10464,18 @@ multicast-dns@^7.2.5:
     dns-packet "^5.2.2"
     thunky "^1.0.2"
 
-music-metadata@11.12.3:
-  version "11.12.3"
-  resolved "https://registry.yarnpkg.com/music-metadata/-/music-metadata-11.12.3.tgz#651c11965233ab8391495f332109355c29864a82"
-  integrity sha512-n6hSTZkuD59qWgHh6IP5dtDlDZQXoxk/bcA85Jywg8Z1iFrlNgl2+GTFgjZyn52W5UgQpV42V4XqrQZZAMbZTQ==
+music-metadata@11.16.0:
+  version "11.16.0"
+  resolved "https://registry.yarnpkg.com/music-metadata/-/music-metadata-11.16.0.tgz#0c9807b0831ec6e65029f9f1b675461fff18c7bc"
+  integrity sha512-D5zZHjQUbfR+JhHjnwdbgeB4qj7zVJtisCB1I0GAI5sjSPGqPLoY14WMIzMeR8iA+4nSFswVLpO4crksZUybBg==
   dependencies:
     "@borewit/text-codec" "^0.2.2"
     "@tokenizer/token" "^0.3.0"
-    content-type "^1.0.5"
+    content-type "^2.1.0"
     debug "^4.4.3"
-    file-type "^21.3.1"
-    media-typer "^1.1.0"
-    strtok3 "^10.3.4"
+    file-type "^21.3.4"
+    media-typer "^2.0.0"
+    strtok3 "^10.3.5"
     token-types "^6.1.2"
     uint8array-extras "^1.5.0"
     win-guid "^0.2.1"
@@ -13024,6 +13034,13 @@ strtok3@^10.3.4:
   version "10.3.5"
   resolved "https://registry.yarnpkg.com/strtok3/-/strtok3-10.3.5.tgz#7213285da0dc3dec0fc8ce5df4b8b7a733f14360"
   integrity sha512-ki4hZQfh5rX0QDLLkOCj+h+CVNkqmp/CMf8v8kZpkNVK6jGQooMytqzLZYUVYIZcFZ6yDB70EfD8POcFXiF5oA==
+  dependencies:
+    "@tokenizer/token" "^0.3.0"
+
+strtok3@^10.3.5:
+  version "10.4.1"
+  resolved "https://registry.yarnpkg.com/strtok3/-/strtok3-10.4.1.tgz#e6b59b4e44b918ccd8164bbed1384eed340c1519"
+  integrity sha512-MeSp4vHXiZRXM9K0rSWqTvXMU+YzmGICc5+briMVK+RY8qQ1GRTffFYVpK6cSgV/ueImFIEh3uCJJD3xBh1TaQ==
   dependencies:
     "@tokenizer/token" "^0.3.0"
 
