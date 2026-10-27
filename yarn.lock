@@ -6638,10 +6638,10 @@ electron-window-state@5.0.3:
     jsonfile "^4.0.0"
     mkdirp "^0.5.1"
 
-electron@44.5.1:
-  version "44.5.1"
-  resolved "https://registry.yarnpkg.com/electron/-/electron-44.5.1.tgz#6a1d94f24886ce61a16946b4a9c688e61cec2e40"
-  integrity sha512-lx7AYoFIiyvEvgvpyWO9kOC60xtNPpiPZAth6Fmg9NutzpCAMLwpUlaBY2EXfZyIgUdzEmLMj9KvK0Vrokl1yQ==
+electron@45.0.0:
+  version "45.0.0"
+  resolved "https://registry.yarnpkg.com/electron/-/electron-45.0.0.tgz#12588906d8c2605835737ecc4901494a1e0f3a26"
+  integrity sha512-yjz4uhMBcO6L5X7CWgRMobf2EMJPnb9j4zuf+nu/TU/6E4Sqfx7fn/a2eACo4qngjml/0JnsoZhxYroJLxLd2w==
   dependencies:
     "@electron-internal/extract-zip" "^1.0.1"
     "@electron/get" "^5.0.0"
